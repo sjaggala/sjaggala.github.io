@@ -5,7 +5,7 @@ import "./TrustBar.css";
 
 const TIERS: LogoTiers = { wide: 24, mid: 28, compact: 34 };
 
-/* Renders inside the Hero, split off by a hairline — like sagarshah.dev's
+/* Renders inside the Hero, split off by a hairline - like sagarshah.dev's
    trust bar. Logo where one exists, styled wordmark otherwise. Logo heights are
    normalized by aspect ratio so the row reads as one consistent size. */
 export default function TrustBar() {

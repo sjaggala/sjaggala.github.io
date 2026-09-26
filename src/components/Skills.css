@@ -1,4 +1,4 @@
-/* Skills / toolkit — replicated from sagarshah.dev's Stack band. */
+/* Skills / toolkit - replicated from sagarshah.dev's Stack band. */
 .sk {
   padding: var(--sp-9) 0; /* canvas (white) */
 }
@@ -78,7 +78,7 @@
   font-size: var(--fs-sm);
   color: var(--text);
 }
-/* logo slot — clamps any aspect ratio into a tidy box */
+/* logo slot - clamps any aspect ratio into a tidy box */
 .sk__ico {
   display: inline-flex;
   align-items: center;

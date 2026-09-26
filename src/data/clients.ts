@@ -1,7 +1,7 @@
-/* Clients trust bar — mirrors sagarshah.dev's trust-bar (renders inside the hero,
+/* Clients trust bar - mirrors sagarshah.dev's trust-bar (renders inside the hero,
    split off by a hairline). These are END CLIENTS Sravan delivered BI for.
    Logo files live in /public/clients (most supplied by Sravan); any client
-   without a logo yet renders as a styled text wordmark — the same logo-or-
+   without a logo yet renders as a styled text wordmark - the same logo-or-
    wordmark fallback the reference uses. Drop an SVG/PNG in /public/clients and
    add its `logo` path here to upgrade a wordmark to a real logo. */
 export type Client = { name: string; logo?: string };

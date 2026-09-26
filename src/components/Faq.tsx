@@ -2,7 +2,7 @@ import { faq } from "../data/faq";
 import { useReveal } from "../hooks/useReveal";
 import "./Faq.css";
 
-/* Accordion is native <details name> — the browser closes the open sibling,
+/* Accordion is native <details name> - the browser closes the open sibling,
    zero JS. Mirrors sagarshah.dev's FAQ band. */
 export default function Faq() {
   useReveal();

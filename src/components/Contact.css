@@ -1,4 +1,4 @@
-/* Contact — a centered muted card, replicated from sagarshah.dev's CTA band.
+/* Contact - a centered muted card, replicated from sagarshah.dev's CTA band.
    Canvas (white) surface so the muted card reads against it. Email + links only. */
 .ct {
   background: var(--bg);

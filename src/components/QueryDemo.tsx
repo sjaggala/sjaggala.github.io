@@ -4,7 +4,7 @@ import "./QueryDemo.css";
 type Datum = { label: string; value: number; display: string };
 type QA = { q: string; caption: string; unit: string; data: Datum[] };
 
-/* Natural-language questions → a little chart that "answers" — a nod to
+/* Natural-language questions → a little chart that "answers" - a nod to
    Power BI Q&A / conversational BI (Sravan's differentiator). */
 const ITEMS: QA[] = [
   {
@@ -31,7 +31,7 @@ const ITEMS: QA[] = [
   },
   {
     q: "active users, last 6 months",
-    caption: "Steady growth — up 38% since March.",
+    caption: "Steady growth, up 38% since March.",
     unit: "k",
     data: [
       { label: "Mar", value: 5.1, display: "5.1k" },

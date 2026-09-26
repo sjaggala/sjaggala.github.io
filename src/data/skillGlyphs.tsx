@@ -2,7 +2,7 @@ import type { ReactElement } from "react";
 
 /* Cohesive line-glyphs for tools/concepts that have no clean brand logo.
    All share one style: 24x24 viewBox, no fill, currentColor stroke, 1.7 weight,
-   round caps/joins — so they read as one intentional icon family sitting
+   round caps/joins - so they read as one intentional icon family sitting
    alongside the colored brand logos in /public/tech. These are original,
    representative marks (NOT copies of vendor brand logos). */
 const base = {
@@ -16,7 +16,7 @@ const base = {
 };
 
 export const skillGlyphs: Record<string, ReactElement> = {
-  /* Microsoft Fabric — woven mesh (a "fabric") */
+  /* Microsoft Fabric - woven mesh (a "fabric") */
   fabric: (
     <svg {...base}>
       <path d="M4 9c4-3 12-3 16 0M4 15c4 3 12 3 16 0" />
@@ -24,14 +24,14 @@ export const skillGlyphs: Record<string, ReactElement> = {
     </svg>
   ),
 
-  /* Power Query — funnel (filter + transform) */
+  /* Power Query - funnel (filter + transform) */
   powerquery: (
     <svg {...base}>
       <path d="M4 5h16l-6 7v5l-4 2v-7z" />
     </svg>
   ),
 
-  /* Paginated / SSRS — report page with a folded corner + lines */
+  /* Paginated / SSRS - report page with a folded corner + lines */
   ssrs: (
     <svg {...base}>
       <path d="M8 3h6l4 4v12a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 6 19V4.5A1.5 1.5 0 0 1 7.5 3z" />
@@ -40,14 +40,14 @@ export const skillGlyphs: Record<string, ReactElement> = {
     </svg>
   ),
 
-  /* DAX — sigma (aggregation / measures) */
+  /* DAX - sigma (aggregation / measures) */
   dax: (
     <svg {...base}>
       <path d="M16.5 5H7l6 7-6 7h9.5" />
     </svg>
   ),
 
-  /* DAX Studio — query editor window with a prompt */
+  /* DAX Studio - query editor window with a prompt */
   daxstudio: (
     <svg {...base}>
       <rect x="3.5" y="5" width="17" height="14" rx="2" />
@@ -56,7 +56,7 @@ export const skillGlyphs: Record<string, ReactElement> = {
     </svg>
   ),
 
-  /* Tabular Editor — semantic model tree */
+  /* Tabular Editor - semantic model tree */
   tabulareditor: (
     <svg {...base}>
       <circle cx="12" cy="5" r="2.2" />
@@ -67,7 +67,7 @@ export const skillGlyphs: Record<string, ReactElement> = {
     </svg>
   ),
 
-  /* ALM Toolkit — schema compare (two panels, two-way sync) */
+  /* ALM Toolkit - schema compare (two panels, two-way sync) */
   almtoolkit: (
     <svg {...base}>
       <rect x="3" y="5" width="7" height="14" rx="1.5" />
@@ -77,7 +77,7 @@ export const skillGlyphs: Record<string, ReactElement> = {
     </svg>
   ),
 
-  /* T-SQL — query a database (cylinder + prompt caret) */
+  /* T-SQL - query a database (cylinder + prompt caret) */
   tsql: (
     <svg {...base}>
       <ellipse cx="11" cy="6" rx="6.5" ry="2.3" />
@@ -87,7 +87,7 @@ export const skillGlyphs: Record<string, ReactElement> = {
     </svg>
   ),
 
-  /* REST APIs — braces with endpoint dots (code / JSON) */
+  /* REST APIs - braces with endpoint dots (code / JSON) */
   restapi: (
     <svg {...base}>
       <path d="M8.5 5C6.5 5 6.5 7 6.5 8.5s0 3.5-2 3.5c2 0 2 2 2 3.5S6.5 19 8.5 19" />
@@ -98,7 +98,7 @@ export const skillGlyphs: Record<string, ReactElement> = {
     </svg>
   ),
 
-  /* CI/CD pipelines — DevOps infinity loop */
+  /* CI/CD pipelines - DevOps infinity loop */
   cicd: (
     <svg {...base}>
       <path d="M6.4 8.5a3.5 3.5 0 1 0 0 7c2 0 3.1-1.9 5.6-3.5s3.6-3.5 5.6-3.5a3.5 3.5 0 1 1 0 7c-2 0-3.1-1.9-5.6-3.5S8.4 8.5 6.4 8.5Z" />

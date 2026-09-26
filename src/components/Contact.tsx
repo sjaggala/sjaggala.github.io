@@ -18,7 +18,7 @@ function CopyButton({ value }: { value: string }) {
           setCopied(true);
           setTimeout(() => setCopied(false), 1600);
         } catch {
-          /* clipboard unavailable — no-op */
+          /* clipboard unavailable - no-op */
         }
       }}
     >

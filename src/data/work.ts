@@ -1,4 +1,4 @@
-/* Work — projects Sravan has built / is building. Edit copy here. */
+/* Work - projects Sravan has built / is building. Edit copy here. */
 export type Project = {
   id: string;
   name: string;
@@ -23,7 +23,7 @@ export const work: {
   eyebrow: "Work",
   heading: "Things I've built.",
   subhead:
-    "A product shipped end to end, a platform in progress, and a gallery of enterprise dashboards — poke around.",
+    "A product shipped end to end, a platform in progress, and a gallery of enterprise dashboards. Poke around.",
   flagship: {
     id: "arcus",
     name: "Arcus Planner",
@@ -32,8 +32,8 @@ export const work: {
     status: "Live",
     visual: "arcus",
     description:
-      "A full personal-productivity suite — dashboard, tasks (Kanban + list), a Gantt-style planner, calendar, journaling with live transliteration, a focus board, and real-time sharing between accounts.",
-    role: "Built end to end — a pure client-side app with Firebase Auth and Firestore cloud sync, offline-first on localStorage, deployed on Firebase Hosting.",
+      "A full personal-productivity suite: dashboard, tasks (Kanban + list), a Gantt-style planner, calendar, journaling with live transliteration, a focus board, and real-time sharing between accounts.",
+    role: "Built end to end as a pure client-side app with Firebase Auth and Firestore cloud sync, offline-first on localStorage, deployed on Firebase Hosting.",
     stack: [
       "JavaScript",
       "HTML",
@@ -54,7 +54,7 @@ export const work: {
       status: "In progress",
       visual: "dashdrop",
       description:
-        "Drop in an Excel or CSV file and get a clean, auto-generated dashboard back — with light customization on top. The BI-plus-software-plus-AI idea I'm prototyping now.",
+        "Drop in an Excel or CSV file and get a clean, auto-generated dashboard back, with light customization on top. The BI-plus-software-plus-AI idea I'm prototyping now.",
       role: "Planned: a typed React front end, a charting layer, client-side spreadsheet parsing, and an AI assist that picks the right visuals for your data.",
       stack: ["React", "TypeScript", "Charting", "XLSX / CSV", "AI assist"],
       linkLabel: "In development",
@@ -68,8 +68,8 @@ export const work: {
       status: "Gallery",
       visual: "report",
       description:
-        "Enterprise reports I built for clients, rebuilt with synthetic data — retail, manufacturing, finance and more. Each tile opens a full, interactive Power BI report.",
-      role: "Power BI — semantic modeling, DAX, custom visuals, embedded reports.",
+        "Enterprise reports I built for clients, rebuilt with synthetic data across retail, manufacturing, finance and more. Each tile opens a full, interactive Power BI report.",
+      role: "Power BI: semantic modeling, DAX, custom visuals, embedded reports.",
       stack: ["Power BI", "DAX", "Power Query", "Embedded"],
       linkLabel: "Explore the gallery",
       locked: true,

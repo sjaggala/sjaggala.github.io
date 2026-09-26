@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { normalizeLogoHeight, type LogoTiers } from "../utils/logoHeight";
 
 /* Normalizes every logo matching `selector` to a consistent optical size.
-   Polls naturalWidth instead of relying on the load event — some embedded
+   Polls naturalWidth instead of relying on the load event - some embedded
    browsers fire onLoad unreliably, but naturalWidth becomes available once an
    image is decoded. Retries briefly to catch images that decode a beat late. */
 export function useNormalizeLogos(selector: string, tiers: LogoTiers) {

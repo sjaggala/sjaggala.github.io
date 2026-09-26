@@ -1,5 +1,5 @@
 /* ============================================================
-   Global base styles + shared primitives — replicated from
+   Global base styles + shared primitives - replicated from
    sagarshah.dev's component tokens.
    ============================================================ */
 @import "./tokens.css";
@@ -169,7 +169,7 @@ img {
   color: var(--text-hover);
 }
 
-/* Disabled: bg-gray-200 text-gray-500 (buttons) — link variant fades to gray-400 */
+/* Disabled: bg-gray-200 text-gray-500 (buttons) - link variant fades to gray-400 */
 .btn.is-disabled,
 .btn:disabled {
   cursor: not-allowed;

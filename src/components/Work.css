@@ -1,4 +1,4 @@
-/* Work — replicated from sagarshah.dev's Work band (outlined project cards
+/* Work - replicated from sagarshah.dev's Work band (outlined project cards
    in browser frames, flagship full-width). */
 .work {
   padding: var(--sp-9) 0; /* canvas (white) */
@@ -651,7 +651,7 @@
 
 .dd__arrow { color: var(--text-dim); flex-shrink: 0; }
 
-/* generated dashboard — compact but detailed */
+/* generated dashboard - compact but detailed */
 .dd__dash {
   width: 46%;
   background: #fff;

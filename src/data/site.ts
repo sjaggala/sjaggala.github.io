@@ -13,7 +13,7 @@ export const site = {
   heroLine2: "I build BI that answers back.",
   // One-liner shown under the headline in the hero
   positioning:
-    "Business Intelligence engineer/architect. ~7 years of enterprise Power BI — the models underneath, the reports on top, and governance holding it together — now bringing AI into the loop with conversational, generative BI.",
+    "Business Intelligence engineer/architect. ~7 years of enterprise Power BI: the models underneath, the reports on top, and governance holding it together. Now bringing AI into the loop with conversational, generative BI.",
   availability: "Available for full-time roles",
   location: "Chicago, IL · CT (UTC-6)", // city + timezone (per Sravan 2026-09-25); no street address / phone
   email: "sravan.jaggala@outlook.com",
@@ -38,7 +38,7 @@ export const stats: { value: string; label: string }[] = [
   { value: "80%", label: "Less manual deployment (CI/CD)" },
 ];
 
-/* The three pillars of what Sravan does — frames the BI → AI story */
+/* The three pillars of what Sravan does - frames the BI → AI story */
 export const focusAreas: {
   title: string;
   blurb: string;
@@ -71,7 +71,7 @@ export const focusAreas: {
     points: [
       "Power BI Q&A / natural-language models in production",
       "Prompt-driven visualization interfaces",
-      "UIC MS in Business Analytics (STEM) — ML, DBMS, optimization",
+      "UIC MS in Business Analytics (STEM): ML, DBMS, optimization",
     ],
   },
 ];
@@ -92,7 +92,7 @@ export const featured: {
     name: "Arcus Planner",
     kind: "Flagship product",
     blurb:
-      "A full productivity suite — tasks & Kanban, Gantt planning, calendar, journaling, focus board, and real-time sharing — built end to end with cloud sync.",
+      "A full productivity suite (tasks & Kanban, Gantt planning, calendar, journaling, focus board, and real-time sharing), built end to end with cloud sync.",
     tags: ["React-style SPA", "Firebase Auth", "Firestore", "Realtime sync"],
     status: "live",
     statusLabel: "Live",
@@ -103,7 +103,7 @@ export const featured: {
     name: "Power BI Showcase",
     kind: "Dashboard gallery",
     blurb:
-      "A gallery of enterprise dashboards rebuilt with synthetic data — retail, manufacturing, finance and more — each opening an embedded, interactive report.",
+      "A gallery of enterprise dashboards rebuilt with synthetic data across retail, manufacturing, finance and more, each opening an embedded, interactive report.",
     tags: ["Power BI", "DAX", "Embedded", "Data modeling"],
     status: "gallery",
     statusLabel: "In progress",

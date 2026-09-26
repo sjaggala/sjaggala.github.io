@@ -76,7 +76,7 @@ export default function NavBar() {
           {site.wordmark}
         </NavLink>
 
-        {/* Desktop nav — links grouped in a light-gray pill */}
+        {/* Desktop nav - links grouped in a light-gray pill */}
         <nav className="nav__desktop" aria-label="Main">
           <ul className="nav__pill">
             {navItems.map((item) => (

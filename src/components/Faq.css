@@ -1,4 +1,4 @@
-/* FAQ — native <details> accordion, ruled rows, rotating chevron.
+/* FAQ - native <details> accordion, ruled rows, rotating chevron.
    Replicated from sagarshah.dev's FAQ band. Soft (gray-50) surface. */
 .faq {
   background: var(--surface);

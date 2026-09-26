@@ -1,4 +1,4 @@
-/* FAQ content — mirrors sagarshah.dev's FAQ band (native <details> accordion).
+/* FAQ content - mirrors sagarshah.dev's FAQ band (native <details> accordion).
    Voice = plain, confident, honest. The work-authorization answer is the
    strategic one: framed as a positive (STEM OPT ≈ 3 yrs runway, no immediate
    sponsorship). Facts per CLAUDE.md resolved facts. */
@@ -20,25 +20,25 @@ export const faq: {
       id: "work-auth",
       question: "Are you authorized to work in the US?",
       answer:
-        "Yes. I'm on F-1 status, and as a STEM graduate I'm eligible for OPT plus the 24-month STEM extension — roughly three years of work authorization without needing H-1B sponsorship right away. In practice that means I can start now and there's a long runway before sponsorship is even a conversation.",
+        "Yes. I'm on F-1 status, and as a STEM graduate I'm eligible for OPT plus the 24-month STEM extension: roughly three years of work authorization without needing H-1B sponsorship right away. In practice that means I can start now and there's a long runway before sponsorship is even a conversation.",
     },
     {
       id: "roles",
       question: "What roles are you looking for?",
       answer:
-        "Full-time BI Developer / BI Architect, Analytics Engineer, or AI/BI roles. I'm strongest where a semantic model, governed reporting, and a bit of engineering meet — and increasingly where BI meets generative AI.",
+        "Full-time BI Developer / BI Architect, Analytics Engineer, or AI/BI roles. I'm strongest where a semantic model, governed reporting, and a bit of engineering meet, and increasingly where BI meets generative AI.",
     },
     {
       id: "relocation",
       question: "Where are you based, and will you relocate?",
       answer:
-        "I'm in Chicago (Central time) and open to relocating anywhere in the US for the right role. I'm just as comfortable fully remote — most of my career has been delivering for clients across time zones.",
+        "I'm in Chicago (Central time) and open to relocating anywhere in the US for the right role. I'm just as comfortable fully remote; most of my career has been delivering for clients across time zones.",
     },
     {
       id: "stack",
       question: "What's your BI stack?",
       answer:
-        "Power BI end to end — DAX, Power Query, star-schema semantic models, RLS and incremental refresh — on SQL Server, Oracle, Snowflake and BigQuery. Around it: Azure DevOps CI/CD, the Power BI REST APIs, embedded analytics, and custom visuals in React and TypeScript.",
+        "Power BI end to end: DAX, Power Query, star-schema semantic models, RLS and incremental refresh, running on SQL Server, Oracle, Snowflake and BigQuery. Around it: Azure DevOps CI/CD, the Power BI REST APIs, embedded analytics, and custom visuals in React and TypeScript.",
     },
     {
       id: "generative-bi",
@@ -50,13 +50,13 @@ export const faq: {
       id: "leadership",
       question: "Have you led teams, or just built reports?",
       answer:
-        "Both. In my last year at Mouri Tech I functioned as an Associate Manager — leading a team of five and owning delivery end to end — while still hands-on in the models and reports. I like staying close to the work.",
+        "Both. In my last year at Mouri Tech I functioned as an Associate Manager, leading a team of five and owning delivery end to end, while still hands-on in the models and reports. I like staying close to the work.",
     },
     {
       id: "start",
       question: "Are you available, and how do we start?",
       answer:
-        "I'm available for full-time roles now. Email sravan.jaggala@outlook.com with the role and what you're trying to solve — if it's a fit, I'll come back with how I'd approach it; if it isn't, I'll say so.",
+        "I'm available for full-time roles now. Email sravan.jaggala@outlook.com with the role and what you're trying to solve. If it's a fit, I'll come back with how I'd approach it; if it isn't, I'll say so.",
     },
   ],
 };

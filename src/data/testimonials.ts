@@ -1,4 +1,4 @@
-/* Testimonials — real, attributed endorsements Sravan provided (2026-09-25).
+/* Testimonials - real, attributed endorsements Sravan provided (2026-09-25).
    Quotes are trimmed for length but kept faithful to the source wording. */
 export type Testimonial = {
   id: string;
@@ -33,7 +33,7 @@ export const testimonials: {
       name: "Srinivasulu Bejawada",
       title: "R&R nomination · TBC project, MOURI Tech",
       quote:
-        "Sravan is the most reliable teammate and a vital player in TBC. His knowledge of Power BI is excellent, and he delivers cutting-edge solutions using numerous Power BI strategies. His leadership abilities are noteworthy — he has the potential to be a terrific leader.",
+        "Sravan is the most reliable teammate and a vital player in TBC. His knowledge of Power BI is excellent, and he delivers cutting-edge solutions using numerous Power BI strategies. His leadership abilities are noteworthy; he has the potential to be a terrific leader.",
       initials: "SB",
       tone: "emerald",
     },

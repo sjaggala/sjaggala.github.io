@@ -1,4 +1,4 @@
-/* Skills / toolkit — grouped like sagarshah.dev's Stack band.
+/* Skills / toolkit - grouped like sagarshah.dev's Stack band.
    Each item renders in priority order:
      1. `icon`  → a colored brand logo from /public/tech
      2. `glyph` → a monochrome line-glyph key from skillGlyphs.tsx
@@ -20,7 +20,7 @@ export const skills: {
   eyebrow: "Toolkit",
   heading: "The tools I work in.",
   subhead:
-    "From the semantic model to the last pixel of a report — and the languages and platforms that ship it.",
+    "From the semantic model to the last pixel of a report, and the languages and platforms that ship it.",
   groups: [
     {
       id: "bi",

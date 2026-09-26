@@ -6,11 +6,11 @@ export type Role = {
   company: string;
   title: string;
   period: string;
-  duration: string; // e.g. "2 yrs 8 mos" — shown next to the period like the reference
+  duration: string; // e.g. "2 yrs 8 mos" - shown next to the period like the reference
   location: string;
   logo?: string; // company logo (left column, like the reference); else wordmark fallback
   logoH?: number; // per-logo height override (px) when a mark reads optically off
-  mono?: string; // legacy initials — unused now that we render logos/wordmarks
+  mono?: string; // legacy initials - unused now that we render logos/wordmarks
   via?: string; // staffing/partner arrangement, shown subtly
   current?: boolean;
   points: string[];
@@ -38,7 +38,7 @@ export const experience: {
   eyebrow: "Experience",
   heading: "Seven years of client-facing BI.",
   subhead:
-    "Report developer, then advisor, then delivery lead. Here's the honest summary — the full version is in the résumé.",
+    "Report developer, then advisor, then delivery lead. Here's the honest summary; the full version is in the résumé.",
   roles: [
     {
       company: "Mouri Tech",
@@ -49,9 +49,9 @@ export const experience: {
       logo: "/companies/MT-Home-Logo-1-1.png",
       current: true,
       points: [
-        "Functioned as an Associate Manager in my final year — led a team of five and owned end-to-end delivery of enterprise Power BI solutions.",
+        "Functioned as an Associate Manager in my final year, leading a team of five and owning end-to-end delivery of enterprise Power BI solutions.",
         "Built Power BI CI/CD pipelines on Azure DevOps with PowerShell and the REST APIs, cutting manual deployment effort by ~80%.",
-        "Re-architected centralized semantic models with row-level security and incremental refresh — dataset refreshes fell from 2.5 hours to 7 minutes.",
+        "Re-architected centralized semantic models with row-level security and incremental refresh, cutting dataset refreshes from 2.5 hours to 7 minutes.",
         "Trained Power BI Q&A models and built prompt-driven visualization interfaces with AI/ML engineers, making reports answerable in plain English.",
         "Developed custom Power BI visuals in React & TypeScript, deployed across the organization.",
       ],
@@ -75,7 +75,7 @@ export const experience: {
       duration: "1 yr 1 mo",
       location: "Haryana, India",
       logo: "/companies/hcltech-logo.svg",
-      logoH: 18, // hcltech wordmark reads large — trim it down to match the row
+      logoH: 18, // hcltech wordmark reads large - trim it down to match the row
       points: [
         "Migrated legacy Oracle BIEE reporting to Power BI and trained business teams on the new workflows.",
         "Built governance dashboards with the Power BI REST APIs, automated via PowerShell.",
@@ -88,7 +88,7 @@ export const experience: {
       duration: "1 yr 5 mos",
       location: "Hyderabad, India",
       logo: "/clients/microsoft.svg",
-      logoH: 22, // Microsoft lockup reads large — trim slightly
+      logoH: 22, // Microsoft lockup reads large - trim slightly
       via: "LTIMindtree",
       points: [
         "Led a five-engineer Power BI support team, resolving advanced development and advisory cases.",
@@ -102,9 +102,9 @@ export const experience: {
       duration: "1 yr 4 mos",
       location: "Bangalore, India",
       logo: "/clients/ness-technologies-dark.svg",
-      logoH: 46, // compact round mark reads small — bump it up to match the row
+      logoH: 46, // compact round mark reads small - bump it up to match the row
       points: [
-        "Developed and enhanced Power BI reports alongside senior engineers — where the BI career started.",
+        "Developed and enhanced Power BI reports alongside senior engineers, where the BI career started.",
       ],
     },
   ],

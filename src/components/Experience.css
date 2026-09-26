@@ -1,4 +1,4 @@
-/* Experience — bordered role cards (company badge · bullets · period),
+/* Experience - bordered role cards (company badge · bullets · period),
    replicated from sagarshah.dev's Experience band. Gray-50 band so the
    white cards pop, alternating against the white Work/Skills sections. */
 .xp {
@@ -166,7 +166,7 @@
   align-items: flex-start;
   gap: 1.25rem;
 }
-/* logo slot — fixed square box so both schools' marks sit on one baseline */
+/* logo slot - fixed square box so both schools' marks sit on one baseline */
 .xp__edu-logo {
   flex-shrink: 0;
   width: 52px;

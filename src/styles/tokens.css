@@ -1,22 +1,22 @@
 /* ============================================================
-   Design tokens — replicated from sagarshah.dev's token system
+   Design tokens - replicated from sagarshah.dev's token system
    (Tailwind neutral/gray scale + emerald accent). Light mode only.
    Change values HERE to retheme.
    ============================================================ */
 :root {
   /* --- Surfaces / backgrounds --- */
   --bg: #ffffff;
-  --surface: #f9fafb;      /* gray-50   — soft bands, nav pill */
-  --surface-2: #f5f5f5;    /* neutral-100 — badges, feature cards */
+  --surface: #f9fafb;      /* gray-50   - soft bands, nav pill */
+  --surface-2: #f5f5f5;    /* neutral-100 - badges, feature cards */
   --surface-3: #ededee;
-  --dark: #0a0a0a;         /* neutral-950 — terminal, footer */
+  --dark: #0a0a0a;         /* neutral-950 - terminal, footer */
 
   /* --- Text (Tailwind neutral/gray) --- */
-  --text: #171717;         /* neutral-900 — ink / headings */
-  --text-body: #374151;    /* gray-700 — body copy */
-  --text-muted: #6b7280;   /* gray-500 — secondary (>=14px only) */
-  --text-dim: #9ca3af;     /* gray-400 — disabled / faint */
-  --text-hover: #525252;   /* neutral-600 — link/icon hover */
+  --text: #171717;         /* neutral-900 - ink / headings */
+  --text-body: #374151;    /* gray-700 - body copy */
+  --text-muted: #6b7280;   /* gray-500 - secondary (>=14px only) */
+  --text-dim: #9ca3af;     /* gray-400 - disabled / faint */
+  --text-hover: #525252;   /* neutral-600 - link/icon hover */
   --text-on-dark: #ffffff;
   --text-on-dark-soft: #a1a1aa; /* zinc-400 */
 
