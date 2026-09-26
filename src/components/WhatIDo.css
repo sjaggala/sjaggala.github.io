@@ -1,0 +1,80 @@
+/* "What I do" — replicated from sagarshah.dev's Services band. */
+.wid {
+  padding: var(--sp-9) 0; /* band-padding py-24 */
+}
+
+/* Centered band header */
+.wid__head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+/* display-lg: text-3xl -> md text-4xl -> lg text-5xl (30 -> 36 -> 48) */
+.wid__title {
+  margin-top: var(--sp-4);
+  font-size: clamp(1.875rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: var(--lh-none);
+  letter-spacing: var(--tracking-tight);
+  text-wrap: balance;
+}
+.wid__lead {
+  margin-top: var(--sp-4);
+  max-width: 42rem; /* max-w-2xl */
+  font-size: var(--fs-base);
+  color: var(--text-muted);
+  text-wrap: pretty;
+}
+
+/* feature-grid-3: grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3, mt-16 */
+.wid__grid {
+  list-style: none;
+  margin: 4rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+/* feature-card: bg-neutral-100 rounded-xl p-8, flex-col items-start gap-3 */
+.wid__card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sp-3);
+  background: var(--surface-2);
+  border-radius: var(--r-md);
+  padding: var(--sp-6);
+}
+.wid__icon {
+  display: inline-flex;
+  color: var(--text);
+}
+/* title-md: text-lg semibold, neutral-900 */
+.wid__card-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: 600;
+  line-height: var(--lh-snug);
+  letter-spacing: normal;
+  color: var(--text);
+}
+/* body-md: text-base gray-700 */
+.wid__card-body {
+  font-size: var(--fs-base);
+  line-height: var(--lh-normal);
+  color: var(--text-body);
+  text-wrap: pretty;
+}
+
+@media (min-width: 768px) {
+  .wid__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .wid__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

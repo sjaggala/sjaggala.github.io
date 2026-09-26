@@ -1,0 +1,96 @@
+/* Contact — a centered muted card, replicated from sagarshah.dev's CTA band.
+   Canvas (white) surface so the muted card reads against it. Email + links only. */
+.ct {
+  background: var(--bg);
+  padding: var(--sp-9) 0;
+}
+.ct__card {
+  max-width: 56rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: var(--surface-2);
+  border-radius: var(--r-lg);
+  padding: 3rem 1.5rem;
+}
+.ct__title {
+  margin-top: var(--sp-4);
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 700;
+  line-height: var(--lh-none);
+  letter-spacing: var(--tracking-tight);
+  text-wrap: balance;
+}
+.ct__lead {
+  margin-top: var(--sp-4);
+  max-width: 34rem;
+  font-size: var(--fs-base);
+  color: var(--text-body);
+  text-wrap: pretty;
+}
+.ct__actions {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+.ct__rows-lead {
+  margin-top: 2.5rem;
+  font-size: var(--fs-sm);
+  color: var(--text-body);
+}
+.ct__rows {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+.ct__row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.ct__ico {
+  display: inline-flex;
+  color: var(--text-muted);
+}
+.ct__link {
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--text);
+  text-underline-offset: 3px;
+}
+.ct__link:hover {
+  color: var(--text-hover);
+  text-decoration: underline;
+}
+.ct__copy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.ct__copy:hover {
+  color: var(--text);
+  border-color: var(--border-strong);
+}
+
+@media (min-width: 768px) {
+  .ct__card {
+    padding: 3.5rem;
+  }
+}

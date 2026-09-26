@@ -1,0 +1,252 @@
+/* Experience — bordered role cards (company badge · bullets · period),
+   replicated from sagarshah.dev's Experience band. Gray-50 band so the
+   white cards pop, alternating against the white Work/Skills sections. */
+.xp {
+  background: var(--surface);
+  padding: var(--sp-9) 0;
+}
+.xp__head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.xp__title {
+  margin-top: var(--sp-4);
+  font-size: clamp(1.875rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: var(--lh-none);
+  letter-spacing: var(--tracking-tight);
+  text-wrap: balance;
+}
+.xp__lead {
+  margin-top: var(--sp-4);
+  max-width: 44rem;
+  font-size: var(--fs-base);
+  color: var(--text-muted);
+  text-wrap: pretty;
+}
+
+/* --- Role cards --- */
+.xp__roles {
+  margin: 4rem auto 0;
+  max-width: 56rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.xp__card {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: var(--sp-6);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+/* Company logo (left column), like the reference's experience card.
+   Logo is left-aligned and height-capped; missing logos render as a wordmark. */
+.xp__logo-slot {
+  display: flex;
+  align-items: flex-start; /* top-aligned, like the reference (items-start) */
+}
+.xp__logo {
+  height: 32px; /* fallback until normalizeLogoHeight runs */
+  width: auto;
+  max-width: 128px;
+  object-fit: contain;
+  object-position: left top;
+}
+.xp__logo-word {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.0625rem;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+.xp__main {
+  min-width: 0;
+}
+.xp__top {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.xp__role {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: var(--lh-snug);
+  color: var(--text);
+}
+.xp__co {
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--text-body);
+}
+.xp__via {
+  color: var(--text-muted);
+  font-weight: 400;
+}
+.xp__meta {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.35rem;
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+.xp__period {
+  font-variant-numeric: tabular-nums;
+}
+.xp__dur {
+  color: var(--text-dim);
+}
+.xp__loc {
+  font-size: 0.8125rem;
+  color: var(--text-dim);
+}
+
+.xp__points {
+  list-style: none;
+  margin: 0.9rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.xp__point {
+  position: relative;
+  padding-left: 1.15rem;
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+  color: var(--text-body);
+  text-wrap: pretty;
+}
+.xp__point::before {
+  content: "";
+  position: absolute;
+  left: 0.15rem;
+  top: 0.62em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--border-strong);
+}
+
+/* --- Education (single full-width card, logos per school) --- */
+.xp__edu {
+  margin: 1.25rem auto 0;
+  max-width: 56rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: var(--sp-6);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+.xp__info-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-base);
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 1.35rem;
+}
+.xp__edu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.xp__edu-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+/* logo slot — fixed square box so both schools' marks sit on one baseline */
+.xp__edu-logo {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.xp__edu-img {
+  max-width: 52px;
+  max-height: 48px;
+  width: auto;
+  object-fit: contain;
+}
+.xp__edu-mono {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.9375rem;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+.xp__edu-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding-top: 0.1rem;
+}
+.xp__edu-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+.xp__sub-primary {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+}
+.xp__sub-period {
+  flex-shrink: 0;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+.xp__sub-secondary {
+  font-size: var(--fs-sm);
+  color: var(--text-body);
+}
+.xp__sub-note {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+@media (min-width: 768px) {
+  /* logo column to the left of the content, like the reference (w-32) */
+  .xp__card {
+    grid-template-columns: 128px 1fr;
+    gap: 2rem;
+    padding: 2rem;
+  }
+  .xp__top {
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+  .xp__meta {
+    margin-top: 0;
+    align-items: flex-end;
+    text-align: right;
+    flex-shrink: 0;
+  }
+}

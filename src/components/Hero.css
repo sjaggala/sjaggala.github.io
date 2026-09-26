@@ -1,0 +1,176 @@
+/* Replicated from sagarshah.dev's Hero. */
+.hero {
+  padding: var(--sp-9) 0 var(--sp-7);
+}
+
+/* hero-grid: grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16 */
+.hero__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-7);
+}
+
+/* hero-col-content: lg:col-span-7, flex-col items-start gap-6 */
+.hero__copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sp-5);
+}
+
+/* avatar (size-9) + badge, gap-3 */
+.hero__idrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+.hero__avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+/* badge-pill: bg-neutral-100 text-xs medium px-3 py-1 rounded-full */
+.hero__badge {
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  color: var(--text);
+  background: var(--surface-2);
+  border: none;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--r-pill);
+}
+
+/* display-xl: font-display 30->48->60, bold, leading-none, tracking-tight */
+.hero__title {
+  font-size: var(--fs-hero);
+  font-weight: 700;
+  line-height: var(--lh-none);
+  letter-spacing: var(--tracking-tight);
+  text-wrap: balance;
+}
+.hero__l1,
+.hero__l2 {
+  display: block;
+  color: var(--text);
+}
+.hero__wave {
+  display: inline-block;
+  transform-origin: 70% 70%;
+  animation: hero-wave 2s linear 1s 3;
+}
+@keyframes hero-wave {
+  0% { rotate: 0deg; }
+  15% { rotate: 14deg; }
+  30% { rotate: -8deg; }
+  45% { rotate: 14deg; }
+  60% { rotate: -4deg; }
+  75% { rotate: 10deg; }
+  100% { rotate: 0deg; }
+}
+
+/* hero-subhead: text-lg normal gray-500, max-w-xl (36rem) */
+.hero__lead {
+  max-width: 36rem;
+  font-size: var(--fs-lg);
+  font-weight: 400;
+  color: var(--text-muted);
+  text-wrap: pretty;
+}
+
+/* buttons: flex-wrap items-center gap-3 */
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+/* location + availability: flex-col gap-2, body-sm */
+.hero__meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  font-size: var(--fs-sm);
+  color: var(--text-body);
+}
+.hero__loc,
+.hero__avail {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+.hero__loc svg {
+  color: var(--text-body);
+}
+.hero__avail {
+  margin-left: 1px;
+}
+/* availability-dot: emerald-500 size-2, with ping */
+.hero__dot {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.hero__dot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.75;
+  animation: hero-ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+@keyframes hero-ping {
+  75%, 100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+/* socials: plain icons, size-5 (20px), neutral-900 -> hover neutral-600 */
+.hero__socials {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-1);
+  margin-top: var(--sp-1);
+}
+.hero__social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  color: var(--text);
+  transition: color var(--dur) var(--ease);
+}
+.hero__social:hover {
+  color: var(--text-hover);
+}
+
+/* mockup col */
+.hero__demo {
+  display: flex;
+  justify-content: flex-start;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__wave,
+  .hero__dot::before {
+    animation: none;
+  }
+}
+
+/* lg: two columns (7 / 5), gap-16 */
+@media (min-width: 1024px) {
+  .hero__inner {
+    grid-template-columns: 7fr 5fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .hero__demo {
+    justify-content: flex-end;
+  }
+}

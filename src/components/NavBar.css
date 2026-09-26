@@ -1,0 +1,188 @@
+/* Replicated from sagarshah.dev's SiteHeader. */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  width: 100%;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border); /* hairline, always on */
+}
+
+.nav__inner {
+  display: flex;
+  height: var(--nav-h);
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+}
+
+/* Wordmark: font-display text-lg font-semibold tracking-tight neutral-900 */
+.nav__brand {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.125rem;
+  letter-spacing: var(--tracking-tight);
+  color: var(--text);
+  transition: opacity var(--dur) var(--ease);
+}
+.nav__brand:hover {
+  color: var(--text);
+  opacity: 0.75;
+}
+
+/* Desktop nav (hidden below md) */
+.nav__desktop {
+  display: none;
+}
+
+/* Link pill group: bg-gray-50 p-1.5 rounded-full */
+.nav__pill {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+  margin: 0;
+  padding: 6px;
+  background: var(--surface);
+  border-radius: var(--r-pill);
+}
+
+/* category-tab: text-gray-500 text-sm medium px-3.5 py-2 rounded-lg; hover ink (colour only) */
+.nav__tab {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  padding: 0.5rem 0.875rem;
+  border-radius: var(--r-sm);
+  transition: color var(--dur) var(--ease);
+}
+.nav__tab:hover {
+  color: var(--text);
+}
+/* active section = ink-only, exactly like the reference (globals.css nav-current):
+   the in-view section's label darkens to neutral-900. No pill, bg, or shadow. */
+.nav__tab.is-active {
+  color: var(--text);
+}
+.nav__tab.is-locked {
+  color: var(--text-dim);
+  cursor: not-allowed;
+  user-select: none;
+}
+.nav__tab.is-locked:hover {
+  color: var(--text-dim);
+}
+
+/* Right group */
+.nav__right {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+/* Specificity must beat .btn's own display:inline-flex, hence .nav__right prefix. */
+.nav__right .nav__cv {
+  display: none; /* lg+ only */
+}
+.nav__right .nav__talk {
+  display: none; /* md+ only */
+}
+
+/* Hamburger (mobile only) */
+.nav__toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+}
+.nav__burger {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 22px;
+}
+.nav__burger span {
+  display: block;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transition: transform var(--dur) var(--ease), opacity var(--dur) var(--ease);
+}
+.nav__burger.is-open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav__burger.is-open span:nth-child(2) {
+  opacity: 0;
+}
+.nav__burger.is-open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile dropdown */
+.nav__mobile {
+  display: block;
+  overflow: hidden;
+  max-height: 0;
+  background: var(--bg);
+  border-bottom: 1px solid transparent;
+  transition: max-height var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.nav__mobile.is-open {
+  max-height: 80vh;
+  border-bottom-color: var(--border);
+  box-shadow: var(--shadow-md);
+}
+.nav__mobile-links {
+  list-style: none;
+  margin: 0;
+  padding: var(--sp-3) 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.nav__mobile .nav__tab {
+  min-height: 44px;
+  padding: 0.5rem 0.5rem;
+}
+.nav__mobile-cta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  padding: var(--sp-4) 1rem var(--sp-5);
+  border-top: 1px solid var(--border);
+}
+.nav__mobile-cta .btn {
+  width: 100%;
+}
+
+/* --- md: show desktop nav + Let's talk, hide hamburger --- */
+@media (min-width: 768px) {
+  .nav__desktop {
+    display: block;
+  }
+  .nav__right .nav__talk {
+    display: inline-flex;
+  }
+  .nav__toggle {
+    display: none;
+  }
+  .nav__mobile {
+    display: none;
+  }
+}
+
+/* --- lg: show the résumé text-link --- */
+@media (min-width: 1024px) {
+  .nav__right .nav__cv {
+    display: inline-flex;
+  }
+}

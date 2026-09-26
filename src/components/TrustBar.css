@@ -1,0 +1,45 @@
+/* Trust bar — inside the hero, hairline-split (reference: mt-16 pt-12).
+   Muted/grayscale so real logos + text wordmarks read as one cohesive strip. */
+/* `.hero .trust` (0,2,0) beats `.container` (0,1,0): the element is
+   `container trust`, and .container's `margin:0 auto`/`padding:0 …` shorthands
+   would otherwise zero out our top margin/padding. */
+.hero .trust {
+  margin-top: 4rem; /* breathing space below the hero socials, above the hairline */
+  padding-top: 3rem; /* clear gap below the hairline, above the caption */
+  border-top: 1px solid var(--border);
+}
+.trust__intro {
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  letter-spacing: 0.05em; /* tracking-wide, like the reference */
+  text-transform: uppercase;
+  color: var(--text-body); /* gray-700 dark — not the light gray we had */
+}
+.trust__marks {
+  list-style: none;
+  margin: 1.75rem 0 0; /* clear gap between caption and the logo row */
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem 2.75rem;
+}
+.trust__item {
+  display: inline-flex;
+  align-items: center;
+  height: 44px; /* consistent slot; logos centered, heights set by JS */
+}
+.trust__logo {
+  height: 28px; /* fallback until normalizeLogoHeight runs */
+  width: auto;
+  max-width: 150px;
+  object-fit: contain;
+  object-position: left center;
+}
+.trust__wordmark {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.0625rem;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}

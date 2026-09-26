@@ -1,0 +1,94 @@
+/* FAQ — native <details> accordion, ruled rows, rotating chevron.
+   Replicated from sagarshah.dev's FAQ band. Soft (gray-50) surface. */
+.faq {
+  background: var(--surface);
+  padding: var(--sp-9) 0;
+}
+.faq__head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.faq__title {
+  margin-top: var(--sp-4);
+  font-size: clamp(1.875rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: var(--lh-none);
+  letter-spacing: var(--tracking-tight);
+  text-wrap: balance;
+}
+.faq__lead {
+  margin-top: var(--sp-4);
+  max-width: 42rem;
+  font-size: var(--fs-base);
+  color: var(--text-muted);
+  text-wrap: pretty;
+}
+
+/* Ruled list: top hairline closes the list; each row brings its bottom line. */
+.faq__list {
+  list-style: none;
+  margin: 3rem auto 0;
+  padding: 0;
+  max-width: 48rem;
+  border-top: 1px solid var(--border);
+}
+.faq__item {
+  border-bottom: 1px solid var(--border);
+}
+.faq__q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 0.25rem;
+  cursor: pointer;
+  list-style: none; /* removes native disclosure triangle */
+}
+.faq__q::-webkit-details-marker {
+  display: none;
+}
+.faq__q-text {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: var(--lh-snug);
+  color: var(--text);
+}
+.faq__chevron {
+  display: inline-flex;
+  flex-shrink: 0;
+  color: var(--text-muted);
+  transition: transform 0.2s var(--ease);
+}
+.faq__item[open] .faq__chevron {
+  transform: rotate(180deg);
+}
+.faq__a {
+  margin: 0;
+  padding: 0 0.25rem 1.35rem;
+  max-width: 44rem;
+  font-size: var(--fs-sm);
+  line-height: 1.7;
+  color: var(--text-body);
+  text-wrap: pretty;
+}
+
+/* Slide the answer open where supported; a no-op elsewhere (graceful). */
+@supports (interpolate-size: allow-keywords) {
+  .faq__item::details-content {
+    block-size: 0;
+    overflow: hidden;
+    transition: block-size 0.25s var(--ease), content-visibility 0.25s allow-discrete;
+  }
+  .faq__item[open]::details-content {
+    block-size: auto;
+  }
+}
+
+.faq__q:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+  border-radius: var(--r-sm);
+}

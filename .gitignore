@@ -1,0 +1,34 @@
+# Dependencies / build
+node_modules/
+dist/
+*.local
+*.tsbuildinfo
+
+# Session / editor config (not needed in the public repo)
+.claude/
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.vscode/
+
+# --- Private project material: NEVER publish to the public repo ---
+# Working memory (contains comp targets, work-auth strategy, phone, etc.)
+CLAUDE.md
+PLAN.md
+DECISIONS.md
+# Job-search context brief and source resumes (personal, not for the site)
+Job Search Project Context/
+Resume/
+# The public site references copies placed in /public (headshot, final résumé PDF),
+# so the originals in /Resume stay private and un-published.
+# Résumé build source (HTML → PDF via Edge headless). The generated PDF in
+# /public ships; this source stays private.
+resume-build/
+public/_resume_preview.html
+# Unused source-format asset (we ship UIC.SVG; EPS can't render in browsers)
+public/schools/*.EPS
+public/schools/*.eps
+
+# GitHub Actions workflow (needs a token with "workflow" scope to push)
+.github/

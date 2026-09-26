@@ -1,0 +1,88 @@
+/* ============================================================
+   Design tokens — replicated from sagarshah.dev's token system
+   (Tailwind neutral/gray scale + emerald accent). Light mode only.
+   Change values HERE to retheme.
+   ============================================================ */
+:root {
+  /* --- Surfaces / backgrounds --- */
+  --bg: #ffffff;
+  --surface: #f9fafb;      /* gray-50   — soft bands, nav pill */
+  --surface-2: #f5f5f5;    /* neutral-100 — badges, feature cards */
+  --surface-3: #ededee;
+  --dark: #0a0a0a;         /* neutral-950 — terminal, footer */
+
+  /* --- Text (Tailwind neutral/gray) --- */
+  --text: #171717;         /* neutral-900 — ink / headings */
+  --text-body: #374151;    /* gray-700 — body copy */
+  --text-muted: #6b7280;   /* gray-500 — secondary (>=14px only) */
+  --text-dim: #9ca3af;     /* gray-400 — disabled / faint */
+  --text-hover: #525252;   /* neutral-600 — link/icon hover */
+  --text-on-dark: #ffffff;
+  --text-on-dark-soft: #a1a1aa; /* zinc-400 */
+
+  /* --- Borders / lines --- */
+  --border: #e5e7eb;       /* gray-200 */
+  --border-strong: #d1d5db;/* gray-300 */
+
+  /* --- Ink (near-black buttons) --- */
+  --ink: #171717;          /* neutral-900 */
+  --ink-hover: #262626;    /* neutral-800 */
+  --ink-press: #404040;    /* neutral-700 */
+
+  /* --- Accent = emerald (availability dot + terminal only) --- */
+  --accent: #10b981;       /* emerald-500 */
+  --accent-bright: #34d399;/* emerald-400 (on dark surfaces) */
+
+  /* --- Typography --- */
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Geist", "Inter", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  /* Hero display: text-3xl -> md text-5xl -> lg text-6xl (30 -> 48 -> 60), bold */
+  --fs-hero: clamp(1.875rem, 6vw, 3.75rem);
+  --fs-h2: clamp(1.5rem, 3.6vw, 2.25rem);   /* display-md: text-2xl -> text-4xl */
+  --fs-h3: 1.125rem;       /* title-md: text-lg */
+  --fs-lg: 1.125rem;       /* text-lg */
+  --fs-base: 1rem;
+  --fs-sm: 0.875rem;       /* text-sm */
+  --fs-xs: 0.75rem;        /* text-xs */
+
+  --lh-none: 1;
+  --lh-tight: 1.25;
+  --lh-snug: 1.375;
+  --lh-normal: 1.5;
+
+  --tracking-tight: -0.025em;
+
+  /* --- Spacing scale (Tailwind-aligned) --- */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.5rem;
+  --sp-6: 2rem;
+  --sp-7: 3rem;
+  --sp-8: 4rem;
+  --sp-9: 6rem;            /* band-padding py-24 */
+
+  /* --- Radii --- */
+  --r-sm: 8px;             /* rounded-lg */
+  --r-md: 12px;            /* rounded-xl */
+  --r-lg: 16px;            /* rounded-2xl */
+  --r-pill: 999px;
+
+  /* --- Shadows --- */
+  --shadow-xs: 0 1px 2px rgba(16, 16, 20, 0.05);
+  --shadow-sm: 0 2px 10px rgba(16, 16, 20, 0.06);
+  --shadow-md: 0 4px 6px -1px rgba(16, 16, 20, 0.1), 0 2px 4px -2px rgba(16, 16, 20, 0.1);
+  --shadow-lg: 0 24px 60px rgba(16, 16, 20, 0.12);
+
+  /* --- Layout --- */
+  --maxw: 80rem;           /* max-w-7xl (1280px) */
+  --maxw-narrow: 48rem;
+  --nav-h: 64px;           /* h-16 */
+
+  /* --- Motion --- */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur: 0.2s;
+}

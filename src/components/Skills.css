@@ -1,0 +1,128 @@
+/* Skills / toolkit — replicated from sagarshah.dev's Stack band. */
+.sk {
+  padding: var(--sp-9) 0; /* canvas (white) */
+}
+.sk__head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.sk__title {
+  margin-top: var(--sp-4);
+  font-size: clamp(1.875rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: var(--lh-none);
+  letter-spacing: var(--tracking-tight);
+  text-wrap: balance;
+}
+.sk__lead {
+  margin-top: var(--sp-4);
+  max-width: 42rem;
+  font-size: var(--fs-base);
+  color: var(--text-muted);
+  text-wrap: pretty;
+}
+
+/* feature-grid-2, mt-16 */
+.sk__grid {
+  list-style: none;
+  margin: 4rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+/* feature-card (muted): bg-neutral-100 rounded-xl p-8, flex-col gap-5 */
+.sk__card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+  background: var(--surface-2);
+  border-radius: var(--r-md);
+  padding: var(--sp-6);
+}
+.sk__card-head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+/* title-sm: text-base semibold */
+.sk__card-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-base);
+  font-weight: 600;
+  line-height: var(--lh-snug);
+  color: var(--text);
+}
+/* body-sm gray-700 */
+.sk__card-desc {
+  font-size: var(--fs-sm);
+  color: var(--text-body);
+}
+
+/* items: flex-wrap gap-x-6 gap-y-4 */
+.sk__items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+}
+.sk__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: var(--fs-sm);
+  color: var(--text);
+}
+/* logo slot — clamps any aspect ratio into a tidy box */
+.sk__ico {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 30px;
+  flex-shrink: 0;
+}
+.sk__ico img {
+  max-width: 34px;
+  max-height: 28px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+/* monochrome line-glyphs (tools with no brand logo) */
+.sk__ico--glyph {
+  color: var(--text);
+}
+.sk__ico--glyph svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+.sk__name {
+  font-weight: 500;
+}
+/* text chip for tools without a logo */
+.sk__item--chip {
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--r-pill);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text-body);
+  font-weight: 500;
+}
+
+@media (min-width: 768px) {
+  .sk__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  /* odd number of cards: let the trailing card span the full row */
+  .sk__card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+}
