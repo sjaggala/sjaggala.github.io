@@ -150,6 +150,227 @@
   overflow: hidden;
 }
 
+/* ---------------- Capstone card (frameless concept visual) ---------------- */
+.work__concept {
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  background: var(--surface);
+  overflow: hidden;
+}
+.work__kicker {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.work__status--academic {
+  color: var(--text-body);
+  background: var(--surface-2);
+}
+.work__sponsor {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+.work__sponsor-logo {
+  height: 18px;
+  width: auto;
+}
+.work__approach {
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+  color: var(--text-body);
+  text-wrap: pretty;
+}
+.work__rolelist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.work__rolebul {
+  position: relative;
+  padding-left: 1.1rem;
+  font-size: var(--fs-sm);
+  line-height: 1.55;
+  color: var(--text-body);
+  text-wrap: pretty;
+}
+.work__rolebul::before {
+  content: "";
+  position: absolute;
+  left: 0.1rem;
+  top: 0.6em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.work__disclaimer {
+  font-size: var(--fs-xs);
+  line-height: 1.5;
+  color: var(--text-muted);
+  background: var(--surface);
+  border-left: 2px solid var(--border-strong);
+  padding: 0.6rem 0.8rem;
+  border-radius: 0 var(--r-sm) var(--r-sm) 0;
+}
+
+/* concept graphic: formats in, agent, structured schema out */
+.mock--cap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.4em, 1.3vw, 1.1em);
+  padding: clamp(0.6em, 2vw, 1.4em);
+  background: var(--surface);
+  font-size: clamp(7px, 0.95vw, 12px);
+  color: var(--text);
+}
+.cap__col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+.cap__file {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas: "ico title" "ico sub";
+  column-gap: 0.5em;
+  align-items: center;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 0.5em;
+  padding: 0.5em 0.7em;
+  min-width: 7.5em;
+}
+.cap__file svg {
+  grid-area: ico;
+  color: var(--text-muted);
+}
+.cap__file-t {
+  grid-area: title;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.cap__file-s {
+  grid-area: sub;
+  color: var(--text-dim);
+  font-size: 0.85em;
+}
+.cap__flow {
+  color: var(--text-dim);
+  flex-shrink: 0;
+}
+.cap__agent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3em;
+  text-align: center;
+  background: var(--dark);
+  color: #fff;
+  border-radius: 0.7em;
+  padding: 0.9em 1em;
+  min-width: 6.5em;
+}
+.cap__agent-ico {
+  color: var(--accent-bright);
+  display: inline-flex;
+}
+.cap__agent-t {
+  font-weight: 600;
+}
+.cap__agent-s {
+  font-size: 0.8em;
+  color: #a1a1aa;
+  font-family: var(--font-mono);
+}
+.cap__schema {
+  gap: 0;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 0.5em;
+  overflow: hidden;
+  min-width: 13em;
+}
+.cap__sh,
+.cap__row {
+  display: grid;
+  grid-template-columns: 1.1fr 1.2fr 0.7fr;
+  gap: 0.5em;
+  align-items: center;
+  padding: 0.45em 0.7em;
+}
+.cap__sh {
+  background: var(--surface-2);
+  font-size: 0.82em;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.cap__row {
+  border-top: 1px solid var(--border);
+}
+.cap__rf {
+  font-weight: 500;
+}
+.cap__rv {
+  color: var(--text-body);
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+.cap__conf {
+  justify-self: start;
+  font-size: 0.8em;
+  font-weight: 600;
+  padding: 0.1em 0.5em;
+  border-radius: var(--r-pill);
+  font-variant-numeric: tabular-nums;
+}
+.cap__conf--hi {
+  color: #047857;
+  background: #d1fae5;
+}
+.cap__conf--mid {
+  color: #b45309;
+  background: #fef3c7;
+}
+.cap__conf--low {
+  color: var(--text-muted);
+  background: var(--surface-2);
+}
+.cap__legend {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  padding: 0.45em 0.7em;
+  border-top: 1px solid var(--border);
+  font-size: 0.8em;
+  color: var(--text-dim);
+}
+.cap__src {
+  width: 0.55em;
+  height: 0.55em;
+  border-radius: 50%;
+  background: var(--accent);
+}
+/* stack the flow vertically on narrow screens so it stays legible */
+@media (max-width: 560px) {
+  .mock--cap {
+    flex-direction: column;
+  }
+  .cap__flow svg {
+    transform: rotate(90deg);
+  }
+}
+
 /* ---------------- Arcus (high-fidelity, sample data) ---------------- */
 .mock--arcus {
   --pw: #6d5efc; /* Arcus periwinkle */

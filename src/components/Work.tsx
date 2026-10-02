@@ -269,14 +269,89 @@ function ReportMock() {
   );
 }
 
+/* Original, abstract concept visual for the capstone: "many formats in, one
+   structured schema out". All synthetic/placeholder content. No sponsor data,
+   files, logos, or internal diagrams are used. */
+function CapstoneMock() {
+  const inputs = [
+    { t: "DXF / DWG", s: "2D CAD" },
+    { t: "Scan / photo", s: "pixels" },
+    { t: "PDF", s: "drawings" },
+    { t: "STEP", s: "3D model" },
+  ];
+  const rows = [
+    { f: "Diameter", v: "24.0 mm", c: "0.98", tone: "hi" },
+    { f: "Tolerance", v: "±0.10", c: "0.95", tone: "hi" },
+    { f: "Material", v: "placeholder", c: "0.72", tone: "mid" },
+    { f: "Finish", v: "needs review", c: "0.41", tone: "low" },
+  ];
+  return (
+    <div className="mock mock--cap">
+      <div className="cap__col cap__inputs">
+        {inputs.map((i) => (
+          <div key={i.t} className="cap__file">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+              <path d="M14 2v6h6" />
+            </svg>
+            <span className="cap__file-t">{i.t}</span>
+            <span className="cap__file-s">{i.s}</span>
+          </div>
+        ))}
+      </div>
+
+      <div className="cap__flow" aria-hidden="true">
+        <svg width="26" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M5 12h14" /><path d="m13 6 6 6-6 6" />
+        </svg>
+      </div>
+
+      <div className="cap__agent">
+        <span className="cap__agent-ico" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M12 3v3M12 18v3M3 12h3M18 12h3" />
+            <rect x="7" y="7" width="10" height="10" rx="2.5" />
+            <circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none" />
+          </svg>
+        </span>
+        <span className="cap__agent-t">AI agent</span>
+        <span className="cap__agent-s">parse · route · extract</span>
+      </div>
+
+      <div className="cap__flow" aria-hidden="true">
+        <svg width="26" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M5 12h14" /><path d="m13 6 6 6-6 6" />
+        </svg>
+      </div>
+
+      <div className="cap__col cap__schema">
+        <div className="cap__sh">
+          <span>Field</span><span>Value</span><span>Conf.</span>
+        </div>
+        {rows.map((r) => (
+          <div key={r.f} className="cap__row">
+            <span className="cap__rf">{r.f}</span>
+            <span className="cap__rv">{r.v}</span>
+            <span className={`cap__conf cap__conf--${r.tone}`}>{r.c}</span>
+          </div>
+        ))}
+        <div className="cap__legend">
+          <span className="cap__src" aria-hidden="true" /> source-tracked
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function Visual({ v }: { v: Project["visual"] }) {
   if (v === "arcus") return <ArcusMock />;
   if (v === "dashdrop") return <DashDropMock />;
+  if (v === "capstone") return <CapstoneMock />;
   return <ReportMock />;
 }
 
 function ProjectCard({ project, wide }: { project: Project; wide?: boolean }) {
-  const link = project.locked ? (
+  const link = project.noLink ? null : project.locked ? (
     <span className="work__link is-disabled" aria-disabled="true" title="Coming soon">
       {project.linkLabel}
       <Arrow />
@@ -293,15 +368,22 @@ function ProjectCard({ project, wide }: { project: Project; wide?: boolean }) {
     </a>
   );
 
+  const shot = (
+    <div className={`work__shot ${wide ? "work__shot--wide" : ""}`}>
+      <Visual v={project.visual} />
+    </div>
+  );
+
   return (
     <article className={`work__card ${wide ? "work__card--wide" : ""}`}>
-      <BrowserFrame domain={project.domain}>
-        <div className={`work__shot ${wide ? "work__shot--wide" : ""}`}>
-          <Visual v={project.visual} />
-        </div>
-      </BrowserFrame>
+      {project.noFrame ? (
+        <div className="work__concept">{shot}</div>
+      ) : (
+        <BrowserFrame domain={project.domain}>{shot}</BrowserFrame>
+      )}
 
       <div className="work__meta">
+        {project.kicker ? <span className="work__kicker">{project.kicker}</span> : null}
         <div className="work__titlerow">
           <h3 className="work__name">{project.name}</h3>
           {project.status ? (
@@ -310,8 +392,26 @@ function ProjectCard({ project, wide }: { project: Project; wide?: boolean }) {
             </span>
           ) : null}
         </div>
+        {project.sponsor ? (
+          <p className="work__sponsor">
+            Sponsored by {project.sponsor}
+            {project.sponsorNamed && project.sponsorLogo ? (
+              <img src={project.sponsorLogo} alt={project.sponsor} className="work__sponsor-logo" />
+            ) : null}
+          </p>
+        ) : null}
         <p className="work__desc">{project.description}</p>
-        <p className="work__role">{project.role}</p>
+        {project.approach ? <p className="work__approach">{project.approach}</p> : null}
+
+        {project.roleBullets ? (
+          <ul className="work__rolelist" role="list">
+            {project.roleBullets.map((b, i) => (
+              <li key={i} className="work__rolebul">{b}</li>
+            ))}
+          </ul>
+        ) : project.role ? (
+          <p className="work__role">{project.role}</p>
+        ) : null}
       </div>
 
       <ul className="work__stack" role="list">
@@ -319,6 +419,8 @@ function ProjectCard({ project, wide }: { project: Project; wide?: boolean }) {
           <li key={s} className="work__tag">{s}</li>
         ))}
       </ul>
+
+      {project.disclaimer ? <p className="work__disclaimer">{project.disclaimer}</p> : null}
 
       {link}
     </article>
@@ -346,9 +448,11 @@ export default function Work() {
         </div>
 
         <div className="work__grid">
-          <div className="work__cell work__cell--wide reveal">
-            <ProjectCard project={work.flagship} wide />
-          </div>
+          {work.flagships.map((p) => (
+            <div key={p.id} className="work__cell work__cell--wide reveal">
+              <ProjectCard project={p} wide />
+            </div>
+          ))}
           {work.more.map((p, i) => (
             <div key={p.id} className="work__cell reveal" style={{ transitionDelay: `${i * 80}ms` }}>
               <ProjectCard project={p} />
