@@ -104,4 +104,47 @@ export const skillGlyphs: Record<string, ReactElement> = {
       <path d="M6.4 8.5a3.5 3.5 0 1 0 0 7c2 0 3.1-1.9 5.6-3.5s3.6-3.5 5.6-3.5a3.5 3.5 0 1 1 0 7c-2 0-3.1-1.9-5.6-3.5S8.4 8.5 6.4 8.5Z" />
     </svg>
   ),
+
+  /* Power BI Q&A / NLP - speech bubble with mini bars (ask your data) */
+  qna: (
+    <svg {...base}>
+      <path d="M3 6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H9l-4 3v-3H5a2 2 0 0 1-2-2z" />
+      <path d="M8 11.5V9M12 11.5V7.5M16 11.5V8.5" />
+    </svg>
+  ),
+
+  /* Conversational BI - chat bubble with a prompt caret */
+  prompt: (
+    <svg {...base}>
+      <path d="M3 6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H9l-4 3v-3H5a2 2 0 0 1-2-2z" />
+      <path d="M7.5 7.5l2.2 2.2-2.2 2.2M12.6 11.9H16" />
+    </svg>
+  ),
+
+  /* Multimodal AI (VLMs) - an eye (vision) */
+  vision: (
+    <svg {...base}>
+      <path d="M2.5 12S6 6 12 6s9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6z" />
+      <circle cx="12" cy="12" r="2.6" />
+    </svg>
+  ),
+
+  /* Agentic pipeline - connected nodes (a small graph) */
+  agent: (
+    <svg {...base}>
+      <circle cx="5" cy="12" r="1.9" />
+      <circle cx="12" cy="5.5" r="1.9" />
+      <circle cx="12" cy="18.5" r="1.9" />
+      <circle cx="19" cy="12" r="1.9" />
+      <path d="M6.6 11 10.4 6.9M6.6 13 10.4 17.1M13.6 6.9 17.4 11M13.6 17.1 17.4 13" />
+    </svg>
+  ),
+
+  /* LLM APIs / generative AI - sparkles */
+  llm: (
+    <svg {...base}>
+      <path d="M11 3.5l1.5 4.2 4.2 1.5-4.2 1.5L11 15l-1.5-4.3L5.3 9.2l4.2-1.5z" />
+      <path d="M17.5 14l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z" />
+    </svg>
+  ),
 };

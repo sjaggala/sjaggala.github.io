@@ -35,6 +35,19 @@ export const skills: {
       ],
     },
     {
+      id: "ai",
+      title: "AI & Generative BI",
+      descriptor: "Where BI meets AI.",
+      items: [
+        { name: "Power BI Q&A / NLP", glyph: "qna" },
+        { name: "Conversational BI", glyph: "prompt" },
+        { name: "Multimodal AI (VLMs)", glyph: "vision" },
+        { name: "Agentic pipelines", glyph: "agent" },
+        { name: "Python for ML", icon: "/tech/python.svg" },
+        { name: "LLM APIs", glyph: "llm" },
+      ],
+    },
+    {
       id: "model",
       title: "Semantic modeling",
       descriptor: "Measures, models, and the tooling around them.",
