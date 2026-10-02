@@ -264,7 +264,7 @@ function DashDropMock() {
         </div>
         <svg className="dd__spark" viewBox="0 0 100 16" preserveAspectRatio="none" aria-hidden="true">
           <polygon className="dd__spark-fill" points="0,12 18,9 36,10 54,5 72,7 90,3 100,2 100,16 0,16" />
-          <polyline className="dd__spark-line" points="0,12 18,9 36,10 54,5 72,7 90,3 100,2" fill="none" strokeWidth="1.4" />
+          <polyline className="dd__spark-line" points="0,12 18,9 36,10 54,5 72,7 90,3 100,2" fill="none" strokeWidth="1" vectorEffect="non-scaling-stroke" />
         </svg>
       </div>
     </div>
@@ -348,7 +348,7 @@ function ReportMock() {
             <div className="plot__grid" aria-hidden="true"><i /><i /><i /><i /></div>
             <svg className="area" viewBox="0 0 100 34" preserveAspectRatio="none" aria-hidden="true">
               <polygon className="area__fill" points="0,26 14,20 28,23 42,12 56,15 70,7 84,10 100,4 100,34 0,34" />
-              <polyline className="area__line" points="0,26 14,20 28,23 42,12 56,15 70,7 84,10 100,4" fill="none" strokeWidth="1.4" />
+              <polyline className="area__line" points="0,26 14,20 28,23 42,12 56,15 70,7 84,10 100,4" fill="none" strokeWidth="1" vectorEffect="non-scaling-stroke" />
             </svg>
           </div>
           <div className="axis"><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span></div>
