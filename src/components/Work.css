@@ -237,6 +237,49 @@
   flex-direction: column;
   gap: 0.5em;
 }
+/* framed engineering-drawing panel (file in) */
+.cap__drawing {
+  flex: 0 1 19em;
+  min-width: 13em;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 0.6em;
+  overflow: hidden;
+}
+.cap__draw-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.45em;
+  padding: 0.5em 0.7em;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+}
+.cap__draw-bar svg {
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+.cap__draw-name {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  font-weight: 500;
+  color: var(--text);
+}
+.cap__draw-tag {
+  margin-left: auto;
+  font-size: 0.78em;
+  color: var(--text-dim);
+}
+.cap__draw-body {
+  padding: 0.5em 0.7em;
+  display: flex;
+}
+.cap__draw-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
 .cap__file {
   display: grid;
   grid-template-columns: auto 1fr;

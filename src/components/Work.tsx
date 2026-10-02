@@ -375,32 +375,62 @@ function ReportMock() {
 /* Original, abstract concept visual for the capstone: "many formats in, one
    structured schema out". All synthetic/placeholder content. No sponsor data,
    files, logos, or internal diagrams are used. */
+/* Original, synthetic engineering drawing (a generic dimensioned bracket).
+   Not a real or proprietary part; dimensions match the extracted-data table. */
+function PartDrawing() {
+  const dim = "#64748b";
+  const ext = "#cbd5e1";
+  const ink = "#334155";
+  const txt = "#475569";
+  const mono = "ui-monospace, 'Geist Mono', monospace";
+  return (
+    <svg className="cap__draw-svg" viewBox="0 0 190 120" role="img" aria-label="Dimensioned engineering drawing of a bracket">
+      {/* part body + two holes */}
+      <rect x="36" y="28" width="108" height="54" rx="1.5" fill="#f8fafc" stroke={ink} strokeWidth="1.3" />
+      <circle cx="66" cy="55" r="7.5" fill="#eef2f7" stroke={ink} strokeWidth="1.1" />
+      <circle cx="114" cy="55" r="7.5" fill="#eef2f7" stroke={ink} strokeWidth="1.1" />
+      <path d="M66 51v8M62 55h8M114 51v8M110 55h8" stroke="#94a3b8" strokeWidth="0.6" />
+
+      {/* width dimension (bottom) */}
+      <path d="M36 84v14M144 84v14" stroke={ext} strokeWidth="0.6" />
+      <path d="M38 95h104" stroke={dim} strokeWidth="0.7" />
+      <path d="M38 95l3.4-1.7M38 95l3.4 1.7M142 95l-3.4-1.7M142 95l-3.4 1.7" stroke={dim} strokeWidth="0.7" />
+      <text x="90" y="93" fill={txt} fontFamily={mono} fontSize="7" textAnchor="middle">60.0</text>
+
+      {/* height dimension (left) */}
+      <path d="M36 28H20M36 82H20" stroke={ext} strokeWidth="0.6" />
+      <path d="M24 30v50" stroke={dim} strokeWidth="0.7" />
+      <path d="M24 30l-1.7 3.4M24 30l1.7 3.4M24 80l-1.7-3.4M24 80l1.7-3.4" stroke={dim} strokeWidth="0.7" />
+      <text x="13" y="55" fill={txt} fontFamily={mono} fontSize="7" textAnchor="middle" transform="rotate(-90 13 55)">40.0</text>
+
+      {/* hole diameter leader */}
+      <path d="M119 50l20-13h18" stroke={dim} strokeWidth="0.6" fill="none" />
+      <text x="140" y="34" fill={txt} fontFamily={mono} fontSize="7" textAnchor="start">{"⌀8.0 ±0.1"}</text>
+    </svg>
+  );
+}
+
 function CapstoneMock() {
-  const inputs = [
-    { t: "DXF / DWG", s: "2D CAD" },
-    { t: "Scan / photo", s: "pixels" },
-    { t: "PDF", s: "drawings" },
-    { t: "STEP", s: "3D model" },
-  ];
   const rows = [
-    { f: "Diameter", v: "24.0 mm", c: "0.98", tone: "hi" },
-    { f: "Tolerance", v: "±0.10", c: "0.95", tone: "hi" },
-    { f: "Material", v: "placeholder", c: "0.72", tone: "mid" },
-    { f: "Finish", v: "needs review", c: "0.41", tone: "low" },
+    { f: "Width", v: "60.0 mm", c: "0.98", tone: "hi" },
+    { f: "Hole ⌀", v: "8.0 mm", c: "0.95", tone: "hi" },
+    { f: "Tolerance", v: "±0.10", c: "0.72", tone: "mid" },
+    { f: "Material", v: "review", c: "0.41", tone: "low" },
   ];
   return (
     <div className="mock mock--cap">
-      <div className="cap__col cap__inputs">
-        {inputs.map((i) => (
-          <div key={i.t} className="cap__file">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-              <path d="M14 2v6h6" />
-            </svg>
-            <span className="cap__file-t">{i.t}</span>
-            <span className="cap__file-s">{i.s}</span>
-          </div>
-        ))}
+      <div className="cap__drawing">
+        <div className="cap__draw-bar">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+            <path d="M14 2v6h6" />
+          </svg>
+          <span className="cap__draw-name">part_074.dxf</span>
+          <span className="cap__draw-tag">DXF · 2D CAD</span>
+        </div>
+        <div className="cap__draw-body">
+          <PartDrawing />
+        </div>
       </div>
 
       <div className="cap__flow" aria-hidden="true">
