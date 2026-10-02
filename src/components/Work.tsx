@@ -1,91 +1,194 @@
+import type { ReactNode } from "react";
 import { BrowserFrame } from "./BrowserFrame";
 import { work, type Project } from "../data/work";
 import { useReveal } from "../hooks/useReveal";
 import "./Work.css";
 
 /* --- In-frame visuals (high-fidelity recreations, sample data only) --- */
+function ArNavIcon({ name }: { name: string }) {
+  const p: Record<string, ReactNode> = {
+    home: <path d="M3 10.5 12 3l9 7.5M5 9.5V20h14V9.5" />,
+    projects: <path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />,
+    calendar: (
+      <>
+        <rect x="3" y="4.5" width="18" height="16" rx="2" />
+        <path d="M3 9h18M8 2.5v4M16 2.5v4" />
+      </>
+    ),
+    focus: (
+      <>
+        <circle cx="12" cy="12" r="8" />
+        <circle cx="12" cy="12" r="3" />
+      </>
+    ),
+    lists: <path d="M8 6h13M8 12h13M8 18h13M3.5 6h.01M3.5 12h.01M3.5 18h.01" />,
+    people: (
+      <>
+        <circle cx="9" cy="8" r="3" />
+        <path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M16 5.5a3 3 0 0 1 0 6M21 20c0-2.5-1.3-4-3-5" />
+      </>
+    ),
+  };
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      {p[name]}
+    </svg>
+  );
+}
+
+function ArPri({ level }: { level: "high" | "med" | "low" }) {
+  return (
+    <span className={`ar__pri ar__pri--${level}`}>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        {level === "high" ? (
+          <path d="M12 19V5M6 11l6-6 6 6" />
+        ) : level === "low" ? (
+          <path d="M12 5v14M6 13l6 6 6-6" />
+        ) : (
+          <path d="M5 9h14M5 15h14" />
+        )}
+      </svg>
+      {level === "high" ? "High" : level === "low" ? "Low" : "Medium"}
+    </span>
+  );
+}
+
 function ArcusMock() {
-  const stats = [
-    { n: "4", l: "Projects" },
-    { n: "3", l: "Active Goals" },
-    { n: "1", l: "Overdue" },
-    { n: "8", l: "Pending Tasks" },
+  const nav = ["home", "projects", "calendar", "focus", "lists", "people"];
+  const navLabels: Record<string, string> = {
+    home: "Home", projects: "Projects", calendar: "Calendar",
+    focus: "Focus", lists: "Lists", people: "People",
+  };
+  const tasks: {
+    t: string; s: string; st: string; pr: "high" | "med" | "low";
+    proj: string; d: string; due?: boolean;
+  }[] = [
+    { t: "Design review · Planner shell", s: "In Progress", st: "prog", pr: "high", proj: "Planner App", d: "Jun 21", due: true },
+    { t: "Ship Kanban drag fix", s: "In Progress", st: "prog", pr: "high", proj: "Planner App", d: "Jun 21", due: true },
+    { t: "Write streak-reminder spec", s: "Backlog", st: "back", pr: "low", proj: "Planner App", d: "Jun 21", due: true },
+    { t: "Polish empty states", s: "Backlog", st: "back", pr: "med", proj: "Planner App", d: "Jun 21", due: true },
+    { t: "Wire up quick search", s: "Backlog", st: "back", pr: "med", proj: "Planner App", d: "Jun 21", due: true },
+    { t: "Create-task modal", s: "Backlog", st: "back", pr: "med", proj: "Planner App", d: "Jun 21", due: true },
+    { t: "Audit onboarding flow", s: "In Progress", st: "prog", pr: "med", proj: "Mobile", d: "Jun 22" },
+    { t: "Draft pricing model v2", s: "Review", st: "rev", pr: "high", proj: "Marketing", d: "Jun 25" },
   ];
-  const events = [
-    { t: "Team standup", d: "Today", tag: "Today", tone: "now", today: true },
-    { t: "Design review", d: "Sep 26", tag: "Reminder", tone: "amber" },
-    { t: "Sprint planning", d: "Sep 28", tag: "Reminder", tone: "amber" },
-    { t: "Product launch", d: "Oct 2", tag: "Deadline", tone: "red" },
+  const days: {
+    day: string; date: string;
+    items: { time: string; t?: string; meta?: string; badge?: string; now?: boolean }[];
+  }[] = [
+    {
+      day: "Today", date: "Jun 21",
+      items: [
+        { time: "All day", t: "Tax filing deadline", meta: "Ops", badge: "Deadline" },
+        { now: true, time: "12:18 AM" },
+        { time: "9:00 AM", t: "Send weekly digest", meta: "Marketing" },
+        { time: "10:00 AM", t: "Team standup", meta: "Planner App" },
+        { time: "12:30 PM", t: "Lunch with design team", meta: "Planner App" },
+        { time: "4:30 PM", t: "1:1 with Priya", meta: "Planner App" },
+        { time: "5:30 PM", t: "Beta cut review", meta: "Planner App" },
+      ],
+    },
+    { day: "Tomorrow", date: "Jun 22", items: [{ time: "11:00 AM", t: "Onboarding sync", meta: "Mobile" }] },
+    { day: "Tuesday", date: "Jun 23", items: [{ time: "11:00 AM", t: "User interviews (3 scheduled)", meta: "Marketing" }] },
+    { day: "Wednesday", date: "Jun 24", items: [{ time: "10:00 AM", t: "Sprint planning", meta: "Planner App" }] },
   ];
-  const tasks = [
-    { t: "Draft homepage copy", m: "Product Launch · 09-27", p: "High", tone: "high" },
-    { t: "Review design mockups", m: "Product Launch · 09-26", p: "Medium", tone: "med" },
-    { t: "Prep demo dataset", m: "Analytics · 09-30", p: "Medium", tone: "med" },
-    { t: "Publish release notes", m: "Docs · 10-01", p: "Low", tone: "low" },
-  ];
+
   return (
     <div className="mock mock--arcus">
-      <div className="am__nav">
-        <span className="am__brand">Arc<span>us</span></span>
-        <span className="am__links">
-          <span className="am__link is-active">Home</span>
-          <span className="am__link">Projects</span>
-          <span className="am__link">Tasks</span>
-          <span className="am__link">Events</span>
-          <span className="am__link">Journal</span>
-          <span className="am__link">Focus</span>
-        </span>
-        <span className="am__ava">SJ</span>
-      </div>
-      <div className="am__body">
-        <div className="am__head">
+      {/* sidebar */}
+      <aside className="ar__side">
+        <div className="ar__logo">
+          <span className="ar__logo-sq">A</span>
+          <span className="ar__logo-w">Arcus</span>
+        </div>
+        <nav className="ar__nav">
+          {nav.map((n) => (
+            <span key={n} className={`ar__navitem ${n === "home" ? "is-active" : ""}`}>
+              <ArNavIcon name={n} />
+              {navLabels[n]}
+            </span>
+          ))}
+        </nav>
+      </aside>
+
+      {/* main */}
+      <div className="ar__main">
+        <div className="ar__top">
+          <span className="ar__crumb">Home <b>/</b> Tasks</span>
+          <span className="ar__top-r">
+            <span className="ar__search">⌘ Ctrl + F to quick search</span>
+            <span className="ar__ava">SJ</span>
+          </span>
+        </div>
+
+        <div className="ar__greet">
           <div>
-            <div className="am__hi">Good evening, Sravan!</div>
-            <div className="am__sub">Friday, September 25, 2026</div>
-            <div className="am__sub am__sub--dim">Graduate Student</div>
+            <div className="ar__hi">Good morning, Sravan</div>
+            <div className="ar__date">Sunday, June 21</div>
           </div>
-          <div className="am__stats">
-            {stats.map((s) => (
-              <div key={s.l} className="am__stat">
-                <div className="am__stat-n">{s.n}</div>
-                <div className="am__stat-l">{s.l}</div>
-              </div>
-            ))}
-          </div>
+          <span className="ar__week">This Week ▾</span>
         </div>
-        <div className="am__cols">
-          <div className="am__panel">
-            <div className="am__panel-top">
-              <span className="am__panel-h">Upcoming Events</span>
-              <span className="am__btn">+ Event</span>
-            </div>
-            {events.map((e) => (
-              <div key={e.t} className={`am__row ${e.today ? "is-today" : ""}`}>
-                <span className="am__row-l">
-                  <span className="am__row-t">{e.t}</span>
-                  <span className={`am__chip ${e.today ? "am__chip--now" : ""}`}>{e.d}</span>
-                </span>
-                <span className={`am__tag am__tag--${e.tone}`}>{e.tag}</span>
-              </div>
-            ))}
+
+        <div className="ar__tabs">
+          <span className="ar__tab is-active">Tasks <b>8</b></span>
+          <span className="ar__tab">Events <b>9</b></span>
+          <span className="ar__gear" aria-hidden="true">⚙</span>
+        </div>
+
+        <div className="ar__table">
+          <div className="ar__thead">
+            <span>Title</span><span>Status</span><span>Priority</span><span>Project</span><span>Due date</span>
           </div>
-          <div className="am__panel">
-            <div className="am__panel-top">
-              <span className="am__panel-h">Tasks Due</span>
-              <span className="am__btn">+ Task</span>
+          {tasks.map((t) => (
+            <div key={t.t} className="ar__trow">
+              <span className="ar__tt">{t.t}</span>
+              <span><span className={`ar__status ar__status--${t.st}`}>{t.s}</span></span>
+              <span><ArPri level={t.pr} /></span>
+              <span className="ar__proj">{t.proj}</span>
+              <span className={t.due ? "ar__due" : "ar__due ar__due--plain"}>{t.d}</span>
             </div>
-            {tasks.map((t) => (
-              <div key={t.t} className="am__row">
-                <span className="am__row-l">
-                  <span className="am__row-t">{t.t}</span>
-                  <span className="am__row-m">{t.m}</span>
-                </span>
-                <span className={`am__tag am__tag--${t.tone}`}>{t.p}</span>
-              </div>
-            ))}
-          </div>
+          ))}
         </div>
       </div>
+
+      {/* schedule */}
+      <aside className="ar__sched">
+        <div className="ar__sched-h">
+          <span className="ar__sched-t">Schedule</span>
+          <span className="ar__sched-w">This Week</span>
+        </div>
+        <div className="ar__timeline">
+          {days.map((d) => (
+            <div key={d.day} className="ar__daygrp">
+              <div className="ar__dayhead">
+                {d.day} <span>{d.date}</span>
+              </div>
+              {d.items.map((it, i) =>
+                it.now ? (
+                  <div key={i} className="ar__now">
+                    <span className="ar__now-time">{it.time}</span>
+                    <span className="ar__now-dot" />
+                    <span className="ar__now-line" />
+                    <span className="ar__now-lab">NOW</span>
+                  </div>
+                ) : (
+                  <div key={i} className="ar__ev">
+                    <span className="ar__ev-time">{it.time}</span>
+                    <span className="ar__ev-dot" />
+                    <span className="ar__ev-body">
+                      <span className="ar__ev-t">
+                        {it.t}
+                        {it.badge ? <span className="ar__ev-badge">{it.badge}</span> : null}
+                      </span>
+                      <span className="ar__ev-meta">{it.meta}</span>
+                    </span>
+                  </div>
+                )
+              )}
+            </div>
+          ))}
+        </div>
+      </aside>
     </div>
   );
 }
