@@ -44,8 +44,8 @@ export const work: {
       status: "Live",
       visual: "arcus",
       description:
-        "A full personal-productivity suite: dashboard, tasks (Kanban + list), a Gantt-style planner, calendar, journaling with live transliteration, a focus board, and real-time sharing between accounts.",
-      role: "Built end to end as a pure client-side app with Firebase Auth and Firestore cloud sync, offline-first on localStorage, deployed on Firebase Hosting.",
+        "A full productivity suite I built solo: tasks in Kanban and list views, a Gantt planner, calendar, journaling with live transliteration, a focus board, and real-time sync across accounts. Proof that a BI person can ship real software, not just dashboards.",
+      role: "Built end to end with no backend team: a pure client-side app, Firebase Auth and Firestore for cloud sync, offline-first on localStorage, deployed on Firebase Hosting.",
       stack: [
         "JavaScript",
         "HTML",
@@ -103,7 +103,7 @@ export const work: {
       status: "In progress",
       visual: "dashdrop",
       description:
-        "Drop in an Excel or CSV file and get a clean, auto-generated dashboard back, with light customization on top. The BI-plus-software-plus-AI idea I'm prototyping now.",
+        "Drop in an Excel or CSV and get a clean, auto-generated dashboard back, tweakable from there. It's the BI-meets-software-meets-AI idea I'm prototyping right now.",
       role: "Planned: a typed React front end, a charting layer, client-side spreadsheet parsing, and an AI assist that picks the right visuals for your data.",
       stack: ["React", "TypeScript", "Charting", "XLSX / CSV", "AI assist"],
       linkLabel: "In development",
@@ -117,7 +117,7 @@ export const work: {
       status: "Gallery",
       visual: "report",
       description:
-        "Enterprise reports I built for clients, rebuilt with synthetic data across retail, manufacturing, finance and more. Each tile opens a full, interactive Power BI report.",
+        "A set of client dashboards I'm rebuilding with synthetic data, across retail, manufacturing, finance and more, to show the modeling, DAX and layout without the confidential parts. Live gallery coming soon.",
       role: "Power BI: semantic modeling, DAX, custom visuals, embedded reports.",
       stack: ["Power BI", "DAX", "Power Query", "Embedded"],
       linkLabel: "Explore the gallery",

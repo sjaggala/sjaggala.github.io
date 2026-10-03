@@ -37,7 +37,7 @@ export const skills: {
     {
       id: "ai",
       title: "AI & Generative BI",
-      descriptor: "Where BI meets AI.",
+      descriptor: "The direction I'm pushing in.",
       items: [
         { name: "Power BI Q&A / NLP", glyph: "qna" },
         { name: "Conversational BI", glyph: "prompt" },

@@ -7,13 +7,13 @@ export const site = {
   wordmark: "sjaggala.github.io",
   initials: "SJ",
   role: "BI & Analytics Engineer",
-  badge: "BI & Analytics Engineer · 7+ years shipping",
+  badge: "BI & Analytics Engineer · 7 years shipping Power BI",
   // Hero headline (two lines) + emoji
   heroLine1: "Hi, I'm Sravan",
   heroLine2: "I build BI that answers back.",
   // One-liner shown under the headline in the hero
   positioning:
-    "Business Intelligence engineer/architect. ~7 years of enterprise Power BI: the models underneath, the reports on top, and governance holding it together. Now bringing AI into the loop with conversational, generative BI.",
+    "Business Intelligence engineer and architect with seven years in enterprise Power BI: the models underneath, the reports on top, and the governance that keeps the numbers trustworthy. Lately I've been pulling AI into the work, conversational and generative BI.",
   availability: "Available for full-time roles",
   location: "Chicago, IL · CT (UTC-6)", // city + timezone (per Sravan 2026-09-25); no street address / phone
   email: "sravan.jaggala@outlook.com",
@@ -33,8 +33,8 @@ export const site = {
 /* Proof stats for the hero strip */
 export const stats: { value: string; label: string }[] = [
   { value: "7+", label: "Years in BI & analytics" },
-  { value: "6", label: "Enterprise clients delivered" },
-  { value: "2.5h → 7m", label: "Dataset refresh, redesigned" },
+  { value: "6", label: "Enterprise clients served" },
+  { value: "2.5h → 7m", label: "Refresh time, rebuilt" },
   { value: "80%", label: "Less manual deployment (CI/CD)" },
 ];
 

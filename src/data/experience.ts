@@ -49,11 +49,11 @@ export const experience: {
       logo: "/companies/MT-Home-Logo-1-1.png",
       current: true,
       points: [
-        "Functioned as an Associate Manager in my final year, leading a team of five and owning end-to-end delivery of enterprise Power BI solutions.",
-        "Built Power BI CI/CD pipelines on Azure DevOps with PowerShell and the REST APIs, cutting manual deployment effort by ~80%.",
-        "Re-architected centralized semantic models with row-level security and incremental refresh, cutting dataset refreshes from 2.5 hours to 7 minutes.",
-        "Trained Power BI Q&A models and built prompt-driven visualization interfaces with AI/ML engineers, making reports answerable in plain English.",
-        "Developed custom Power BI visuals in React & TypeScript, deployed across the organization.",
+        "Led a team of five and, in my last year, stepped into an Associate Manager role, owning Power BI delivery end to end while staying hands-on in the models myself.",
+        "Deployments used to be a manual, error-prone slog. I built CI/CD pipelines on Azure DevOps with PowerShell and the REST APIs that cut that manual effort by about 80%.",
+        "Rebuilt the central semantic models with row-level security and incremental refresh, dropping dataset refreshes from 2.5 hours to 7 minutes. Dashboards stopped being stale by the time anyone opened them.",
+        "Worked with AI/ML engineers to train Power BI Q&A models and build prompt-driven interfaces, so people could ask a report a plain-English question instead of waiting on me for a new view.",
+        "Built custom Power BI visuals in React and TypeScript that shipped across the whole organization.",
       ],
     },
     {
@@ -64,8 +64,8 @@ export const experience: {
       location: "Hyderabad, India",
       logo: "/companies/blue-yonder-logo-blue.webp",
       points: [
-        "Embedded Power BI into external Azure applications using the REST APIs and app registrations.",
-        "Partnered with .NET developers to ship secure, integrated analytics.",
+        "Embedded Power BI reports into external-facing Azure apps using the REST APIs and app registrations, so analytics showed up where customers already were.",
+        "Teamed up with .NET developers to keep it secure and properly integrated, not bolted on.",
       ],
     },
     {
@@ -77,8 +77,8 @@ export const experience: {
       logo: "/companies/hcltech-logo.svg",
       logoH: 18, // hcltech wordmark reads large - trim it down to match the row
       points: [
-        "Migrated legacy Oracle BIEE reporting to Power BI and trained business teams on the new workflows.",
-        "Built governance dashboards with the Power BI REST APIs, automated via PowerShell.",
+        "Moved a legacy Oracle BIEE estate onto Power BI and walked the business teams through the new workflows. Migrations only stick if people come along.",
+        "Built governance dashboards on the Power BI REST APIs and automated the upkeep with PowerShell.",
       ],
     },
     {
@@ -91,8 +91,8 @@ export const experience: {
       logoH: 22, // Microsoft lockup reads large - trim slightly
       via: "LTIMindtree",
       points: [
-        "Led a five-engineer Power BI support team, resolving advanced development and advisory cases.",
-        "Worked directly with Microsoft product teams on complex issues and feature feedback.",
+        "Led a five-engineer team on Microsoft's toughest Power BI support and advisory cases, the ones escalated past the usual channels.",
+        "Worked directly with Microsoft's product teams on the hardest issues, and fed real-world gaps back into the product.",
       ],
     },
     {
@@ -104,7 +104,7 @@ export const experience: {
       logo: "/clients/ness-technologies-dark.svg",
       logoH: 46, // compact round mark reads small - bump it up to match the row
       points: [
-        "Developed and enhanced Power BI reports alongside senior engineers, where the BI career started.",
+        "Where it started: building and refining Power BI reports next to senior engineers, and getting hooked on the craft.",
       ],
     },
   ],

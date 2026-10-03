@@ -20,7 +20,7 @@ export const faq: {
       id: "work-auth",
       question: "Are you authorized to work in the US?",
       answer:
-        "Yes. I'm on F-1 status, and as a STEM graduate I'm eligible for OPT plus the 24-month STEM extension: roughly three years of work authorization without needing H-1B sponsorship right away. In practice that means I can start now and there's a long runway before sponsorship is even a conversation.",
+        "Yes, fully. As a STEM graduate I'm eligible for OPT plus the 24-month STEM extension, roughly three years of work authorization with no H-1B sponsorship needed. In plain terms: I can start now, and sponsorship isn't a conversation we'd need to have for years.",
     },
     {
       id: "roles",

@@ -21,19 +21,19 @@ export const whatIDo: {
       id: "bi",
       icon: "database",
       title: "Enterprise BI & governance",
-      body: "Centralized semantic models, DAX that stays fast, and governed reporting that scales past one team. Star schemas, row-level security, incremental refresh, and clean migrations off Oracle BIEE, QlikView, SSRS and Excel, without breaking the numbers people already trust.",
+      body: "The foundation work: star-schema semantic models, DAX that stays fast as data grows, row-level security, and incremental refresh. I've moved whole teams off Oracle BIEE, QlikView, SSRS and Excel onto Power BI without breaking the numbers they already trusted.",
     },
     {
       id: "embedded",
       icon: "layers",
       title: "Custom & embedded analytics",
-      body: "Analytics that live inside the product, not just a report tab. Custom Power BI visuals in React and TypeScript, reports embedded through Azure app registrations and REST APIs, and CI/CD with Azure DevOps and PowerShell so releases stop being manual. One deploy cut the effort by 80%.",
+      body: "Analytics that live inside the product, not off in a report tab. I build custom Power BI visuals in React and TypeScript, embed reports into apps through Azure and the REST APIs, and wire up CI/CD so releases stop being a manual chore. One pipeline cut that effort by 80%.",
     },
     {
       id: "ai",
       icon: "sparkles",
       title: "Generative & conversational BI",
-      body: "Natural language brought to business data. Power BI Q&A models trained for the questions people actually ask, prompt-driven visualization interfaces built alongside AI/ML engineers, and a UIC MS in Business Analytics (ML, DBMS, optimization) sharpening the AI side.",
+      body: "The newer edge: making data answer plain-English questions. I've trained Power BI Q&A models around how people actually ask, and built prompt-driven interfaces with AI/ML engineers that turn a question into the right chart. A UIC MS in Business Analytics is sharpening the ML and modeling underneath.",
     },
   ],
 };
