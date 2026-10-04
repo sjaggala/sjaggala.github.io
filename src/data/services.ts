@@ -21,7 +21,7 @@ export const whatIDo: {
       id: "bi",
       icon: "database",
       title: "Enterprise BI & governance",
-      body: "Centralized, star-schema semantic models, performant DAX, row-level security, and incremental refresh: the governed foundation that scales beyond a single team. I have led migrations from Oracle BIEE, QlikView, SSRS, and Excel to Power BI while preserving the numbers stakeholders already rely on.",
+      body: "Centralized, star-schema semantic models, performant DAX, row-level security, and incremental refresh: the governed foundation that scales beyond a single team. I administer the Power BI tenant end to end, workspaces, capacity, access, and on-premises gateways, and have migrated teams off Oracle BIEE, QlikView, SSRS, and Excel to Power BI without breaking the numbers they already rely on.",
     },
     {
       id: "embedded",

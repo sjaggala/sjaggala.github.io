@@ -89,7 +89,7 @@ export const experience: {
       period: "Apr 2019 – Sep 2020",
       duration: "1 yr 5 mos",
       location: "Hyderabad, India",
-      // logo: "/companies/ltimindtree.svg", // add the logo file to /public/companies, then uncomment
+      logo: "/companies/LTM-Logo.svg",
       points: [
         "Led a five-engineer Power BI support and advisory team for Microsoft, resolving advanced development and configuration cases.",
         "Administered Power BI at the tenant level: workspaces, capacity, access control, and deployment pipelines.",

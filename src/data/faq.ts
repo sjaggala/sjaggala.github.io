@@ -20,7 +20,7 @@ export const faq: {
       id: "work-auth",
       question: "Are you authorized to work in the US?",
       answer:
-        "Yes. As a STEM graduate, I am eligible for OPT plus the 24-month STEM extension, which provides roughly three years of work authorization without H-1B sponsorship. In practical terms, I can begin immediately, and sponsorship would not become a consideration for years.",
+        "Yes. As a STEM graduate, I am eligible for OPT plus the 24-month STEM extension, which provides roughly three years of work authorization without H-1B sponsorship. In practical terms, I can start as soon as my OPT begins in January 2027, with no sponsorship needed for years.",
     },
     {
       id: "roles",
@@ -50,13 +50,13 @@ export const faq: {
       id: "leadership",
       question: "Have you led teams, or just built reports?",
       answer:
-        "Both. In my last year at Mouri Tech I functioned as an Associate Manager, leading a team of five and owning delivery end to end, while still hands-on in the models and reports. I like staying close to the work.",
+        "Leading teams isn't new for me. I led teams and owned end-to-end delivery well before the title caught up with it; at Mouri Tech that was formalized when I was promoted to Associate Manager in my final year, and earlier, at LTI Mindtree, I led a five-member team supporting Microsoft. I've stayed hands-on in the models and reports throughout, I prefer to lead close to the work.",
     },
     {
       id: "start",
       question: "Are you available, and how do we start?",
       answer:
-        "I'm available for full-time roles now. Email sravan.jaggala@outlook.com with the role and what you're trying to solve. If it's a fit, I'll come back with how I'd approach it; if it isn't, I'll say so.",
+        "I'm graduating in December 2026 and available to start in January 2027, when my STEM OPT work authorization begins. Email sravan.jaggala@outlook.com with the role and what you're trying to solve; if it's a fit, I'll come back with how I'd approach it, and if it isn't, I'll say so.",
     },
   ],
 };
