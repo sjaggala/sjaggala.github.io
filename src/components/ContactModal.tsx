@@ -165,7 +165,6 @@ function ContactDialog({
           </svg>
         </button>
 
-        <span className="eyebrow">{contact.eyebrow}</span>
         <h2 id="cm-title" className="cm__title">
           Start a conversation
         </h2>
