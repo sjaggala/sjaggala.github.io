@@ -76,7 +76,7 @@ export const experience: {
       duration: "1 yr 1 mo",
       location: "Haryana, India",
       logo: "/companies/hcltech-logo.svg",
-      logoH: 18, // hcltech wordmark reads large - trim it down to match the row
+      logoH: 15, // hcltech wordmark reads large - trim it down to match the row
       points: [
         "Migrated a legacy Oracle BIEE reporting estate to Power BI, guiding business teams through the transition to the new workflows.",
         "Built governance dashboards on the Power BI REST APIs, with routine updates automated through PowerShell.",
@@ -90,6 +90,7 @@ export const experience: {
       duration: "1 yr 5 mos",
       location: "Hyderabad, India",
       logo: "/companies/LTM-Logo.svg",
+      logoH: 16, // LTI Mindtree wordmark reads large at the tier height - trim to match the row
       points: [
         "Led a five-engineer Power BI support and advisory team for Microsoft, resolving advanced development and configuration cases.",
         "Administered Power BI at the tenant level: workspaces, capacity, access control, and deployment pipelines.",
