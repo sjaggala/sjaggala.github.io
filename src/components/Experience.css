@@ -136,15 +136,29 @@
   background: var(--border-strong);
 }
 
-/* --- Education (single full-width card, logos per school) --- */
-.xp__edu {
+/* --- Education + Community info cards (2-up on desktop, stack on mobile) --- */
+.xp__info-grid {
   margin: 1.25rem auto 0;
   max-width: 56rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+.xp__info-card {
   background: var(--bg);
   border: 1px solid var(--border);
   border-radius: var(--r-lg);
   padding: var(--sp-6);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+.xp__comm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  text-decoration: none;
+}
+.xp__comm:hover .xp__sub-primary {
+  color: var(--text-hover);
 }
 .xp__info-title {
   font-family: var(--font-display);
@@ -248,5 +262,12 @@
     align-items: flex-end;
     text-align: right;
     flex-shrink: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .xp__info-grid {
+    grid-template-columns: 1.5fr 1fr;
+    align-items: start;
   }
 }

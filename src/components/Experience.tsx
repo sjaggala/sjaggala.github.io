@@ -74,7 +74,8 @@ export default function Experience() {
           ))}
         </div>
 
-        <div className="xp__edu reveal">
+        <div className="xp__info-grid reveal">
+          <div className="xp__info-card">
           <h3 className="xp__info-title">Education</h3>
           <ul className="xp__edu-list" role="list">
             {experience.education.map((ed) => (
@@ -97,6 +98,24 @@ export default function Experience() {
               </li>
             ))}
           </ul>
+          </div>
+          {experience.community && (
+            <div className="xp__info-card">
+              <h3 className="xp__info-title">Community</h3>
+              <a
+                className="xp__comm"
+                href={experience.community.href}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span className="xp__sub-primary">{experience.community.org}</span>
+                <span className="xp__sub-secondary">
+                  {experience.community.role} · {experience.community.period}
+                </span>
+                <span className="xp__sub-note">{experience.community.note}</span>
+              </a>
+            </div>
+          )}
         </div>
       </div>
     </section>

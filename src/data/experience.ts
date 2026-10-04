@@ -35,6 +35,7 @@ export const experience: {
   roles: Role[];
   education: Education[];
   awards: Award[];
+  community: { org: string; role: string; period: string; href: string; note: string };
 } = {
   eyebrow: "Experience",
   heading: "Seven years of client-facing BI.",
@@ -132,4 +133,11 @@ export const experience: {
     { title: "GEM & SPOT Awards", org: "Mouri Tech", year: "2024" },
     { title: "Top Innovator Award", org: "Blue Yonder", year: "2022" },
   ],
+  community: {
+    org: "Microsoft Fabric Community",
+    role: "Solution Specialist",
+    period: "2022 – 2024",
+    href: "https://community.fabric.microsoft.com/users/_sfrost/276096",
+    note: "Answered analytics, data-modeling, and reporting questions from users worldwide, with 43 accepted solutions.",
+  },
 };
