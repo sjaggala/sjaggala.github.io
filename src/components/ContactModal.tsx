@@ -187,7 +187,9 @@ function ContactDialog({
 
             <div className="cm__grid">
               <label className="cm__label">
-                Name <span className="cm__req">*</span>
+                <span className="cm__label-text">
+                  Name <span className="cm__req">*</span>
+                </span>
                 <input
                   ref={firstFieldRef}
                   className="cm__input"
@@ -198,7 +200,9 @@ function ContactDialog({
                 />
               </label>
               <label className="cm__label">
-                Email <span className="cm__req">*</span>
+                <span className="cm__label-text">
+                  Email <span className="cm__req">*</span>
+                </span>
                 <input
                   className="cm__input"
                   type="email"
@@ -208,7 +212,7 @@ function ContactDialog({
                 />
               </label>
               <label className="cm__label">
-                Company
+                <span className="cm__label-text">Company</span>
                 <input
                   className="cm__input"
                   type="text"
@@ -217,13 +221,13 @@ function ContactDialog({
                 />
               </label>
               <label className="cm__label">
-                Role / position
+                <span className="cm__label-text">Role / position</span>
                 <input className="cm__input" type="text" name="role" />
               </label>
             </div>
 
             <label className="cm__label">
-              Job post link
+              <span className="cm__label-text">Job post link</span>
               <input
                 className="cm__input"
                 type="url"
@@ -234,7 +238,9 @@ function ContactDialog({
             </label>
 
             <label className="cm__label">
-              Message <span className="cm__req">*</span>
+              <span className="cm__label-text">
+                Message <span className="cm__req">*</span>
+              </span>
               <textarea
                 className="cm__input cm__textarea"
                 name="message"

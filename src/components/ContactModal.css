@@ -86,6 +86,11 @@
   font-weight: 500;
   color: var(--text);
 }
+.cm__label-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+}
 .cm__req {
   color: #dc2626; /* red-600 - required marker */
   font-weight: 400;
