@@ -26,7 +26,7 @@ export const faq: {
       id: "roles",
       question: "What roles are you looking for?",
       answer:
-        "Full-time BI Developer / BI Architect, Analytics Engineer, or AI/BI roles. I'm strongest where a semantic model, governed reporting, and a bit of engineering meet, and increasingly where BI meets generative AI.",
+        "Full-time or consulting roles in BI and analytics: BI Developer / BI Architect, Analytics Engineer, or AI/BI. I'm strongest where a semantic model, governed reporting, and a bit of engineering meet, and increasingly where BI meets generative AI.",
     },
     {
       id: "relocation",
@@ -56,7 +56,7 @@ export const faq: {
       id: "start",
       question: "Are you available, and how do we start?",
       answer:
-        "I'm graduating in December 2026 and available to start in January 2027, when my STEM OPT work authorization begins. Email sravan.jaggala@outlook.com with the role and what you're trying to solve; if it's a fit, I'll come back with how I'd approach it, and if it isn't, I'll say so.",
+        "I'm graduating in December 2026 and available to start in January 2027, when my OPT work authorization begins. Email sravan.jaggala@outlook.com with the role and what you're trying to solve; if it's a fit, I'll come back with how I'd approach it, and if it isn't, I'll say so.",
     },
   ],
 };
