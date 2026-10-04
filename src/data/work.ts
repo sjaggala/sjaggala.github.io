@@ -44,8 +44,8 @@ export const work: {
       status: "Live",
       visual: "arcus",
       description:
-        "A complete personal-productivity suite built single-handedly: tasks in Kanban and list views, a Gantt-style planner, calendar, journaling with live transliteration, a focus board, and real-time sharing across accounts. Evidence that a BI professional can also deliver production-grade software.",
-      role: "Built end to end as a pure client-side application, with Firebase Auth and Firestore for cloud sync, offline-first on localStorage, and deployed on Firebase Hosting.",
+        "A complete personal-productivity suite I designed and built end to end. Tasks live as cards you can organize on Kanban boards or in flat lists, alongside a Gantt-style planner for scheduling, a calendar, a focus board for deep-work sessions, and a journal with live transliteration. Any item can be shared with another account and stays in sync in real time. Evidence that a BI professional can also deliver production-grade software.",
+      role: "Built as a pure client-side application: authentication and per-user data through Firebase Auth, an offline-first store on localStorage so it stays fully usable with no connection, and Firestore syncing changes to the cloud the moment you reconnect. Deployed on Firebase Hosting.",
       stack: [
         "JavaScript",
         "HTML",
@@ -106,7 +106,7 @@ export const work: {
         "Upload an Excel or CSV file and receive a clean, auto-generated dashboard with room for light customization. The BI, software, and AI concept I am currently prototyping.",
       role: "Planned: a typed React front end, a charting layer, client-side spreadsheet parsing, and an AI assist that picks the right visuals for your data.",
       stack: ["React", "TypeScript", "Charting", "XLSX / CSV", "AI assist"],
-      linkLabel: "In development",
+      linkLabel: "Coming soon",
       locked: true,
     },
     {
@@ -120,7 +120,7 @@ export const work: {
         "Enterprise dashboards originally built for clients, rebuilt with synthetic data across retail, manufacturing, finance, and more, demonstrating the modeling, DAX, and layout without any confidential material. Interactive gallery coming soon.",
       role: "Power BI: semantic modeling, DAX, custom visuals, embedded reports.",
       stack: ["Power BI", "DAX", "Power Query", "Embedded"],
-      linkLabel: "Explore the gallery",
+      linkLabel: "Coming soon",
       locked: true,
     },
   ],

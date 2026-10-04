@@ -128,7 +128,8 @@
 }
 .work__link.is-disabled {
   color: var(--text-dim);
-  cursor: not-allowed;
+  font-weight: 500;
+  cursor: default;
   pointer-events: none;
 }
 

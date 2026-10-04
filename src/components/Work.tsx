@@ -485,9 +485,8 @@ function Visual({ v }: { v: Project["visual"] }) {
 
 function ProjectCard({ project, wide }: { project: Project; wide?: boolean }) {
   const link = project.noLink ? null : project.locked ? (
-    <span className="work__link is-disabled" aria-disabled="true" title="Coming soon">
+    <span className="work__link is-disabled" aria-disabled="true">
       {project.linkLabel}
-      <Arrow />
     </span>
   ) : (
     <a
