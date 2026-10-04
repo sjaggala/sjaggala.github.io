@@ -32,3 +32,6 @@ public/schools/*.eps
 
 # GitHub Actions workflow (needs a token with "workflow" scope to push)
 .github/
+
+# Partial browser downloads
+*.crdownload
