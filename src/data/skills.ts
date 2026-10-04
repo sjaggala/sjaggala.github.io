@@ -91,6 +91,8 @@ export const skills: {
       items: [
         { name: "Azure", icon: "/tech/azure.svg" },
         { name: "Azure DevOps", icon: "/tech/azuredevops.svg" },
+        { name: "Power BI Service admin", glyph: "pbiadmin" },
+        { name: "Data gateways", glyph: "gateway" },
         { name: "Git", icon: "/tech/git.svg" },
         { name: "Power BI REST APIs", glyph: "restapi" },
         { name: "CI/CD pipelines", glyph: "cicd" },

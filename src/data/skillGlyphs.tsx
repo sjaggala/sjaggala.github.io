@@ -147,4 +147,23 @@ export const skillGlyphs: Record<string, ReactElement> = {
       <path d="M17.5 14l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z" />
     </svg>
   ),
+
+  /* Power BI Service administration - gear inside a shield (govern + manage) */
+  pbiadmin: (
+    <svg {...base}>
+      <path d="M12 3l7 2.5v5.6c0 4.3-3 7.2-7 8.9-4-1.7-7-4.6-7-8.9V5.5z" />
+      <circle cx="12" cy="11" r="2.1" />
+      <path d="M12 7.4v1.5M12 13.1v1.5M8.6 11h1.3M14.1 11h1.3" />
+    </svg>
+  ),
+
+  /* Data gateway - on-prem and cloud nodes bridged (hybrid connectivity) */
+  gateway: (
+    <svg {...base}>
+      <rect x="3" y="9.5" width="4.5" height="8" rx="1" />
+      <rect x="16.5" y="9.5" width="4.5" height="8" rx="1" />
+      <path d="M7.5 7.2a6 6 0 0 1 9 0" />
+      <path d="M7.5 13.5h6.4M12 11.4l2.3 2.1-2.3 2.1" />
+    </svg>
+  ),
 };

@@ -12,6 +12,7 @@ export type Role = {
   logoH?: number; // per-logo height override (px) when a mark reads optically off
   mono?: string; // legacy initials - unused now that we render logos/wordmarks
   via?: string; // staffing/partner arrangement, shown subtly
+  client?: string; // client served while employed via a staffing partner
   current?: boolean;
   points: string[];
 };
@@ -49,11 +50,11 @@ export const experience: {
       logo: "/companies/MT-Home-Logo-1-1.png",
       current: true,
       points: [
-        "Led a team of five and, in my last year, stepped into an Associate Manager role, owning Power BI delivery end to end while staying hands-on in the models myself.",
-        "Deployments used to be a manual, error-prone slog. I built CI/CD pipelines on Azure DevOps with PowerShell and the REST APIs that cut that manual effort by about 80%.",
-        "Rebuilt the central semantic models with row-level security and incremental refresh, dropping dataset refreshes from 2.5 hours to 7 minutes. Dashboards stopped being stale by the time anyone opened them.",
-        "Worked with AI/ML engineers to train Power BI Q&A models and build prompt-driven interfaces, so people could ask a report a plain-English question instead of waiting on me for a new view.",
-        "Built custom Power BI visuals in React and TypeScript that shipped across the whole organization.",
+        "Led a five-person analytics team and, in my final year, took on Associate Manager responsibilities, owning end-to-end Power BI delivery while remaining hands-on in the data models.",
+        "Designed Power BI CI/CD pipelines on Azure DevOps using PowerShell and the REST APIs, reducing manual deployment effort by approximately 80%.",
+        "Optimized the central semantic models by pushing transformation logic back to the source through query folding and introducing incremental refresh; dataset refresh times fell from 2.5 hours to 7 minutes.",
+        "Partnered with AI/ML engineers to train Power BI Q&A models and build prompt-driven interfaces that let stakeholders query reports in natural language.",
+        "Developed custom Power BI visuals in React and TypeScript, deployed organization-wide.",
       ],
     },
     {
@@ -64,8 +65,8 @@ export const experience: {
       location: "Hyderabad, India",
       logo: "/companies/blue-yonder-logo-blue.webp",
       points: [
-        "Embedded Power BI reports into external-facing Azure apps using the REST APIs and app registrations, so analytics showed up where customers already were.",
-        "Teamed up with .NET developers to keep it secure and properly integrated, not bolted on.",
+        "Embedded Power BI reports into external Azure applications using the REST APIs and app registrations, delivering analytics directly within client-facing products.",
+        "Collaborated with .NET developers to ensure the integration was secure and seamless.",
       ],
     },
     {
@@ -77,22 +78,23 @@ export const experience: {
       logo: "/companies/hcltech-logo.svg",
       logoH: 18, // hcltech wordmark reads large - trim it down to match the row
       points: [
-        "Moved a legacy Oracle BIEE estate onto Power BI and walked the business teams through the new workflows. Migrations only stick if people come along.",
-        "Built governance dashboards on the Power BI REST APIs and automated the upkeep with PowerShell.",
+        "Migrated a legacy Oracle BIEE reporting estate to Power BI, guiding business teams through the transition to the new workflows.",
+        "Built governance dashboards on the Power BI REST APIs, with routine updates automated through PowerShell.",
       ],
     },
     {
-      company: "Microsoft",
+      company: "LTI Mindtree",
       title: "Technical Advisor",
+      client: "Microsoft",
       period: "Apr 2019 – Sep 2020",
       duration: "1 yr 5 mos",
       location: "Hyderabad, India",
-      logo: "/clients/microsoft.svg",
-      logoH: 22, // Microsoft lockup reads large - trim slightly
-      via: "LTIMindtree",
+      // logo: "/companies/ltimindtree.svg", // add the logo file to /public/companies, then uncomment
       points: [
-        "Led a five-engineer team on Microsoft's toughest Power BI support and advisory cases, the ones escalated past the usual channels.",
-        "Worked directly with Microsoft's product teams on the hardest issues, and fed real-world gaps back into the product.",
+        "Led a five-engineer Power BI support and advisory team for Microsoft, resolving advanced development and configuration cases.",
+        "Administered Power BI at the tenant level: workspaces, capacity, access control, and deployment pipelines.",
+        "Configured and managed on-premises data gateways, handling data source connections, credential management, and scheduled refresh for secure hybrid connectivity.",
+        "Worked directly with Microsoft product teams on complex technical issues and contributed field feedback to feature development.",
       ],
     },
     {
@@ -104,7 +106,7 @@ export const experience: {
       logo: "/clients/ness-technologies-dark.svg",
       logoH: 46, // compact round mark reads small - bump it up to match the row
       points: [
-        "Where it started: building and refining Power BI reports next to senior engineers, and getting hooked on the craft.",
+        "Developed and enhanced Power BI reports alongside senior engineers, the starting point of my BI career.",
       ],
     },
   ],

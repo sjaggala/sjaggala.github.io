@@ -49,6 +49,9 @@ export default function Experience() {
                       {role.via && (
                         <span className="xp__via"> · via {role.via}</span>
                       )}
+                      {role.client && (
+                        <span className="xp__via"> · Client: {role.client}</span>
+                      )}
                     </p>
                   </div>
                   <div className="xp__meta">

@@ -7,13 +7,13 @@ export const site = {
   wordmark: "sjaggala.github.io",
   initials: "SJ",
   role: "BI & Analytics Engineer",
-  badge: "BI & Analytics Engineer · 7 years shipping Power BI",
+  badge: "BI & Analytics Engineer · 7+ years in enterprise BI",
   // Hero headline (two lines) + emoji
   heroLine1: "Hi, I'm Sravan",
   heroLine2: "I build BI that answers back.",
   // One-liner shown under the headline in the hero
   positioning:
-    "Business Intelligence engineer and architect with seven years in enterprise Power BI: the models underneath, the reports on top, and the governance that keeps the numbers trustworthy. Lately I've been pulling AI into the work, conversational and generative BI.",
+    "Business Intelligence engineer and architect with seven years in enterprise Power BI, from the semantic models underneath to the reports on top and the governance that keeps them trustworthy. Now extending that work into AI, with conversational and generative BI.",
   availability: "Available for full-time roles",
   location: "Chicago, IL · CT (UTC-6)", // city + timezone (per Sravan 2026-09-25); no street address / phone
   email: "sravan.jaggala@outlook.com",

@@ -21,19 +21,19 @@ export const whatIDo: {
       id: "bi",
       icon: "database",
       title: "Enterprise BI & governance",
-      body: "The foundation work: star-schema semantic models, DAX that stays fast as data grows, row-level security, and incremental refresh. I've moved whole teams off Oracle BIEE, QlikView, SSRS and Excel onto Power BI without breaking the numbers they already trusted.",
+      body: "Centralized, star-schema semantic models, performant DAX, row-level security, and incremental refresh: the governed foundation that scales beyond a single team. I have led migrations from Oracle BIEE, QlikView, SSRS, and Excel to Power BI while preserving the numbers stakeholders already rely on.",
     },
     {
       id: "embedded",
       icon: "layers",
       title: "Custom & embedded analytics",
-      body: "Analytics that live inside the product, not off in a report tab. I build custom Power BI visuals in React and TypeScript, embed reports into apps through Azure and the REST APIs, and wire up CI/CD so releases stop being a manual chore. One pipeline cut that effort by 80%.",
+      body: "Analytics delivered inside the product rather than confined to a report tab: custom Power BI visuals in React and TypeScript, reports embedded through Azure app registrations and the REST APIs, and CI/CD on Azure DevOps and PowerShell that replaced manual releases. One pipeline reduced deployment effort by 80%.",
     },
     {
       id: "ai",
       icon: "sparkles",
       title: "Generative & conversational BI",
-      body: "The newer edge: making data answer plain-English questions. I've trained Power BI Q&A models around how people actually ask, and built prompt-driven interfaces with AI/ML engineers that turn a question into the right chart. A UIC MS in Business Analytics is sharpening the ML and modeling underneath.",
+      body: "Natural-language and AI-driven interfaces for business data: Power BI Q&A models trained around the questions users actually ask, and prompt-driven visualization interfaces built with AI/ML engineers. A UIC MS in Business Analytics reinforces the underlying ML, database, and optimization foundations.",
     },
   ],
 };
