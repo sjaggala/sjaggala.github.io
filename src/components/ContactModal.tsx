@@ -118,6 +118,7 @@ function ContactDialog({
           email,
           company: (data.get("company") as string)?.trim() || "(not provided)",
           role: (data.get("role") as string)?.trim() || "(not provided)",
+          job_link: (data.get("job_link") as string)?.trim() || "(not provided)",
           message,
         }),
       });
@@ -221,6 +222,17 @@ function ContactDialog({
                 <input className="cm__input" type="text" name="role" />
               </label>
             </div>
+
+            <label className="cm__label">
+              Job post or JD link
+              <input
+                className="cm__input"
+                type="url"
+                name="job_link"
+                inputMode="url"
+                placeholder="https://..."
+              />
+            </label>
 
             <label className="cm__label">
               Message <span className="cm__req">*</span>
