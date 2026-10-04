@@ -2,6 +2,7 @@ import { useState } from "react";
 import { contact } from "../data/contact";
 import { site } from "../data/site";
 import { useReveal } from "../hooks/useReveal";
+import { useContactModal } from "./ContactModal";
 import "./Contact.css";
 
 function CopyButton({ value }: { value: string }) {
@@ -38,6 +39,7 @@ function CopyButton({ value }: { value: string }) {
 
 export default function Contact() {
   useReveal();
+  const openContact = useContactModal();
   return (
     <section id="contact" className="ct">
       <div className="container">
@@ -47,9 +49,9 @@ export default function Contact() {
           <p className="ct__lead">{contact.subhead}</p>
 
           <div className="ct__actions">
-            <a className="btn" href={contact.primary.href}>
+            <button type="button" className="btn" onClick={openContact}>
               {contact.primary.label}
-            </a>
+            </button>
             <a
               className="btn btn--ghost"
               href={contact.secondary.href}

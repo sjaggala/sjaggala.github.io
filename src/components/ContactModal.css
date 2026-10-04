@@ -1,0 +1,201 @@
+/* Contact modal + success toast. Matches the site tokens (near-monochrome,
+   emerald accent only for success). */
+
+.cm__overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 1.25rem;
+  overflow-y: auto;
+  background: rgba(16, 16, 20, 0.45);
+  backdrop-filter: blur(2px);
+  animation: cm-fade var(--dur) var(--ease);
+}
+
+.cm__dialog {
+  position: relative;
+  width: 100%;
+  max-width: 34rem;
+  margin: auto;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 2rem 1.5rem;
+  animation: cm-rise var(--dur) var(--ease);
+}
+
+.cm__close {
+  position: absolute;
+  top: 0.9rem;
+  right: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--r-sm);
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color var(--dur) var(--ease), background var(--dur) var(--ease);
+}
+.cm__close:hover {
+  color: var(--text);
+  background: var(--surface);
+}
+
+.cm__title {
+  margin-top: var(--sp-3);
+  font-size: var(--fs-h2);
+}
+.cm__lead {
+  margin-top: var(--sp-3);
+  color: var(--text-body);
+  font-size: var(--fs-sm);
+  max-width: 30rem;
+}
+
+.cm__form {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cm__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+@media (min-width: 560px) {
+  .cm__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.cm__label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--text);
+}
+.cm__req {
+  color: var(--text-dim);
+  font-weight: 400;
+}
+
+.cm__input {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  padding: 0.6rem 0.75rem;
+  transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+.cm__input::placeholder {
+  color: var(--text-dim);
+}
+.cm__input:focus {
+  outline: none;
+  border-color: var(--border-strong);
+  box-shadow: 0 0 0 3px rgba(16, 16, 20, 0.06);
+}
+.cm__textarea {
+  resize: vertical;
+  min-height: 96px;
+}
+
+/* Honeypot - hidden from humans, still reachable by bots */
+.cm__hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.cm__error {
+  margin: 0;
+  font-size: var(--fs-sm);
+  color: #b91c1c; /* red-700 */
+}
+
+.cm__actions {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.cm__fineprint {
+  margin: 0;
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+/* --- Success toast --- */
+.cm__toast {
+  position: fixed;
+  left: 50%;
+  bottom: 1.5rem;
+  transform: translateX(-50%);
+  z-index: 120;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  max-width: calc(100vw - 2rem);
+  background: var(--dark);
+  color: var(--text-on-dark);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  padding: 0.75rem 1.1rem;
+  border-radius: var(--r-pill);
+  box-shadow: var(--shadow-lg);
+  cursor: pointer;
+  animation: cm-toast-rise var(--dur) var(--ease);
+}
+.cm__toast-ico {
+  display: inline-flex;
+  color: var(--accent-bright);
+}
+
+@keyframes cm-fade {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes cm-rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+@keyframes cm-toast-rise {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 8px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cm__overlay,
+  .cm__dialog,
+  .cm__toast {
+    animation: none;
+  }
+}

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { navItems } from "../data/nav";
 import { site } from "../data/site";
+import { useContactModal } from "./ContactModal";
 import "./NavBar.css";
 
 const isHash = (to: string) => to.startsWith("#");
@@ -9,6 +10,7 @@ const isHash = (to: string) => to.startsWith("#");
 export default function NavBar() {
   const [open, setOpen] = useState(false);
   const [activeHash, setActiveHash] = useState("");
+  const openContact = useContactModal();
 
   // Close the mobile sheet on Escape.
   useEffect(() => {
@@ -100,9 +102,9 @@ export default function NavBar() {
               {site.resumeLabel}
             </span>
           )}
-          <a className="btn nav__talk" href="#contact">
+          <button type="button" className="btn nav__talk" onClick={openContact}>
             Let&apos;s talk
-          </a>
+          </button>
           <button
             className="nav__toggle"
             aria-label={open ? "Close menu" : "Open menu"}
@@ -144,13 +146,16 @@ export default function NavBar() {
               {site.resumeLabel}
             </span>
           )}
-          <a
+          <button
+            type="button"
             className="btn"
-            href="#contact"
-            onClick={() => setOpen(false)}
+            onClick={() => {
+              setOpen(false);
+              openContact();
+            }}
           >
             Let&apos;s talk
-          </a>
+          </button>
         </div>
       </div>
     </header>

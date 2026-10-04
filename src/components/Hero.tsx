@@ -1,9 +1,11 @@
 import { site } from "../data/site";
 import QueryDemo from "./QueryDemo";
 import TrustBar from "./TrustBar";
+import { useContactModal } from "./ContactModal";
 import "./Hero.css";
 
 export default function Hero() {
+  const openContact = useContactModal();
   return (
     <section className="hero" id="top">
       <div className="container hero__inner">
@@ -32,9 +34,9 @@ export default function Hero() {
           <p className="hero__lead">{site.positioning}</p>
 
           <div className="hero__actions">
-            <a href={`mailto:${site.email}`} className="btn">
+            <button type="button" onClick={openContact} className="btn">
               Get in touch
-            </a>
+            </button>
             <a href="#work" className="btn btn--ghost">
               See my work
             </a>
