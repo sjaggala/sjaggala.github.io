@@ -224,7 +224,7 @@ function ContactDialog({
             </div>
 
             <label className="cm__label">
-              Job post or JD link
+              Job post link
               <input
                 className="cm__input"
                 type="url"
@@ -258,9 +258,6 @@ function ContactDialog({
                 Cancel
               </button>
             </div>
-            <p className="cm__fineprint">
-              Goes straight to my inbox. I'll never share your details.
-            </p>
           </form>
         ) : (
           <div className="cm__actions">

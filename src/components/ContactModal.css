@@ -87,7 +87,7 @@
   color: var(--text);
 }
 .cm__req {
-  color: var(--text-dim);
+  color: #dc2626; /* red-600 - required marker */
   font-weight: 400;
 }
 
@@ -136,12 +136,6 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-}
-
-.cm__fineprint {
-  margin: 0;
-  font-size: var(--fs-xs);
-  color: var(--text-muted);
 }
 
 /* --- Success toast --- */
