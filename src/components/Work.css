@@ -930,6 +930,7 @@
 .bar--c2 { background: var(--c2); }
 .plot__bars--grouped {
   justify-content: space-between;
+  align-items: stretch; /* groups fill plot height so bars' % heights resolve */
   gap: 0.5em;
 }
 .plot__bars--grouped .grp {
@@ -938,6 +939,7 @@
   align-items: flex-end;
   justify-content: center;
   gap: 0.16em;
+  height: 100%;
 }
 .plot__bars--grouped .grp .bar {
   flex: 0 0 34%;
