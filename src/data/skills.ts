@@ -39,7 +39,7 @@ export const skills: {
       title: "AI & Generative BI",
       descriptor: "The direction I'm pushing in.",
       items: [
-        { name: "Power BI Q&A / NLP", glyph: "qna" },
+        { name: "Copilot in Power BI", glyph: "qna" },
         { name: "Conversational BI", glyph: "prompt" },
         { name: "Multimodal AI (VLMs)", glyph: "vision" },
         { name: "Agentic pipelines", glyph: "agent" },

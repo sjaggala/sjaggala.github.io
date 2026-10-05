@@ -105,7 +105,7 @@ export const skillGlyphs: Record<string, ReactElement> = {
     </svg>
   ),
 
-  /* Power BI Q&A / NLP - speech bubble with mini bars (ask your data) */
+  /* Conversational BI / Copilot - speech bubble with mini bars (ask your data) */
   qna: (
     <svg {...base}>
       <path d="M3 6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H9l-4 3v-3H5a2 2 0 0 1-2-2z" />

@@ -54,7 +54,7 @@ export const experience: {
         "Led a five-person analytics team and, in my final year, took on Associate Manager responsibilities, owning end-to-end Power BI delivery while remaining hands-on in the data models.",
         "Designed Power BI CI/CD pipelines on Azure DevOps using PowerShell and the REST APIs, reducing manual deployment effort by approximately 80%.",
         "Optimized the central semantic models by pushing transformation logic back to the source through query folding and introducing incremental refresh; dataset refresh times fell from 2.5 hours to 7 minutes.",
-        "Partnered with AI/ML engineers to train Power BI Q&A models and build prompt-driven interfaces that let stakeholders query reports in natural language.",
+        "Partnered with AI/ML engineers to build natural-language Q&A experiences, and used Copilot in Power BI to generate reports, pages, and visuals from prompts, letting stakeholders work with data in plain language.",
         "Developed custom Power BI visuals in React and TypeScript, deployed organization-wide.",
       ],
     },

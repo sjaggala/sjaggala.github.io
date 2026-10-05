@@ -44,7 +44,7 @@ export const faq: {
       id: "generative-bi",
       question: "What's the AI / “generative BI” angle?",
       answer:
-        "It's applied, not research. I've trained Power BI Q&A models so reports answer plain-English questions, and built prompt-driven interfaces with AI/ML engineers that turn a question into a visualization. My UIC MS in Business Analytics (STEM) adds the ML, database and optimization grounding underneath.",
+        "It's applied, not research. I built natural-language Q&A experiences so reports answer plain-English questions, and used Copilot in Power BI to generate reports, pages, and visuals from prompts, working alongside AI/ML engineers. My UIC MS in Business Analytics (STEM) adds the ML, database and optimization grounding underneath.",
     },
     {
       id: "leadership",

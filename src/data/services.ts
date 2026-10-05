@@ -33,7 +33,7 @@ export const whatIDo: {
       id: "ai",
       icon: "sparkles",
       title: "Generative & conversational BI",
-      body: "Natural-language and AI-driven interfaces for business data: Power BI Q&A models trained around the questions users actually ask, and prompt-driven visualization interfaces built with AI/ML engineers. A UIC MS in Business Analytics reinforces the underlying ML, database, and optimization foundations.",
+      body: "Natural-language and AI-driven interfaces for business data: conversational Q&A experiences built around the questions users actually ask, plus Copilot in Power BI generating reports, pages, and visuals from prompts, built with AI/ML engineers. A UIC MS in Business Analytics reinforces the underlying ML, database, and optimization foundations.",
     },
   ],
 };

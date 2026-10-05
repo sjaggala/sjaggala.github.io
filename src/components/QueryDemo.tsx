@@ -5,7 +5,7 @@ type Datum = { label: string; value: number; display: string };
 type QA = { q: string; caption: string; unit: string; data: Datum[] };
 
 /* Natural-language questions → a little chart that "answers" - a nod to
-   Power BI Q&A / conversational BI (Sravan's differentiator). */
+   conversational, Copilot-style BI (Sravan's differentiator). */
 const ITEMS: QA[] = [
   {
     q: "revenue by region this quarter",
@@ -98,13 +98,13 @@ export default function QueryDemo() {
   const max = Math.max(...item.data.map((d) => d.value));
 
   return (
-    <div className="qd" role="img" aria-label="Power BI Q&A demo: a natural-language question answered with a chart">
+    <div className="qd" role="img" aria-label="Conversational BI demo: a natural-language question answered with a chart">
       <div className="qd__head">
         <span className="qd__dots" aria-hidden="true">
           <i /> <i /> <i />
         </span>
         <span className="qd__title">Ask your data</span>
-        <span className="qd__badge">Q&amp;A</span>
+        <span className="qd__badge">AI</span>
       </div>
 
       <div className="qd__ask">

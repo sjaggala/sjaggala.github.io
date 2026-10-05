@@ -69,7 +69,7 @@ export const focusAreas: {
     blurb:
       "Bringing natural-language and AI-driven interfaces to business data.",
     points: [
-      "Power BI Q&A / natural-language models in production",
+      "Conversational BI in production: Power BI Q&A and Copilot",
       "Prompt-driven visualization interfaces",
       "UIC MS in Business Analytics (STEM): ML, DBMS, optimization",
     ],
