@@ -35,7 +35,7 @@ export const experience: {
   roles: Role[];
   education: Education[];
   awards: Award[];
-  community: { org: string; role: string; period: string; href: string; note: string };
+  community: { org: string; role: string; period: string; href: string; note: string; logo?: string };
 } = {
   eyebrow: "Experience",
   heading: "Seven years of client-facing BI.",
@@ -139,5 +139,6 @@ export const experience: {
     period: "2022 – 2024",
     href: "https://community.fabric.microsoft.com/users/_sfrost/276096",
     note: "Answered analytics, data-modeling, and reporting questions from users worldwide, with 43 accepted solutions.",
+    logo: "/tech/fabric-expo-icon.svg",
   },
 };

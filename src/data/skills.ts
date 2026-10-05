@@ -29,7 +29,7 @@ export const skills: {
       items: [
         { name: "Power BI", icon: "/tech/powerbi.svg" },
         { name: "Tableau", icon: "/tech/tableau.svg" },
-        { name: "Microsoft Fabric", glyph: "fabric" },
+        { name: "Microsoft Fabric", icon: "/tech/fabric-expo-icon.svg" },
         { name: "Excel", icon: "/tech/excel.svg" },
         { name: "Paginated / SSRS", glyph: "ssrs" },
       ],

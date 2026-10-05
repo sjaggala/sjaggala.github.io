@@ -108,11 +108,22 @@ export default function Experience() {
                 target="_blank"
                 rel="noreferrer"
               >
-                <span className="xp__sub-primary">{experience.community.org}</span>
-                <span className="xp__sub-secondary">
-                  {experience.community.role} · {experience.community.period}
-                </span>
-                <span className="xp__sub-note">{experience.community.note}</span>
+                {experience.community.logo && (
+                  <div className="xp__edu-logo">
+                    <img
+                      src={experience.community.logo}
+                      alt={experience.community.org}
+                      className="xp__edu-img"
+                    />
+                  </div>
+                )}
+                <div className="xp__edu-body">
+                  <span className="xp__sub-primary">{experience.community.org}</span>
+                  <span className="xp__sub-secondary">
+                    {experience.community.role} · {experience.community.period}
+                  </span>
+                  <span className="xp__sub-note">{experience.community.note}</span>
+                </div>
               </a>
             </div>
           )}
