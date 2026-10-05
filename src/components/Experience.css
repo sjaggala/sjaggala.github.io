@@ -195,6 +195,11 @@
   width: auto;
   object-fit: contain;
 }
+/* full-bleed square mark (Fabric) reads heavier than the padded school emblems - trim it */
+.xp__edu-img[src*="fabric-expo-icon"] {
+  max-width: 40px;
+  max-height: 40px;
+}
 .xp__edu-mono {
   display: inline-flex;
   align-items: center;

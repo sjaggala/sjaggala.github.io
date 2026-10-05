@@ -95,6 +95,11 @@
   object-fit: contain;
   display: block;
 }
+/* full-bleed square marks read heavier than wide/padded logos - trim them */
+.sk__ico img[src*="fabric-expo-icon"] {
+  max-width: 24px;
+  max-height: 24px;
+}
 /* monochrome line-glyphs (tools with no brand logo) */
 .sk__ico--glyph {
   color: var(--text);
