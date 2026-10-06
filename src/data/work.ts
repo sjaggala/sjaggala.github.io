@@ -103,9 +103,9 @@ export const work: {
       status: "In progress",
       visual: "dashdrop",
       description:
-        "Upload an Excel or CSV file and receive a clean, auto-generated dashboard with room for light customization. The BI, software, and AI concept I am currently prototyping.",
-      role: "Planned: a typed React front end, a charting layer, client-side spreadsheet parsing, and an AI assist that picks the right visuals for your data.",
-      stack: ["React", "TypeScript", "Charting", "XLSX / CSV", "AI assist"],
+        "Upload an Excel or CSV file and receive a clean, auto-generated dashboard with room for light customization, plus a natural-language interface to ask questions of your data. The BI, software, and AI concept I am currently prototyping.",
+      role: "Planned: a typed React front end, a charting layer, client-side spreadsheet parsing, an AI assist that picks the right visuals, and a natural-language query layer for conversational analysis.",
+      stack: ["React", "TypeScript", "Charting", "XLSX / CSV", "AI assist", "Natural-language Q&A"],
       linkLabel: "Coming soon",
       locked: true,
     },
