@@ -40,7 +40,7 @@ export const experience: {
   eyebrow: "Experience",
   heading: "Seven years of client-facing BI.",
   subhead:
-    "Report developer, then advisor, then delivery lead. Here's the honest summary; the full version is in the résumé.",
+    "BI engineer, then advisor, then delivery lead. Here's the honest summary; the full version is in the résumé.",
   roles: [
     {
       company: "Mouri Tech",

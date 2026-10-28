@@ -35,3 +35,8 @@ public/schools/*.eps
 
 # Partial browser downloads
 *.crdownload
+# Local working outputs (private)
+Claude outputs/
+
+# vite temp build files
+vite.config.ts.timestamp-*.mjs

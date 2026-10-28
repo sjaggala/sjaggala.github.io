@@ -13,7 +13,7 @@ export const site = {
   heroLine2: "I build BI that answers back.",
   // One-liner shown under the headline in the hero
   positioning:
-    "Business Intelligence engineer and architect with seven years in enterprise Power BI, from the semantic models underneath to the reports on top and the governance that keeps them trustworthy. Now extending that work into AI, with conversational and generative BI.",
+    "Analytics and BI engineer with seven years designing the data models, SQL transformation logic, and governance layer behind enterprise business intelligence, and the semantic models and reports that sit on top. Now extending that into AI, with conversational and generative BI.",
   availability: "Available for full-time and consulting roles",
   location: "Chicago, IL · CT (UTC-6)", // city + timezone (per Sravan 2026-09-25); no street address / phone
   email: "sravan.jaggala@outlook.com",
