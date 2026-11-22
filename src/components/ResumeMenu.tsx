@@ -65,13 +65,13 @@ export default function ResumeMenu({
                 onPick?.();
               }}
             >
-              <span className="rm__item-top">
+              <span className="rm__item-text">
                 <span className="rm__item-label">{r.label}</span>
-                <svg className="rm__dl" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path d="M12 3v12M7 10l5 5 5-5M5 21h14" />
-                </svg>
+                <span className="rm__item-focus">{r.focus}</span>
               </span>
-              <span className="rm__item-focus">{r.focus}</span>
+              <svg className="rm__dl" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M12 3v12M7 10l5 5 5-5M5 21h14" />
+              </svg>
             </a>
           ))}
         </div>

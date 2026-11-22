@@ -45,8 +45,8 @@
 }
 .rm__item {
   display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
+  align-items: center;
+  gap: 1rem;
   padding: 0.6rem 0.65rem;
   border-radius: var(--r-sm);
   color: var(--text);
@@ -56,11 +56,12 @@
   background: var(--surface);
   color: var(--text);
 }
-.rm__item-top {
+.rm__item-text {
+  flex: 1;
+  min-width: 0;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
+  flex-direction: column;
+  gap: 0.2rem;
 }
 .rm__item-label {
   font-size: var(--fs-sm);
