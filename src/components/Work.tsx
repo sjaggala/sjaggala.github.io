@@ -494,6 +494,14 @@ function PsWarn() {
     </svg>
   );
 }
+function PsSpark() {
+  return (
+    <svg className="ps__spark" viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M12 3v4M12 17v4M3 12h4M17 12h4" />
+      <path d="m6.5 6.5 2.5 2.5M15 15l2.5 2.5M17.5 6.5 15 9M9 15l-2.5 2.5" />
+    </svg>
+  );
+}
 function PlainsightMock() {
   const maps: { raw: string; name: string; warn?: boolean }[] = [
     { raw: "order_dt", name: "Order Date" },
@@ -560,22 +568,6 @@ function PlainsightMock() {
           <div className="ps__result-h">
             Top 5 regions by profit margin <span>Jul–Sep 2024</span>
           </div>
-          <div className="ps__sugg-row">
-            {[
-              "Why did margin dip in Q3?",
-              "Compare West vs South margin",
-              "Top products by revenue",
-              "Which regions are below target?",
-            ].map((q) => (
-              <span key={q} className="ps__sugg">
-                <svg className="ps__sugg-ic" viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path d="M12 3v4M12 17v4M3 12h4M17 12h4" />
-                  <path d="m6.5 6.5 2.5 2.5M15 15l2.5 2.5M17.5 6.5 15 9M9 15l-2.5 2.5" />
-                </svg>
-                {q}
-              </span>
-            ))}
-          </div>
           <div className="ps__vbars" aria-hidden="true">
             {bars.map((b) => (
               <div key={b.r} className="ps__vcol">
@@ -585,11 +577,32 @@ function PlainsightMock() {
               </div>
             ))}
           </div>
-          <div className="ps__chips">
-            <span className="ps__chip is-ok">
-              <PsCheck /> Reconciled · totals match source
+          <div className="ps__narrative">
+            <span className="ps__narr-ic" aria-hidden="true"><PsSpark /></span>
+            <span className="ps__narr-body">
+              <span className="ps__narr-txt">
+                <b>West</b> leads on margin at <b>24.8%</b>, roughly ten points above Southwest. The top three regions all clear 19%, so profit is concentrated up north and east rather than spread evenly.
+              </span>
+              <span className="ps__narr-meta">
+                <PsCheck /> Reconciled against source · governed metric: Profit Margin
+              </span>
             </span>
-            <span className="ps__chip">Governed metric: Profit Margin</span>
+          </div>
+          <div className="ps__followups">
+            <span className="ps__fu-lab"><PsSpark /> Ask a follow-up</span>
+            <div className="ps__sugg-row">
+              {[
+                "Why did margin dip in Q3?",
+                "West vs South margin",
+                "Top products by revenue",
+                "Regions below target?",
+              ].map((q) => (
+                <span key={q} className="ps__sugg">
+                  <PsSpark />
+                  {q}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -600,18 +613,20 @@ function PlainsightMock() {
           <span className="ps__sql-title">&gt; SQL <span>Generated query</span></span>
           <span className="ps__sql-tag">text-to-SQL</span>
         </div>
-        <pre className="ps__sql">{`SELECT region,
-  ROUND(
-    SUM(profit)
-    / SUM(revenue) * 100, 1
-  ) AS margin_pct
-FROM sales
-WHERE order_date BETWEEN
-  '2024-07-01'
-  AND '2024-09-30'
-GROUP BY region
-ORDER BY margin_pct DESC
-LIMIT 5;`}</pre>
+        <pre className="ps__sql">
+          <span className="tok-kw">SELECT</span> region,{"\n"}
+          {"  "}<span className="tok-fn">ROUND</span>({"\n"}
+          {"    "}<span className="tok-fn">SUM</span>(profit){"\n"}
+          {"    "}/ <span className="tok-fn">SUM</span>(revenue) * <span className="tok-num">100</span>, <span className="tok-num">1</span>{"\n"}
+          {"  "}) <span className="tok-kw">AS</span> margin_pct{"\n"}
+          <span className="tok-kw">FROM</span> sales{"\n"}
+          <span className="tok-kw">WHERE</span> order_date <span className="tok-kw">BETWEEN</span>{"\n"}
+          {"  "}<span className="tok-str">'2024-07-01'</span>{"\n"}
+          {"  "}<span className="tok-kw">AND</span> <span className="tok-str">'2024-09-30'</span>{"\n"}
+          <span className="tok-kw">GROUP BY</span> region{"\n"}
+          <span className="tok-kw">ORDER BY</span> margin_pct <span className="tok-kw">DESC</span>{"\n"}
+          <span className="tok-kw">LIMIT</span> <span className="tok-num">5</span>;
+        </pre>
         <div className="ps__sql-foot">
           <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
