@@ -476,74 +476,131 @@ function CapstoneMock() {
   );
 }
 
-/* Plainsight: raw file -> inferred semantic layer -> plain-English answer with
-   visible SQL. Horizontal result bars so nothing stretches in the wide frame. */
+/* Plainsight: three panels - the inferred semantic layer (messy columns mapped
+   to governed concepts), the plain-English question + result, and the generated
+   read-only SQL. Reference-grade product mock; all sample data. */
+function PsCheck() {
+  return (
+    <svg className="ps__i-ok" viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M20 6 9 17l-5-5" />
+    </svg>
+  );
+}
+function PsWarn() {
+  return (
+    <svg className="ps__i-warn" viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z" />
+      <path d="M12 9v4M12 17h.01" />
+    </svg>
+  );
+}
 function PlainsightMock() {
-  const rows = [
-    { r: "North America", w: 94, delta: "+23%", hit: true },
-    { r: "APAC", w: 86, delta: "+22%", hit: true },
-    { r: "EMEA", w: 55, delta: "-12%", hit: false },
-    { r: "LATAM", w: 44, delta: "-8%", hit: false },
+  const maps: { raw: string; name: string; warn?: boolean }[] = [
+    { raw: "order_dt", name: "Order Date" },
+    { raw: "rev_usd", name: "Revenue (sum)" },
+    { raw: "cost_usd", name: "COGS (sum)" },
+    { raw: "region_cd", name: "Region" },
+    { raw: "mgn", name: "Profit Margin", warn: true },
+  ];
+  const bars: { r: string; v: string; h: number }[] = [
+    { r: "West", v: "24.8%", h: 100 },
+    { r: "N.East", v: "22.1%", h: 89 },
+    { r: "South", v: "19.4%", h: 78 },
+    { r: "Midwest", v: "17.6%", h: 71 },
+    { r: "S.West", v: "14.2%", h: 57 },
   ];
   return (
     <div className="mock mock--ps">
-      <div className="ps__bar">
-        <span className="ps__file">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      {/* left: inferred semantic layer */}
+      <div className="ps__sem">
+        <div className="ps__file">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
             <path d="M14 2v6h6" />
           </svg>
-          sales_2026.xlsx
-        </span>
-        <span className="ps__arrow" aria-hidden="true">→</span>
-        <span className="ps__sem">Semantic layer · Retail</span>
-        <span className="ps__trusted">
-          <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <path d="M20 6 9 17l-5-5" />
+          store_sales_2024.xlsx
+          <PsCheck />
+        </div>
+        <div className="ps__sem-title">Semantic layer</div>
+        <div className="ps__sem-sub">Inferred automatically. Messy columns mapped to governed concepts.</div>
+        <div className="ps__maps">
+          {maps.map((m) => (
+            <div key={m.raw} className="ps__map">
+              <span className="ps__map-raw">{m.raw}</span>
+              <span className="ps__map-arrow" aria-hidden="true">→</span>
+              <span className="ps__map-name">{m.name}</span>
+              {m.warn ? <PsWarn /> : <PsCheck />}
+            </div>
+          ))}
+        </div>
+        <div className="ps__tmpl">
+          <PsCheck /> Template: <b>Retail</b> · 96% fit
+        </div>
+        <div className="ps__confirm">
+          <PsWarn /> 1 field needs confirmation
+        </div>
+      </div>
+
+      {/* center: question + result */}
+      <div className="ps__center">
+        <div className="ps__search">
+          <svg className="ps__search-ic" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7" />
+            <path d="m21 21-4.3-4.3" />
           </svg>
-          governed
-        </span>
-      </div>
-
-      <div className="ps__ask">
-        <span className="ps__ask-ic" aria-hidden="true">?</span>
-        Which regions beat target last quarter?
-      </div>
-
-      <div className="ps__body">
-        <div className="ps__ans">
-          <div className="ps__ans-h">
-            <b>3 of 4</b> regions beat target
+          <span className="ps__search-q">Which 5 regions had the highest profit margin last quarter?</span>
+          <span className="ps__ask">Ask</span>
+        </div>
+        <div className="ps__routed">
+          Routed to
+          <span className="ps__route is-active">Governed text-to-SQL</span>
+          <span className="ps__route">Python sandbox</span>
+        </div>
+        <div className="ps__result">
+          <div className="ps__result-h">
+            Top 5 regions by profit margin <span>Jul–Sep 2024</span>
           </div>
-          <div className="ps__rows">
-            {rows.map((r) => (
-              <div key={r.r} className="ps__r">
-                <span className="ps__r-name">{r.r}</span>
-                <span className="ps__r-track">
-                  <span className="ps__r-fill" data-hit={r.hit} style={{ width: `${r.w}%` }} />
-                </span>
-                <span className={`ps__r-delta ${r.hit ? "is-up" : "is-down"}`}>{r.delta}</span>
+          <div className="ps__vbars" aria-hidden="true">
+            {bars.map((b) => (
+              <div key={b.r} className="ps__vcol">
+                <span className="ps__vval">{b.v}</span>
+                <span className="ps__vbar" style={{ height: `${b.h}%` }} />
+                <span className="ps__vlab">{b.r}</span>
               </div>
             ))}
           </div>
+          <div className="ps__chips">
+            <span className="ps__chip is-ok">
+              <PsCheck /> Reconciled · totals match source
+            </span>
+            <span className="ps__chip">Governed metric: Profit Margin</span>
+          </div>
         </div>
+      </div>
 
-        <div className="ps__sqlcard">
-          <div className="ps__tabs">
-            <span className="is-active">SQL</span>
-            <span>Python</span>
-          </div>
-          <pre className="ps__sql">{`SELECT region,
-  SUM(revenue)
-   / SUM(target) - 1
-   AS vs_target
+      {/* right: generated SQL */}
+      <div className="ps__sqlcard">
+        <div className="ps__sql-h">
+          <span className="ps__sql-title">&gt; SQL <span>Generated query</span></span>
+          <span className="ps__sql-tag">text-to-SQL</span>
+        </div>
+        <pre className="ps__sql">{`SELECT region,
+  ROUND(
+    SUM(profit)
+    / SUM(revenue) * 100, 1
+  ) AS margin_pct
 FROM sales
+WHERE order_date BETWEEN
+  '2024-07-01'
+  AND '2024-09-30'
 GROUP BY region
-HAVING vs_target > 0;`}</pre>
-          <div className="ps__check">
-            <span className="ps__dot" aria-hidden="true" />
-            reconciled · read-only
-          </div>
+ORDER BY margin_pct DESC
+LIMIT 5;`}</pre>
+        <div className="ps__sql-foot">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg>
+          Read-only · session data only
         </div>
       </div>
     </div>
@@ -551,31 +608,25 @@ HAVING vs_target > 0;`}</pre>
 }
 
 /* Compact Arcus visual for the demoted card: the planned agentic assistant
-   reads mail + calendar and plans the day as tidy, icon-led cards. */
-function AcIcon({ name }: { name: "task" | "event" | "mail" | "focus" }) {
+   reads mail + calendar, takes actions (added to calendar / task created), and
+   summarizes the inbox. All sample data. */
+function AcIcon({ name }: { name: "event" | "task" | "doc" }) {
   const p: Record<string, ReactNode> = {
-    task: (
-      <>
-        <rect x="3" y="3" width="18" height="18" rx="4" />
-        <path d="m8 12 3 3 5-6" />
-      </>
-    ),
     event: (
       <>
         <rect x="3" y="4.5" width="18" height="16" rx="3" />
         <path d="M3 9h18M8 2.5v4M16 2.5v4" />
       </>
     ),
-    mail: (
+    task: (
       <>
-        <rect x="3" y="5" width="18" height="14" rx="3" />
-        <path d="m3 7 9 6 9-6" />
+        <path d="M8 6h13M8 12h13M8 18h9" />
+        <path d="m3 6 1.2 1.2L6.5 5M3 12l1.2 1.2L6.5 11" />
       </>
     ),
-    focus: (
+    doc: (
       <>
-        <circle cx="12" cy="12" r="8" />
-        <circle cx="12" cy="12" r="3" />
+        <path d="M4 6h16M4 11h16M4 16h10" />
       </>
     ),
   };
@@ -587,56 +638,76 @@ function AcIcon({ name }: { name: "task" | "event" | "mail" | "focus" }) {
 }
 
 function ArcusCompactMock() {
-  const cards: {
-    kind: "task" | "event" | "focus";
+  const rows: {
+    ic: "event" | "task";
     t: string;
+    src: "Gmail" | "Outlook";
     meta: string;
-    src?: "Gmail" | "Outlook";
+    act: string;
   }[] = [
-    { kind: "task", t: "Reply to recruiter", meta: "High", src: "Gmail" },
-    { kind: "event", t: "Design sync", meta: "Thu 2:00 PM", src: "Outlook" },
-    { kind: "task", t: "Review vendor contract", meta: "Medium", src: "Gmail" },
-    { kind: "focus", t: "Deep-work block", meta: "90 min" },
+    { ic: "event", t: "Design review", src: "Gmail", meta: "From Priya · Thu 2:00 PM", act: "Added to calendar" },
+    { ic: "task", t: "Pay invoice #2041", src: "Outlook", meta: "From Finance · Due Fri", act: "Task created" },
   ];
   return (
     <div className="mock mock--ac">
-      <div className="ac__bar">
+      <div className="ac__head">
         <span className="ac__logo">
-          <span className="ac__sq">A</span>Arcus
-        </span>
-        <span className="ac__chip">
-          <span className="ac__spark" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M12 3v4M12 17v4M3 12h4M17 12h4" />
-              <path d="m6.5 6.5 2.5 2.5M15 15l2.5 2.5M17.5 6.5 15 9M9 15l-2.5 2.5" />
+          <span className="ac__sq" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M4 14a8 8 0 0 1 16 0" />
+              <path d="M4 14v2.5M20 14v2.5" />
             </svg>
           </span>
-          Assistant
+          <b>Arcus</b>
+          <span className="ac__logo-sub">Planner</span>
+        </span>
+        <span className="ac__active">
+          <span className="ac__active-dot" aria-hidden="true" />
+          Agent active
         </span>
       </div>
 
-      <div className="ac__summary">
-        Planned your day from <b>14 new emails</b>: 2 tasks, 1 meeting, 1 focus block.
+      <div className="ac__auto">
+        <svg className="ac__bolt" viewBox="0 0 24 24" width="11" height="11" fill="currentColor" aria-hidden="true">
+          <path d="M13 2 4 14h6l-1 8 9-12h-6z" />
+        </svg>
+        Auto-organized from your inbox · just now
       </div>
 
-      <div className="ac__grid">
-        {cards.map((c) => (
-          <div key={c.t} className={`ac__card ac__card--${c.kind}`}>
-            <span className="ac__ic" aria-hidden="true">
-              <AcIcon name={c.kind} />
+      <div className="ac__cards">
+        {rows.map((r) => (
+          <div key={r.t} className="ac__row">
+            <span className={`ac__ic ac__ic--${r.ic}`} aria-hidden="true">
+              <AcIcon name={r.ic} />
             </span>
-            <span className="ac__card-t">{c.t}</span>
-            <span className="ac__card-m">
-              {c.src ? (
-                <span className="ac__card-src">
-                  <AcIcon name="mail" />
-                  {c.src}
-                </span>
-              ) : null}
-              {c.meta}
+            <span className="ac__row-body">
+              <span className="ac__row-t">{r.t}</span>
+              <span className="ac__row-m">
+                <span className={`ac__src ac__src--${r.src.toLowerCase()}`}>{r.src}</span>
+                {r.meta}
+              </span>
+            </span>
+            <span className="ac__row-act">
+              <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
+              {r.act}
             </span>
           </div>
         ))}
+
+        <div className="ac__row ac__row--sum">
+          <span className="ac__ic ac__ic--sum" aria-hidden="true">
+            <AcIcon name="doc" />
+          </span>
+          <span className="ac__row-body">
+            <span className="ac__row-t">Inbox summary — 3 threads need you</span>
+            <span className="ac__sum">
+              <span><b>Budget approved</b> for Q1 hiring</span>
+              <span>Kickoff <b>moved to Dec 2</b></span>
+            </span>
+          </span>
+        </div>
       </div>
     </div>
   );
