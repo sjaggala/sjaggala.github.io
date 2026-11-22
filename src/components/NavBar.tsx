@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { navItems } from "../data/nav";
 import { site } from "../data/site";
+import ResumeMenu from "./ResumeMenu";
 import "./NavBar.css";
 
 const isHash = (to: string) => to.startsWith("#");
@@ -87,19 +88,7 @@ export default function NavBar() {
 
         {/* Right side: résumé text-link + Let's talk button + hamburger */}
         <div className="nav__right">
-          {site.resume.ready ? (
-            <a className="btn btn--link nav__cv" href={site.resume.href} download>
-              {site.resumeLabel}
-            </a>
-          ) : (
-            <span
-              className="btn btn--link nav__cv is-disabled"
-              aria-disabled="true"
-              title="Coming soon"
-            >
-              {site.resumeLabel}
-            </span>
-          )}
+          <ResumeMenu variant="link" className="nav__cv" />
           <a className="btn nav__talk" href="#contact">
             Contact
           </a>
@@ -126,24 +115,7 @@ export default function NavBar() {
           ))}
         </ul>
         <div className="nav__mobile-cta">
-          {site.resume.ready ? (
-            <a
-              className="btn btn--ghost"
-              href={site.resume.href}
-              download
-              onClick={() => setOpen(false)}
-            >
-              {site.resumeLabel}
-            </a>
-          ) : (
-            <span
-              className="btn btn--ghost is-disabled"
-              aria-disabled="true"
-              title="Coming soon"
-            >
-              {site.resumeLabel}
-            </span>
-          )}
+          <ResumeMenu variant="ghost" onPick={() => setOpen(false)} />
           <a
             className="btn"
             href="#contact"

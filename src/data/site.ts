@@ -21,12 +21,33 @@ export const site = {
     linkedin: "https://www.linkedin.com/in/sravan-jaggala/",
     github: "https://github.com/sjaggala",
   },
-  // Résumé PDF lives in /public once generated; button stays disabled until then.
+  // Résumé PDFs live in /public. The nav button opens a dropdown so recruiters
+  // pick the version that matches the role. AI Engineer is first (matches hero).
   resumeLabel: "Download résumé",
   resume: {
-    href: "/Sravan-Jaggala-Resume.pdf",
+    href: "/Sravan-Jaggala-Resume-AI-Engineer.pdf",
     ready: true,
   },
+  resumes: [
+    {
+      label: "AI Engineer",
+      focus: "Applied ML, LLM agents, generative BI",
+      href: "/Sravan-Jaggala-Resume-AI-Engineer.pdf",
+      file: "Sravan Jaggala - AI Engineer.pdf",
+    },
+    {
+      label: "BI & Analytics Engineer",
+      focus: "Data engineering, dbt, Fabric, Snowflake",
+      href: "/Sravan-Jaggala-Resume-BI-Analytics.pdf",
+      file: "Sravan Jaggala - BI & Analytics Engineer.pdf",
+    },
+    {
+      label: "Power BI Engineer",
+      focus: "Power BI, DAX, SSAS, embedded analytics",
+      href: "/Sravan-Jaggala-Resume-PowerBI.pdf",
+      file: "Sravan Jaggala - Power BI Engineer.pdf",
+    },
+  ],
   headshot: "/headshot.png",
 } as const;
 
