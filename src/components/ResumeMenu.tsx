@@ -46,14 +46,13 @@ export default function ResumeMenu({
         onClick={() => setOpen((v) => !v)}
       >
         {site.resumeLabel}
-        <svg className={`rm__chev ${open ? "is-open" : ""}`} width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <svg className={`rm__chev ${open ? "is-open" : ""}`} width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
           <path d="m6 9 6 6 6-6" />
         </svg>
       </button>
 
       {open && (
         <div className="rm__menu" role="menu">
-          <div className="rm__menu-h">Pick the version for your role</div>
           {site.resumes.map((r) => (
             <a
               key={r.href}
