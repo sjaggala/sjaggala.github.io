@@ -477,69 +477,73 @@ function CapstoneMock() {
 }
 
 /* Plainsight: raw file -> inferred semantic layer -> plain-English answer with
-   visible SQL. Two columns so it reads well in the wide (16/7) flagship frame. */
+   visible SQL. Horizontal result bars so nothing stretches in the wide frame. */
 function PlainsightMock() {
-  const bars = [
-    { r: "NA", v: 86, t: 70, hit: true },
-    { r: "EMEA", v: 58, t: 72, hit: false },
-    { r: "APAC", v: 78, t: 64, hit: true },
-    { r: "LATAM", v: 46, t: 60, hit: false },
+  const rows = [
+    { r: "North America", w: 94, delta: "+23%", hit: true },
+    { r: "APAC", w: 86, delta: "+22%", hit: true },
+    { r: "EMEA", w: 55, delta: "-12%", hit: false },
+    { r: "LATAM", w: 44, delta: "-8%", hit: false },
   ];
   return (
     <div className="mock mock--ps">
-      <div className="ps__left">
-        <div className="ps__source">
-          <span className="ps__file">
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-              <path d="M14 2v6h6" />
-            </svg>
-            sales_2026.xlsx
-          </span>
-          <span className="ps__sep" aria-hidden="true">→</span>
-          <span className="ps__sem">Semantic layer · Retail <i className="ps__ok">✓</i></span>
-        </div>
+      <div className="ps__bar">
+        <span className="ps__file">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+            <path d="M14 2v6h6" />
+          </svg>
+          sales_2026.xlsx
+        </span>
+        <span className="ps__arrow" aria-hidden="true">→</span>
+        <span className="ps__sem">Semantic layer · Retail</span>
+        <span className="ps__trusted">
+          <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="M20 6 9 17l-5-5" />
+          </svg>
+          governed
+        </span>
+      </div>
 
-        <div className="ps__ask">
-          <span className="ps__ask-ic" aria-hidden="true">?</span>
-          Which regions beat target last quarter?
-        </div>
+      <div className="ps__ask">
+        <span className="ps__ask-ic" aria-hidden="true">?</span>
+        Which regions beat target last quarter?
+      </div>
 
-        <div className="ps__answer">
-          <div className="ps__a-txt">
-            Three of four regions beat target. <b>NA</b> led at <b>+23%</b>.
+      <div className="ps__body">
+        <div className="ps__ans">
+          <div className="ps__ans-h">
+            <b>3 of 4</b> regions beat target
           </div>
-          <div className="ps__chart" aria-hidden="true">
-            {bars.map((b) => (
-              <div key={b.r} className="ps__col">
-                <div className="ps__bar-wrap">
-                  <span className="ps__bar" data-hit={b.hit} style={{ height: `${b.v}%` }} />
-                  <span className="ps__target" style={{ bottom: `${b.t}%` }} />
-                </div>
-                <span className="ps__rlab">{b.r}</span>
+          <div className="ps__rows">
+            {rows.map((r) => (
+              <div key={r.r} className="ps__r">
+                <span className="ps__r-name">{r.r}</span>
+                <span className="ps__r-track">
+                  <span className="ps__r-fill" data-hit={r.hit} style={{ width: `${r.w}%` }} />
+                </span>
+                <span className={`ps__r-delta ${r.hit ? "is-up" : "is-down"}`}>{r.delta}</span>
               </div>
             ))}
           </div>
         </div>
-      </div>
 
-      <div className="ps__right">
-        <div className="ps__tabs">
-          <span className="is-active">SQL</span>
-          <span>Python</span>
-          <span>Assumptions</span>
-        </div>
-        <pre className="ps__sql">{`SELECT region,
-       SUM(revenue)
-         / SUM(target) - 1
-         AS vs_target
-FROM   sales
-GROUP  BY region
-HAVING vs_target > 0
-ORDER  BY vs_target DESC;`}</pre>
-        <div className="ps__check">
-          <span className="ps__dot" aria-hidden="true" />
-          Reconciliation: totals match source · read-only
+        <div className="ps__sqlcard">
+          <div className="ps__tabs">
+            <span className="is-active">SQL</span>
+            <span>Python</span>
+          </div>
+          <pre className="ps__sql">{`SELECT region,
+  SUM(revenue)
+   / SUM(target) - 1
+   AS vs_target
+FROM sales
+GROUP BY region
+HAVING vs_target > 0;`}</pre>
+          <div className="ps__check">
+            <span className="ps__dot" aria-hidden="true" />
+            reconciled · read-only
+          </div>
         </div>
       </div>
     </div>
@@ -547,12 +551,52 @@ ORDER  BY vs_target DESC;`}</pre>
 }
 
 /* Compact Arcus visual for the demoted card: the planned agentic assistant
-   reading mail/calendar and creating tasks and events. */
+   reads mail + calendar and plans the day as tidy, icon-led cards. */
+function AcIcon({ name }: { name: "task" | "event" | "mail" | "focus" }) {
+  const p: Record<string, ReactNode> = {
+    task: (
+      <>
+        <rect x="3" y="3" width="18" height="18" rx="4" />
+        <path d="m8 12 3 3 5-6" />
+      </>
+    ),
+    event: (
+      <>
+        <rect x="3" y="4.5" width="18" height="16" rx="3" />
+        <path d="M3 9h18M8 2.5v4M16 2.5v4" />
+      </>
+    ),
+    mail: (
+      <>
+        <rect x="3" y="5" width="18" height="14" rx="3" />
+        <path d="m3 7 9 6 9-6" />
+      </>
+    ),
+    focus: (
+      <>
+        <circle cx="12" cy="12" r="8" />
+        <circle cx="12" cy="12" r="3" />
+      </>
+    ),
+  };
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      {p[name]}
+    </svg>
+  );
+}
+
 function ArcusCompactMock() {
-  const created: { kind: "Task" | "Event"; t: string; src: "Gmail" | "Outlook" }[] = [
-    { kind: "Task", t: "Reply to recruiter", src: "Gmail" },
-    { kind: "Task", t: "Review vendor contract", src: "Gmail" },
-    { kind: "Event", t: "Design sync · Thu 2:00 PM", src: "Outlook" },
+  const cards: {
+    kind: "task" | "event" | "focus";
+    t: string;
+    meta: string;
+    src?: "Gmail" | "Outlook";
+  }[] = [
+    { kind: "task", t: "Reply to recruiter", meta: "High", src: "Gmail" },
+    { kind: "event", t: "Design sync", meta: "Thu 2:00 PM", src: "Outlook" },
+    { kind: "task", t: "Review vendor contract", meta: "Medium", src: "Gmail" },
+    { kind: "focus", t: "Deep-work block", meta: "90 min" },
   ];
   return (
     <div className="mock mock--ac">
@@ -571,30 +615,28 @@ function ArcusCompactMock() {
         </span>
       </div>
 
-      <div className="ac__msg">
-        <span className="ac__bubble">
-          Scanned your Gmail and Outlook. Found 2 action items and 1 meeting, want me to add them?
-        </span>
+      <div className="ac__summary">
+        Planned your day from <b>14 new emails</b>: 2 tasks, 1 meeting, 1 focus block.
       </div>
 
-      <div className="ac__created">
-        {created.map((c) => (
-          <div key={c.t} className="ac__ci">
-            <span className="ac__plus" aria-hidden="true">+</span>
-            <span className={`ac__kind ac__kind--${c.kind.toLowerCase()}`}>{c.kind}</span>
-            <span className="ac__ci-t">{c.t}</span>
-            <span className="ac__src">{c.src}</span>
+      <div className="ac__grid">
+        {cards.map((c) => (
+          <div key={c.t} className={`ac__card ac__card--${c.kind}`}>
+            <span className="ac__ic" aria-hidden="true">
+              <AcIcon name={c.kind} />
+            </span>
+            <span className="ac__card-t">{c.t}</span>
+            <span className="ac__card-m">
+              {c.src ? (
+                <span className="ac__card-src">
+                  <AcIcon name="mail" />
+                  {c.src}
+                </span>
+              ) : null}
+              {c.meta}
+            </span>
           </div>
         ))}
-      </div>
-
-      <div className="ac__prompt">
-        <span className="ac__ph">Ask Arcus to plan, summarize, or create…</span>
-        <span className="ac__send" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M12 19V5M6 11l6-6 6 6" />
-          </svg>
-        </span>
       </div>
     </div>
   );
@@ -652,10 +694,12 @@ function ProjectCard({ project, wide }: { project: Project; wide?: boolean }) {
         </div>
         {project.sponsor ? (
           <p className="work__sponsor">
-            Sponsored by {project.sponsor}
+            Sponsored by{" "}
             {project.sponsorNamed && project.sponsorLogo ? (
               <img src={project.sponsorLogo} alt={project.sponsor} className="work__sponsor-logo" />
-            ) : null}
+            ) : (
+              project.sponsor
+            )}
           </p>
         ) : null}
         <p className="work__desc">{project.description}</p>

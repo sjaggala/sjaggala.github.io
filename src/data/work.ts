@@ -73,6 +73,7 @@ export const work: {
       kicker: "Graduate Capstone · AI Systems",
       sponsor: "Bosch",
       sponsorNamed: true,
+      sponsorLogo: "/companies/bosch.svg",
       domain: "",
       href: null,
       noLink: true,
