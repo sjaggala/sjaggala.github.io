@@ -26,7 +26,7 @@ export const faq: {
       id: "roles",
       question: "What roles are you looking for?",
       answer:
-        "Full-time or consulting roles in BI and analytics: BI Developer / BI Architect, Analytics Engineer, or AI/BI. I'm strongest where a semantic model, governed reporting, and a bit of engineering meet, and increasingly where BI meets generative AI.",
+        "Primarily AI engineer and applied ML / LLM roles, plus analytics and data engineering roles where that overlaps. I'm strongest where real data engineering meets AI: agents, RAG and text-to-SQL, and generative BI, backed by seven years building the data platforms behind enterprise analytics. Open to full-time or consulting.",
     },
     {
       id: "relocation",
@@ -36,15 +36,15 @@ export const faq: {
     },
     {
       id: "stack",
-      question: "What's your BI stack?",
+      question: "What's your stack?",
       answer:
-        "Power BI end to end: DAX, Power Query, star-schema semantic models, RLS and incremental refresh, running on SQL Server, Oracle, Snowflake and BigQuery. Around it: Azure DevOps CI/CD, the Power BI REST APIs, embedded analytics, and custom visuals in React and TypeScript.",
+        "Python for the AI and data work: LLM apps with LangChain, RAG and text-to-SQL, PyTorch and scikit-learn, with FastAPI and React for the applications. For data: dbt, Microsoft Fabric, Snowflake, and PySpark, with SQL across SQL Server, Oracle, and BigQuery. For BI: Power BI end to end, DAX, semantic models, and embedded analytics, shipped through Azure DevOps CI/CD.",
     },
     {
       id: "generative-bi",
-      question: "What's the AI / “generative BI” angle?",
+      question: "What's the AI side of your work?",
       answer:
-        "It's applied, not research. I built natural-language Q&A experiences so reports answer plain-English questions, and used Copilot in Power BI to generate reports, pages, and visuals from prompts, working alongside AI/ML engineers. My UIC MS in Business Analytics (STEM) adds the ML, database and optimization grounding underneath.",
+        "It's applied, not research. I architected a Bosch-sponsored agent that extracts engineering data from CAD files and drawings, with honest accuracy measured against ground truth, and I'm building Plainsight, a platform that turns a raw spreadsheet into trustworthy, plain-English answers. On the BI side, I've built natural-language Q&A and used Copilot in Power BI. My UIC MS in Business Analytics (STEM) adds the ML, database, and optimization grounding underneath.",
     },
     {
       id: "leadership",

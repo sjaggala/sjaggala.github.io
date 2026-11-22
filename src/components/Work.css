@@ -1272,3 +1272,277 @@
   grid-template-rows: 1fr 1fr;
   gap: 0.4em;
 }
+
+/* ---------------- Plainsight (wide flagship: ask -> answer -> SQL) ---------------- */
+.mock--ps {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.85rem;
+  background: var(--surface);
+  font-family: var(--font-body);
+}
+.ps__left {
+  flex: 1.25;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+.ps__right {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  background: var(--dark);
+  border-radius: var(--r-sm);
+  padding: 0.6rem 0.7rem;
+}
+.ps__source {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.68rem;
+  flex-wrap: wrap;
+}
+.ps__file,
+.ps__sem {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  padding: 0.2rem 0.45rem;
+  color: var(--text-body);
+  font-weight: 500;
+}
+.ps__sep { color: var(--text-dim); }
+.ps__ok { color: var(--accent); font-style: normal; font-weight: 700; }
+
+.ps__ask {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  padding: 0.45rem 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.ps__ask-ic {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--text);
+  color: var(--text-on-dark);
+  font-size: 0.62rem;
+  font-weight: 700;
+}
+.ps__answer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  min-height: 0;
+}
+.ps__a-txt { font-size: 0.78rem; color: var(--text-body); }
+.ps__a-txt b { color: var(--text); font-weight: 600; }
+.ps__chart {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  gap: 0.6rem;
+  min-height: 42px;
+}
+.ps__col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  height: 100%;
+  justify-content: flex-end;
+}
+.ps__bar-wrap {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+}
+.ps__bar {
+  width: 100%;
+  border-radius: 2px 2px 0 0;
+  background: var(--border-strong);
+}
+.ps__bar[data-hit="true"] { background: var(--accent); }
+.ps__target {
+  position: absolute;
+  left: -1px;
+  right: -1px;
+  height: 0;
+  border-top: 1.5px dashed var(--text-dim);
+}
+.ps__rlab { font-size: 0.6rem; color: var(--text-muted); }
+
+.ps__tabs {
+  display: flex;
+  gap: 0.9rem;
+  font-size: 0.64rem;
+  color: var(--text-on-dark-soft);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  padding-bottom: 0.35rem;
+}
+.ps__tabs .is-active { color: var(--text-on-dark); font-weight: 600; }
+.ps__sql {
+  margin: 0;
+  flex: 1;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  line-height: 1.5;
+  color: #c7d2e5;
+  white-space: pre;
+  overflow: hidden;
+}
+.ps__check {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.6rem;
+  color: var(--text-on-dark-soft);
+}
+.ps__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-bright);
+  flex-shrink: 0;
+}
+
+/* ---------------- Arcus compact (demoted half-width card) ---------------- */
+.mock--ac {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background: var(--surface);
+  font-family: var(--font-body);
+}
+.ac__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.ac__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-weight: 700;
+  font-size: 0.78rem;
+  color: var(--text);
+}
+.ac__sq {
+  width: 16px;
+  height: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  background: var(--text);
+  color: var(--text-on-dark);
+  font-size: 0.6rem;
+}
+.ac__chip {
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--r-pill);
+  padding: 0.12rem 0.5rem;
+}
+.ac__tasks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 1;
+}
+.ac__task {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  padding: 0.4rem 0.55rem;
+  font-size: 0.74rem;
+  color: var(--text-body);
+}
+.ac__box {
+  width: 13px;
+  height: 13px;
+  border-radius: 4px;
+  border: 1.5px solid var(--border-strong);
+  flex-shrink: 0;
+}
+.ac__box.is-checked {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.ac__task.is-done .ac__tt {
+  color: var(--text-dim);
+  text-decoration: line-through;
+}
+.ac__tt {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-width: 0;
+}
+.ac__agent {
+  font-size: 0.56rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: rgba(16, 185, 129, 0.1);
+  border-radius: var(--r-pill);
+  padding: 0.05rem 0.4rem;
+}
+.ac__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.ac__dot--high { background: #ef4444; }
+.ac__dot--med { background: #f59e0b; }
+.ac__dot--low { background: var(--border-strong); }
+.ac__cal {
+  display: flex;
+  gap: 0.3rem;
+}
+.ac__day {
+  flex: 1;
+  text-align: center;
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 0.25rem 0;
+}
+.ac__day.is-today {
+  background: var(--text);
+  color: var(--text-on-dark);
+  border-color: var(--text);
+  font-weight: 700;
+}

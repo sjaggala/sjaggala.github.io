@@ -1,7 +1,8 @@
-/* Experience section content. Facts follow the resolved résumé facts in CLAUDE.md:
-   grad Dec 2026; Mouri = "Senior Technical Consultant" (functioned as Associate
-   Manager in the final year); Mouri Apr 2023–Dec 2025 (never "Present");
-   refresh metric = 2.5h → 7min. Voice = plain, confident, results-oriented. */
+/* Experience section content. Titles follow the résumé versions in
+   Resume/Final Version (role-descriptive, not official HR titles, per Sravan):
+   Mouri = "Lead Analytics Engineer", etc. Current role = UIC Graduate Hourly
+   (Feb 2026 - Present). Bullets show the DE/BI depth under the AI-lead hero.
+   Voice = plain, confident, results-oriented. No em dashes. */
 export type Role = {
   company: string;
   title: string;
@@ -38,54 +39,70 @@ export const experience: {
   community: { org: string; role: string; period: string; href: string; note: string; logo?: string };
 } = {
   eyebrow: "Experience",
-  heading: "Seven years of client-facing BI.",
+  heading: "Seven years behind enterprise analytics.",
   subhead:
-    "BI engineer, then advisor, then delivery lead. Here's the honest summary; the full version is in the résumé.",
+    "Data and BI engineering across retail, manufacturing, finance, and supply chain. The short version is below; the full story is in the résumé.",
   roles: [
     {
+      company: "University of Illinois Chicago",
+      title: "Graduate Hourly, Admissions & Recruitment",
+      period: "Feb 2026 – Present",
+      duration: "Part-time",
+      location: "Chicago, IL",
+      logo: "/schools/UIC.SVG",
+      logoH: 32,
+      current: true,
+      points: [
+        "Build and maintain CRM queries, datasets, and Tableau dashboards from Slate admissions data, supporting daily recruitment operations for the College of Business Administration.",
+      ],
+    },
+    {
       company: "Mouri Tech",
-      title: "Senior Technical Consultant",
+      title: "Lead Analytics Engineer",
       period: "Apr 2023 – Dec 2025",
       duration: "2 yrs 8 mos",
       location: "Hyderabad, India",
       logo: "/companies/MT-Home-Logo-1-1.png",
-      current: true,
       points: [
-        "Led a five-person analytics team and, in my final year, took on Associate Manager responsibilities, owning end-to-end Power BI delivery while remaining hands-on in the data models.",
-        "Designed Power BI CI/CD pipelines on Azure DevOps using PowerShell and the REST APIs, reducing manual deployment effort by approximately 80%.",
-        "Optimized the central semantic models by pushing transformation logic back to the source through query folding and introducing incremental refresh; dataset refresh times fell from 2.5 hours to 7 minutes.",
-        "Partnered with AI/ML engineers to build natural-language Q&A experiences, and used Copilot in Power BI to generate reports, pages, and visuals from prompts, letting stakeholders work with data in plain language.",
-        "Developed custom Power BI visuals in React and TypeScript, deployed organization-wide.",
+        "Owned end-to-end dbt-fabric modeling across staging, conformed dimensions, and a gold star schema with Type 2 SCD, and built the reconciliation checks that gated every cutover, validated within 0.01% of source with zero post-cutover data-trust escalations.",
+        "Tuned a six-billion-row inventory fact table with partitioning, V-Order, and OPTIMIZE, keeping Power BI and warehouse queries fast under load without triggering capacity throttling.",
+        "Hand-rewrote Snowflake SQL and stored procedures into Fabric T-SQL and PySpark with no first-party translator, confirming semantic equivalence before every production promotion.",
+        "Pushed transformation logic to the source through query folding and incremental refresh, cutting a client's dataset refresh from 2.5 hours to about 7 minutes.",
+        "Built natural-language Q&A experiences and used Copilot in Power BI to generate reports, pages, and visuals from prompts, broadening self-service adoption alongside AI/ML engineers.",
+        "Led teams of two to six engineers across concurrent engagements and, in the final year, functioned as an associate manager owning delivery direction end to end.",
       ],
     },
     {
       company: "Blue Yonder",
-      title: "Business Consultant",
+      title: "Analytics Engineer, Embedded Analytics",
       period: "Feb 2022 – Dec 2022",
       duration: "10 mos",
       location: "Hyderabad, India",
       logo: "/companies/blue-yonder-logo-blue.webp",
       points: [
-        "Embedded Power BI reports into external Azure applications using the REST APIs and app registrations, delivering analytics directly within client-facing products.",
-        "Collaborated with .NET developers to ensure the integration was secure and seamless.",
+        "Delivered a secure embedded-analytics experience by integrating Power BI into an external Azure-hosted application with .NET developers, using Azure app registrations and REST APIs to serve external users.",
+        "Designed and built the Azure SQL warehouse tables and transformation logic behind the embedded datasets, and tuned them so customer-facing reports stayed responsive under load.",
+        "Implemented multi-tenant row-level security and authored the reconciliation and data-quality tests that caught definition drift before it reached the embedded reports.",
       ],
     },
     {
       company: "HCL Technologies",
-      title: "Senior Software Engineer",
+      title: "Senior Analytics Engineer",
       period: "Dec 2020 – Jan 2022",
       duration: "1 yr 1 mo",
       location: "Haryana, India",
       logo: "/companies/hcltech-logo.svg",
       logoH: 15, // hcltech wordmark reads large - trim it down to match the row
       points: [
-        "Migrated a legacy Oracle BIEE reporting estate to Power BI, guiding business teams through the transition to the new workflows.",
-        "Built governance dashboards on the Power BI REST APIs, with routine updates automated through PowerShell.",
+        "Led a platform migration from Oracle to Snowflake, re-engineering the data models as tested, version-controlled dbt models across staging, intermediate, and mart layers.",
+        "Implemented the Oracle-to-Snowflake schema and data-type conversions, resolving semantic traps like Oracle DATE's embedded time and empty-string-as-NULL so converted data matched source exactly.",
+        "Migrated the top 100 of 2,000+ legacy Oracle BIEE reports with proof-of-concept parity validation against the source system.",
+        "Owned reporting end to end as an individual contributor and administered the Power BI tenant for 250+ users, managing workspaces, gateways, and gateway clusters.",
       ],
     },
     {
       company: "LTI Mindtree",
-      title: "Technical Advisor",
+      title: "Power BI Technical Advisor",
       client: "Microsoft",
       period: "Apr 2019 – Sep 2020",
       duration: "1 yr 5 mos",
@@ -93,22 +110,22 @@ export const experience: {
       logo: "/companies/LTM-Logo.svg",
       logoH: 16, // LTI Mindtree wordmark reads large at the tier height - trim to match the row
       points: [
-        "Led a five-engineer Power BI support and advisory team for Microsoft, resolving advanced development and configuration cases.",
-        "Administered Power BI at the tenant level: workspaces, capacity, access control, and deployment pipelines.",
-        "Configured and managed on-premises data gateways, handling data source connections, credential management, and scheduled refresh for secure hybrid connectivity.",
-        "Worked directly with Microsoft product teams on complex technical issues and contributed field feedback to feature development.",
+        "Designed and maintained Kimball-style dimensional models in SQL Server through T-SQL views and stored procedures, giving reports one reusable foundation rather than report-specific queries.",
+        "Developed and owned the semantic layer in SSAS Tabular and Power BI datasets, defining business measures in DAX once so metrics stayed consistent across every report.",
+        "Supported the Microsoft Power BI product for a global user base; promoted to Technical Advisor within six months and led a team of five, sustaining a 4.7+/5 customer satisfaction rating.",
+        "Administered tenant settings and on-premises data gateways for enterprise customers, partnering with the Microsoft product team on complex issues and feature feedback.",
       ],
     },
     {
       company: "Ness Technologies",
-      title: "Software Engineer Trainee",
+      title: "Analytics Engineer",
       period: "Feb 2016 – Jun 2017",
       duration: "1 yr 4 mos",
       location: "Bangalore, India",
       logo: "/clients/ness-technologies-dark.svg",
       logoH: 46, // compact round mark reads small - bump it up to match the row
       points: [
-        "Developed and enhanced Power BI reports alongside senior engineers, the starting point of my BI career.",
+        "Built SQL transformation logic and enterprise Power BI reports, learning dimensional modeling and ETL fundamentals on production systems, the start of my data career.",
       ],
     },
   ],

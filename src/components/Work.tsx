@@ -476,8 +476,118 @@ function CapstoneMock() {
   );
 }
 
+/* Plainsight: raw file -> inferred semantic layer -> plain-English answer with
+   visible SQL. Two columns so it reads well in the wide (16/7) flagship frame. */
+function PlainsightMock() {
+  const bars = [
+    { r: "NA", v: 86, t: 70, hit: true },
+    { r: "EMEA", v: 58, t: 72, hit: false },
+    { r: "APAC", v: 78, t: 64, hit: true },
+    { r: "LATAM", v: 46, t: 60, hit: false },
+  ];
+  return (
+    <div className="mock mock--ps">
+      <div className="ps__left">
+        <div className="ps__source">
+          <span className="ps__file">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+              <path d="M14 2v6h6" />
+            </svg>
+            sales_2026.xlsx
+          </span>
+          <span className="ps__sep" aria-hidden="true">→</span>
+          <span className="ps__sem">Semantic layer · Retail <i className="ps__ok">✓</i></span>
+        </div>
+
+        <div className="ps__ask">
+          <span className="ps__ask-ic" aria-hidden="true">?</span>
+          Which regions beat target last quarter?
+        </div>
+
+        <div className="ps__answer">
+          <div className="ps__a-txt">
+            Three of four regions beat target. <b>NA</b> led at <b>+23%</b>.
+          </div>
+          <div className="ps__chart" aria-hidden="true">
+            {bars.map((b) => (
+              <div key={b.r} className="ps__col">
+                <div className="ps__bar-wrap">
+                  <span className="ps__bar" data-hit={b.hit} style={{ height: `${b.v}%` }} />
+                  <span className="ps__target" style={{ bottom: `${b.t}%` }} />
+                </div>
+                <span className="ps__rlab">{b.r}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="ps__right">
+        <div className="ps__tabs">
+          <span className="is-active">SQL</span>
+          <span>Python</span>
+          <span>Assumptions</span>
+        </div>
+        <pre className="ps__sql">{`SELECT region,
+       SUM(revenue)
+         / SUM(target) - 1
+         AS vs_target
+FROM   sales
+GROUP  BY region
+HAVING vs_target > 0
+ORDER  BY vs_target DESC;`}</pre>
+        <div className="ps__check">
+          <span className="ps__dot" aria-hidden="true" />
+          Reconciliation: totals match source · read-only
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* Compact Arcus visual for the demoted (half-width, 16/10) card. */
+function ArcusCompactMock() {
+  const tasks: { t: string; p: "high" | "med" | "low"; done?: boolean; agent?: boolean }[] = [
+    { t: "Ship Kanban drag fix", p: "high" },
+    { t: "Draft streak-reminder spec", p: "low" },
+    { t: "Weekly digest sent", p: "med", done: true },
+    { t: "Sync Gmail inbox to tasks", p: "med", agent: true },
+  ];
+  const week = ["M", "T", "W", "T", "F", "S", "S"];
+  return (
+    <div className="mock mock--ac">
+      <div className="ac__bar">
+        <span className="ac__logo">
+          <span className="ac__sq">A</span>Arcus
+        </span>
+        <span className="ac__chip">Today · Jun 21</span>
+      </div>
+      <ul className="ac__tasks" role="list">
+        {tasks.map((t) => (
+          <li key={t.t} className={`ac__task ${t.done ? "is-done" : ""}`}>
+            <span className={`ac__box ${t.done ? "is-checked" : ""}`} aria-hidden="true" />
+            <span className="ac__tt">
+              {t.t}
+              {t.agent ? <span className="ac__agent">agent</span> : null}
+            </span>
+            <span className={`ac__dot ac__dot--${t.p}`} aria-hidden="true" />
+          </li>
+        ))}
+      </ul>
+      <div className="ac__cal" aria-hidden="true">
+        {week.map((d, i) => (
+          <span key={i} className={`ac__day ${i === 4 ? "is-today" : ""}`}>{d}</span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function Visual({ v }: { v: Project["visual"] }) {
   if (v === "arcus") return <ArcusMock />;
+  if (v === "arcuscompact") return <ArcusCompactMock />;
+  if (v === "plainsight") return <PlainsightMock />;
   if (v === "dashdrop") return <DashDropMock />;
   if (v === "capstone") return <CapstoneMock />;
   return <ReportMock />;

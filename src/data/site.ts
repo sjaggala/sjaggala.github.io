@@ -6,14 +6,14 @@ export const site = {
   name: "Sravan Jaggala",
   wordmark: "sjaggala.github.io",
   initials: "SJ",
-  role: "BI & Analytics Engineer",
-  badge: "BI & Analytics Engineer · 7+ years in enterprise BI",
+  role: "AI Engineer",
+  badge: "AI Engineer · grounded in 7 years of data & BI engineering",
   // Hero headline (two lines) + emoji
   heroLine1: "Hi, I'm Sravan",
-  heroLine2: "I build BI that answers back.",
+  heroLine2: "I build AI you can trust with your data.",
   // One-liner shown under the headline in the hero
   positioning:
-    "Analytics and BI engineer with seven years designing the data models, SQL transformation logic, and governance layer behind enterprise business intelligence, and the semantic models and reports that sit on top. Now extending that into AI, with conversational and generative BI.",
+    "AI engineer building LLM applications and agents on seven years of enterprise data engineering and BI. I architected a Bosch-sponsored agent that extracts engineering data from CAD files and technical drawings, and I'm building Plainsight, a self-serve generative BI platform that turns a raw spreadsheet into trustworthy, plain-English answers. The part most model projects skip is where I focus: dependable data pipelines, rigorous evaluation, and carrying a model all the way to production.",
   availability: "Available for full-time and consulting roles",
   location: "Chicago, IL · CT (UTC-6)", // city + timezone (per Sravan 2026-09-25); no street address / phone
   email: "sravan.jaggala@outlook.com",
