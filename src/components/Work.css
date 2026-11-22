@@ -1418,53 +1418,26 @@
   border-color: #bfdbfe;
   font-weight: 600;
 }
-.ps__suggest {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-}
-.ps__suggest-lab {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
-  font-size: 0.52rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-}
-.ps__suggest-lab svg { color: #2563eb; }
-.ps__sugg-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
+/* suggested follow-up query cards (inside the result card, above the chart) */
+.ps__sugg-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.35rem;
 }
 .ps__sugg {
   display: flex;
-  align-items: center;
-  font-size: 0.62rem;
+  flex-direction: column;
+  gap: 0.22rem;
+  font-size: 0.58rem;
+  line-height: 1.3;
+  font-weight: 500;
   color: var(--text-body);
-  background: var(--bg);
+  background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--r-sm);
-  padding: 0.32rem 0.5rem;
+  padding: 0.38rem 0.45rem;
 }
-.ps__sugg::before {
-  content: "";
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--border-strong);
-  margin-right: 0.45rem;
-  flex-shrink: 0;
-}
-.ps__sugg.is-active {
-  color: #1d4ed8;
-  background: #eff6ff;
-  border-color: #bfdbfe;
-  font-weight: 600;
-}
-.ps__sugg.is-active::before { background: #2563eb; }
+.ps__sugg-ic { color: #2563eb; }
 .ps__result {
   flex: 1;
   min-height: 0;
@@ -1574,37 +1547,42 @@
   color: var(--text-on-dark-soft);
 }
 
-/* ---------------- Arcus demoted card: agent daily brief ---------------- */
+/* ---------------- Arcus demoted card: auto-organized inbox + needs-you ---------------- */
 .mock--ac {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  padding: 0.8rem 0.85rem;
+  padding: 0.75rem 0.8rem;
   background: var(--surface);
   font-family: var(--font-body);
 }
-.ac__head {
+.ac__top {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 0.5rem;
 }
-.ac__wordmark {
-  font-family: var(--font-display);
-  font-size: 0.95rem;
-  font-weight: 700;
-  letter-spacing: var(--tracking-tight);
-  color: var(--text);
-}
-.ac__active {
+.ac__auto {
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
-  font-size: 0.6rem;
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  min-width: 0;
+}
+.ac__bolt { color: #4f46e5; flex-shrink: 0; }
+.ac__active {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.58rem;
   font-weight: 600;
   color: #4f46e5;
   background: #eef2ff;
   border-radius: var(--r-pill);
-  padding: 0.16rem 0.55rem;
+  padding: 0.14rem 0.5rem;
 }
 .ac__active-dot {
   width: 6px;
@@ -1612,66 +1590,133 @@
   border-radius: 50%;
   background: #4f46e5;
 }
-.ac__brief-top {
+.ac__cols {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 0.5rem;
+}
+.ac__left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+.ac__card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  padding: 0.45rem 0.5rem;
+}
+.ac__card-row {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-width: 0;
+}
+.ac__card-ic {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  background: #eef2ff;
+  color: #4f46e5;
+}
+.ac__card-t {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ac__card-sub {
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
-  font-size: 0.6rem;
+  font-size: 0.58rem;
   color: var(--text-muted);
 }
-.ac__bolt { color: #4f46e5; flex-shrink: 0; }
-.ac__brief {
-  flex: 1;
+.ac__srcimg { width: 11px; height: 11px; border-radius: 2px; }
+.ac__card-act {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.56rem;
+  font-weight: 600;
+  color: #4f46e5;
+  background: #eef2ff;
+  border-radius: var(--r-pill);
+  padding: 0.14rem 0.45rem;
+}
+.ac__check { color: #4f46e5; flex-shrink: 0; }
+
+.ac__needs {
   display: flex;
   flex-direction: column;
-  gap: 0.55rem;
+  gap: 0.3rem;
   background: var(--bg);
   border: 1px solid var(--border);
   border-radius: var(--r-md);
-  padding: 0.65rem 0.75rem;
+  padding: 0.55rem 0.6rem;
+  min-width: 0;
 }
-.ac__sec {
-  display: flex;
-  flex-direction: column;
-  gap: 0.28rem;
-}
-.ac__sec-h {
-  font-size: 0.54rem;
+.ac__needs-h {
+  font-size: 0.56rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  letter-spacing: 0.04em;
   color: var(--text-muted);
 }
-.ac__list {
+.ac__ni-list {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.26rem;
 }
-.ac__list li {
-  position: relative;
-  padding-left: 0.85rem;
-  font-size: 0.68rem;
-  line-height: 1.4;
-  color: var(--text-body);
-}
-.ac__list li b { color: var(--text); font-weight: 600; }
-.ac__list:not(.ac__list--done) li::before {
-  content: "";
-  position: absolute;
-  left: 0.15rem;
-  top: 0.48em;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: #c7cbd4;
-}
-.ac__list--done li {
-  display: flex;
-  align-items: flex-start;
+.ac__ni {
+  display: grid;
+  grid-template-columns: 0.85rem 1fr auto;
   gap: 0.35rem;
-  padding-left: 0;
+  padding: 0.32rem 0;
+  border-top: 1px solid var(--border);
 }
-.ac__check { color: var(--accent); flex-shrink: 0; margin-top: 0.15em; }
+.ac__ni:first-child { border-top: none; padding-top: 0.1rem; }
+.ac__ni-num {
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: var(--text-dim);
+  font-variant-numeric: tabular-nums;
+}
+.ac__ni-body { min-width: 0; display: flex; flex-direction: column; gap: 0.05rem; }
+.ac__ni-t {
+  font-size: 0.64rem;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ac__ni-d {
+  font-size: 0.56rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ac__ni-time {
+  font-size: 0.5rem;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: var(--r-pill);
+  padding: 0.05rem 0.35rem;
+  align-self: start;
+  white-space: nowrap;
+}

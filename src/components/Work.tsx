@@ -556,23 +556,25 @@ function PlainsightMock() {
           <span className="ps__route is-active">Governed text-to-SQL</span>
           <span className="ps__route">Python sandbox</span>
         </div>
-        <div className="ps__suggest">
-          <span className="ps__suggest-lab">
-            <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <path d="M12 3v4M12 17v4M3 12h4M17 12h4" />
-              <path d="m6.5 6.5 2.5 2.5M15 15l2.5 2.5M17.5 6.5 15 9M9 15l-2.5 2.5" />
-            </svg>
-            Suggested
-          </span>
-          <div className="ps__sugg-list">
-            <span className="ps__sugg is-active">Top 5 regions by profit margin</span>
-            <span className="ps__sugg">Revenue trend by month</span>
-            <span className="ps__sugg">Underperforming products</span>
-          </div>
-        </div>
         <div className="ps__result">
           <div className="ps__result-h">
             Top 5 regions by profit margin <span>Jul–Sep 2024</span>
+          </div>
+          <div className="ps__sugg-row">
+            {[
+              "Why did margin dip in Q3?",
+              "Compare West vs South margin",
+              "Top products by revenue",
+              "Which regions are below target?",
+            ].map((q) => (
+              <span key={q} className="ps__sugg">
+                <svg className="ps__sugg-ic" viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M12 3v4M12 17v4M3 12h4M17 12h4" />
+                  <path d="m6.5 6.5 2.5 2.5M15 15l2.5 2.5M17.5 6.5 15 9M9 15l-2.5 2.5" />
+                </svg>
+                {q}
+              </span>
+            ))}
           </div>
           <div className="ps__vbars" aria-hidden="true">
             {bars.map((b) => (
@@ -621,47 +623,93 @@ LIMIT 5;`}</pre>
   );
 }
 
-/* Arcus demoted card: the planned agentic assistant's daily brief, the way a
-   scheduled agent surfaces what needs you and what it already handled. */
+/* Arcus demoted card: the planned agentic assistant auto-organizes the inbox,
+   takes actions (added to calendar / task created), and surfaces what needs you.
+   Adapted to two columns so it fits the landscape card. All sample data. */
 function AcCheck() {
   return (
-    <svg className="ac__check" viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <svg className="ac__check" viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <path d="M20 6 9 17l-5-5" />
     </svg>
   );
 }
 function ArcusCompactMock() {
+  const actions: {
+    ic: "event" | "task";
+    t: string;
+    src: "gmail" | "outlook";
+    srcLabel: string;
+    meta: string;
+    act: string;
+  }[] = [
+    { ic: "event", t: "Design review", src: "gmail", srcLabel: "Gmail", meta: "Thu 2:00 PM", act: "Added to calendar" },
+    { ic: "task", t: "Pay invoice #2041", src: "outlook", srcLabel: "Outlook", meta: "Due Fri", act: "Task created" },
+  ];
+  const needs: { n: number; t: string; d: string; time: string }[] = [
+    { n: 1, t: "Confirm design review with Priya", d: "Waiting on a yes for Thu 2 PM", time: "9:12 AM" },
+    { n: 2, t: "Headcount plan due Friday", d: "Leadership approved the budget", time: "8:40 AM" },
+    { n: 3, t: "Two LinkedIn notes await a reply", d: "From Hema and Shiva", time: "2:54 AM" },
+    { n: 4, t: "Vendor contract needs sign-off", d: "Legal sent the final draft", time: "Yesterday" },
+  ];
   return (
     <div className="mock mock--ac">
-      <div className="ac__head">
-        <span className="ac__wordmark">Arcus</span>
+      <div className="ac__top">
+        <span className="ac__auto">
+          <svg className="ac__bolt" viewBox="0 0 24 24" width="11" height="11" fill="currentColor" aria-hidden="true">
+            <path d="M13 2 4 14h6l-1 8 9-12h-6z" />
+          </svg>
+          Auto-organized from your inbox · just now
+        </span>
         <span className="ac__active">
           <span className="ac__active-dot" aria-hidden="true" />
           Agent active
         </span>
       </div>
 
-      <div className="ac__brief-top">
-        <svg className="ac__bolt" viewBox="0 0 24 24" width="11" height="11" fill="currentColor" aria-hidden="true">
-          <path d="M13 2 4 14h6l-1 8 9-12h-6z" />
-        </svg>
-        Daily brief · read 14 emails + your calendar · just now
-      </div>
-
-      <div className="ac__brief">
-        <div className="ac__sec">
-          <span className="ac__sec-h">Needs you</span>
-          <ul className="ac__list" role="list">
-            <li><b>Budget approved</b> for Q1 hiring. Reply expected today.</li>
-            <li>Project <b>kickoff moved to Dec 2</b>. Two deps now at risk.</li>
-            <li><b>Headcount plan</b> due Friday. Draft shared by Finance.</li>
-          </ul>
+      <div className="ac__cols">
+        <div className="ac__left">
+          {actions.map((a) => (
+            <div key={a.t} className="ac__card">
+              <div className="ac__card-row">
+                <span className={`ac__card-ic ac__card-ic--${a.ic}`} aria-hidden="true">
+                  {a.ic === "event" ? (
+                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="3" y="4.5" width="18" height="16" rx="3" />
+                      <path d="M3 9h18M8 2.5v4M16 2.5v4" />
+                    </svg>
+                  ) : (
+                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M8 6h13M8 12h13M8 18h9" />
+                      <path d="m3 6 1.2 1.2L6.5 5M3 12l1.2 1.2L6.5 11" />
+                    </svg>
+                  )}
+                </span>
+                <span className="ac__card-t">{a.t}</span>
+              </div>
+              <span className="ac__card-sub">
+                <img src={`/${a.src}.svg`} alt="" className="ac__srcimg" />
+                {a.srcLabel} · {a.meta}
+              </span>
+              <span className="ac__card-act">
+                <AcCheck /> {a.act}
+              </span>
+            </div>
+          ))}
         </div>
-        <div className="ac__sec">
-          <span className="ac__sec-h">Handled for you</span>
-          <ul className="ac__list ac__list--done" role="list">
-            <li><AcCheck /> Added <b>Design review</b> to your calendar, Thu 2:00 PM.</li>
-            <li><AcCheck /> Created task <b>Pay invoice #2041</b>, due Friday.</li>
+
+        <div className="ac__needs">
+          <span className="ac__needs-h">Needs your attention · 4</span>
+          <ul className="ac__ni-list" role="list">
+            {needs.map((x) => (
+              <li key={x.n} className="ac__ni">
+                <span className="ac__ni-num">{x.n}</span>
+                <span className="ac__ni-body">
+                  <span className="ac__ni-t">{x.t}</span>
+                  <span className="ac__ni-d">{x.d}</span>
+                </span>
+                <span className="ac__ni-time">{x.time}</span>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
