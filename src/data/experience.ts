@@ -49,8 +49,8 @@ export const experience: {
       period: "Feb 2026 – Present",
       duration: "Part-time",
       location: "Chicago, IL",
-      logo: "/schools/UIC.SVG",
-      logoH: 32,
+      logo: "/schools/uic-lockup.png",
+      logoH: 22, // wide single-line UIC lockup (circle + wordmark)
       current: true,
       points: [
         "Build and maintain CRM queries, datasets, and Tableau dashboards from Slate admissions data, supporting daily recruitment operations for the College of Business Administration.",

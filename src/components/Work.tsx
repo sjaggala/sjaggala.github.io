@@ -546,39 +546,55 @@ ORDER  BY vs_target DESC;`}</pre>
   );
 }
 
-/* Compact Arcus visual for the demoted (half-width, 16/10) card. */
+/* Compact Arcus visual for the demoted card: the planned agentic assistant
+   reading mail/calendar and creating tasks and events. */
 function ArcusCompactMock() {
-  const tasks: { t: string; p: "high" | "med" | "low"; done?: boolean; agent?: boolean }[] = [
-    { t: "Ship Kanban drag fix", p: "high" },
-    { t: "Draft streak-reminder spec", p: "low" },
-    { t: "Weekly digest sent", p: "med", done: true },
-    { t: "Sync Gmail inbox to tasks", p: "med", agent: true },
+  const created: { kind: "Task" | "Event"; t: string; src: "Gmail" | "Outlook" }[] = [
+    { kind: "Task", t: "Reply to recruiter", src: "Gmail" },
+    { kind: "Task", t: "Review vendor contract", src: "Gmail" },
+    { kind: "Event", t: "Design sync · Thu 2:00 PM", src: "Outlook" },
   ];
-  const week = ["M", "T", "W", "T", "F", "S", "S"];
   return (
     <div className="mock mock--ac">
       <div className="ac__bar">
         <span className="ac__logo">
           <span className="ac__sq">A</span>Arcus
         </span>
-        <span className="ac__chip">Today · Jun 21</span>
+        <span className="ac__chip">
+          <span className="ac__spark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M12 3v4M12 17v4M3 12h4M17 12h4" />
+              <path d="m6.5 6.5 2.5 2.5M15 15l2.5 2.5M17.5 6.5 15 9M9 15l-2.5 2.5" />
+            </svg>
+          </span>
+          Assistant
+        </span>
       </div>
-      <ul className="ac__tasks" role="list">
-        {tasks.map((t) => (
-          <li key={t.t} className={`ac__task ${t.done ? "is-done" : ""}`}>
-            <span className={`ac__box ${t.done ? "is-checked" : ""}`} aria-hidden="true" />
-            <span className="ac__tt">
-              {t.t}
-              {t.agent ? <span className="ac__agent">agent</span> : null}
-            </span>
-            <span className={`ac__dot ac__dot--${t.p}`} aria-hidden="true" />
-          </li>
+
+      <div className="ac__msg">
+        <span className="ac__bubble">
+          Scanned your Gmail and Outlook. Found 2 action items and 1 meeting, want me to add them?
+        </span>
+      </div>
+
+      <div className="ac__created">
+        {created.map((c) => (
+          <div key={c.t} className="ac__ci">
+            <span className="ac__plus" aria-hidden="true">+</span>
+            <span className={`ac__kind ac__kind--${c.kind.toLowerCase()}`}>{c.kind}</span>
+            <span className="ac__ci-t">{c.t}</span>
+            <span className="ac__src">{c.src}</span>
+          </div>
         ))}
-      </ul>
-      <div className="ac__cal" aria-hidden="true">
-        {week.map((d, i) => (
-          <span key={i} className={`ac__day ${i === 4 ? "is-today" : ""}`}>{d}</span>
-        ))}
+      </div>
+
+      <div className="ac__prompt">
+        <span className="ac__ph">Ask Arcus to plan, summarize, or create…</span>
+        <span className="ac__send" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M12 19V5M6 11l6-6 6 6" />
+          </svg>
+        </span>
       </div>
     </div>
   );
