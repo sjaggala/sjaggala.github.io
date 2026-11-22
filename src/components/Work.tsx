@@ -556,6 +556,20 @@ function PlainsightMock() {
           <span className="ps__route is-active">Governed text-to-SQL</span>
           <span className="ps__route">Python sandbox</span>
         </div>
+        <div className="ps__suggest">
+          <span className="ps__suggest-lab">
+            <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M12 3v4M12 17v4M3 12h4M17 12h4" />
+              <path d="m6.5 6.5 2.5 2.5M15 15l2.5 2.5M17.5 6.5 15 9M9 15l-2.5 2.5" />
+            </svg>
+            Suggested
+          </span>
+          <div className="ps__sugg-list">
+            <span className="ps__sugg is-active">Top 5 regions by profit margin</span>
+            <span className="ps__sugg">Revenue trend by month</span>
+            <span className="ps__sugg">Underperforming products</span>
+          </div>
+        </div>
         <div className="ps__result">
           <div className="ps__result-h">
             Top 5 regions by profit margin <span>Jul–Sep 2024</span>
@@ -607,106 +621,48 @@ LIMIT 5;`}</pre>
   );
 }
 
-/* Compact Arcus visual for the demoted card: the planned agentic assistant
-   reads mail + calendar, takes actions (added to calendar / task created), and
-   summarizes the inbox. All sample data. */
-function AcIcon({ name }: { name: "event" | "task" | "doc" }) {
-  const p: Record<string, ReactNode> = {
-    event: (
-      <>
-        <rect x="3" y="4.5" width="18" height="16" rx="3" />
-        <path d="M3 9h18M8 2.5v4M16 2.5v4" />
-      </>
-    ),
-    task: (
-      <>
-        <path d="M8 6h13M8 12h13M8 18h9" />
-        <path d="m3 6 1.2 1.2L6.5 5M3 12l1.2 1.2L6.5 11" />
-      </>
-    ),
-    doc: (
-      <>
-        <path d="M4 6h16M4 11h16M4 16h10" />
-      </>
-    ),
-  };
+/* Arcus demoted card: the planned agentic assistant's daily brief, the way a
+   scheduled agent surfaces what needs you and what it already handled. */
+function AcCheck() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      {p[name]}
+    <svg className="ac__check" viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M20 6 9 17l-5-5" />
     </svg>
   );
 }
-
 function ArcusCompactMock() {
-  const rows: {
-    ic: "event" | "task";
-    t: string;
-    src: "Gmail" | "Outlook";
-    meta: string;
-    act: string;
-  }[] = [
-    { ic: "event", t: "Design review", src: "Gmail", meta: "From Priya · Thu 2:00 PM", act: "Added to calendar" },
-    { ic: "task", t: "Pay invoice #2041", src: "Outlook", meta: "From Finance · Due Fri", act: "Task created" },
-  ];
   return (
     <div className="mock mock--ac">
       <div className="ac__head">
-        <span className="ac__logo">
-          <span className="ac__sq" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M4 14a8 8 0 0 1 16 0" />
-              <path d="M4 14v2.5M20 14v2.5" />
-            </svg>
-          </span>
-          <b>Arcus</b>
-          <span className="ac__logo-sub">Planner</span>
-        </span>
+        <span className="ac__wordmark">Arcus</span>
         <span className="ac__active">
           <span className="ac__active-dot" aria-hidden="true" />
           Agent active
         </span>
       </div>
 
-      <div className="ac__auto">
+      <div className="ac__brief-top">
         <svg className="ac__bolt" viewBox="0 0 24 24" width="11" height="11" fill="currentColor" aria-hidden="true">
           <path d="M13 2 4 14h6l-1 8 9-12h-6z" />
         </svg>
-        Auto-organized from your inbox · just now
+        Daily brief · read 14 emails + your calendar · just now
       </div>
 
-      <div className="ac__cards">
-        {rows.map((r) => (
-          <div key={r.t} className="ac__row">
-            <span className={`ac__ic ac__ic--${r.ic}`} aria-hidden="true">
-              <AcIcon name={r.ic} />
-            </span>
-            <span className="ac__row-body">
-              <span className="ac__row-t">{r.t}</span>
-              <span className="ac__row-m">
-                <span className={`ac__src ac__src--${r.src.toLowerCase()}`}>{r.src}</span>
-                {r.meta}
-              </span>
-            </span>
-            <span className="ac__row-act">
-              <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <path d="M20 6 9 17l-5-5" />
-              </svg>
-              {r.act}
-            </span>
-          </div>
-        ))}
-
-        <div className="ac__row ac__row--sum">
-          <span className="ac__ic ac__ic--sum" aria-hidden="true">
-            <AcIcon name="doc" />
-          </span>
-          <span className="ac__row-body">
-            <span className="ac__row-t">Inbox summary — 3 threads need you</span>
-            <span className="ac__sum">
-              <span><b>Budget approved</b> for Q1 hiring</span>
-              <span>Kickoff <b>moved to Dec 2</b></span>
-            </span>
-          </span>
+      <div className="ac__brief">
+        <div className="ac__sec">
+          <span className="ac__sec-h">Needs you</span>
+          <ul className="ac__list" role="list">
+            <li><b>Budget approved</b> for Q1 hiring. Reply expected today.</li>
+            <li>Project <b>kickoff moved to Dec 2</b>. Two deps now at risk.</li>
+            <li><b>Headcount plan</b> due Friday. Draft shared by Finance.</li>
+          </ul>
+        </div>
+        <div className="ac__sec">
+          <span className="ac__sec-h">Handled for you</span>
+          <ul className="ac__list ac__list--done" role="list">
+            <li><AcCheck /> Added <b>Design review</b> to your calendar, Thu 2:00 PM.</li>
+            <li><AcCheck /> Created task <b>Pay invoice #2041</b>, due Friday.</li>
+          </ul>
         </div>
       </div>
     </div>
